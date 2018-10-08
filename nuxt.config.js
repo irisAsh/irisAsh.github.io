@@ -19,7 +19,10 @@ module.exports = {
   loading: { color: '#3B8070' },
   css: [
     { src: '~/assets/main.scss', lang: 'scss' },
-    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' }
+    '@fortawesome/fontawesome-free-webfonts',
+    '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css',
+    '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css',
+    '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css',
   ],
   /*
   ** Build configuration

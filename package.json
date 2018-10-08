@@ -19,6 +19,8 @@
     }
   },
   "dependencies": {
+    "bulma": "^0.7.1",
+    "font-awesome": "^4.7.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
@@ -26,6 +28,8 @@
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
   }
 }

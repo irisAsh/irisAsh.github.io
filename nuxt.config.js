@@ -17,6 +17,10 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  css: [
+    { src: '~/assets/main.scss', lang: 'scss' },
+    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' }
+  ],
   /*
   ** Build configuration
   */
@@ -32,6 +36,13 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+    },
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': {
+          warnings: false
+        }
       }
     }
   }

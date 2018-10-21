@@ -3,22 +3,30 @@
     <section class="header has-background-info">
       <header>
         <h1 class="title has-text-white">
-          ashiris's programing
+          Vue programing
         </h1>
       </header>
       <h2 class="subtitle has-text-white">
-        技術を学ぶ
+        Javascript のフレームワークの１つ Vue.js を学ぶ
       </h2>
     </section>
     <section class="container">
+      <div class="menu-list">
+        <nuxt-link to="/vueprograming/basic" class="menu-box">
+          <h3>基本構文</h3>
+          <p>データバインティング/繰り返し/制御構文/イベントハンドリング</p>
+        </nuxt-link>
+        <nuxt-link to="/vueprograming/basic" class="menu-box">
+          <h3>基本構文</h3>
+          <p>データバインティング/繰り返し/制御構文/イベントハンドリング</p>
+        </nuxt-link>
+        <nuxt-link to="/vueprograming/sample" class="menu-box">
+          <h3>サンプル集</h3>
+        </nuxt-link>
+      </div>
     </section>
   </div>
 </template>
-
-<script>
-export default {
-}
-</script>
 
 <style>
 .header {
@@ -42,14 +50,11 @@ export default {
   padding: 10px 0px;
 }
 
-.container {
+.menu-list {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
 }
-
-
-.links {
-  padding-top: 15px;
+.menu-box {
+  width: 50%;
 }
 </style>
-

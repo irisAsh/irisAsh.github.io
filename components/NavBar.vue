@@ -35,7 +35,7 @@ export default {
   data: () => ({
     showNav: false,
     items: [
-      { title: 'Vue', icon: 'fa-vuejs', url: '/vue' }
+      { title: 'Vue', icon: 'fa-vuejs', url: '/vueprograming' }
     ]
   })
 }

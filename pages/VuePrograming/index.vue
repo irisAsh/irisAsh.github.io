@@ -12,21 +12,32 @@
     </section>
     <section class="container">
       <div class="menu-list">
-        <nuxt-link to="/vueprograming/basic" class="menu-box">
-          <h3>基本構文</h3>
-          <p>データバインティング/繰り返し/制御構文/イベントハンドリング</p>
-        </nuxt-link>
-        <nuxt-link to="/vueprograming/basic" class="menu-box">
-          <h3>基本構文</h3>
-          <p>データバインティング/繰り返し/制御構文/イベントハンドリング</p>
-        </nuxt-link>
-        <nuxt-link to="/vueprograming/sample" class="menu-box">
-          <h3>サンプル集</h3>
-        </nuxt-link>
+        <menu-item
+          linkPath="/vueprograming/basic"
+          title="基本構文"
+          subTitle="データバインティング / 繰り返し / 制御構文 / イベントハンドリング"
+          iconClass="fab fa-vuejs"
+        />
+        <menu-item
+          linkPath="/vueprograming/sample"
+          title="サンプル集"
+          subTitle="Vue で書いた簡単なウェブアプリ"
+          iconClass="fab fa-vuejs"
+        />
       </div>
     </section>
   </div>
 </template>
+
+<script>
+import MenuItem from '@/components/MenuItem'
+
+export default {
+  components: {
+    MenuItem
+  }
+}
+</script>
 
 <style>
 .header {

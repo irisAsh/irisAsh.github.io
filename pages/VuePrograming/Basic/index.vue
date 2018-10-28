@@ -27,6 +27,10 @@ export default {
             title: '繰り返し',
             linkPath: ''
           },
+          {
+            title: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+            linkPath: ''
+          },
         ]
       }
     ]

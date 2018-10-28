@@ -1,0 +1,24 @@
+#sidebar{
+  background-color: #ccc;
+}
+#main{
+  background-color: #efefef;
+}
+ 
+@media screen and (min-width : 1088px) {
+  #wrapper
+  {
+    display: flex;
+  }
+  #sidebar
+  {
+    width: 250px;
+    padding: 20px;
+  }
+  #main
+  {
+    flex: 1;
+    order: 2;
+    padding: 20px;
+  }
+}

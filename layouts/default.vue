@@ -2,7 +2,7 @@
   <div class="site">
     <nav-bar/>
     <div class="siteContent">
-      <nuxt class="has-text-centered"/>
+      <nuxt/>
     </div>
     <footer-bar/>
   </div>

@@ -20,13 +20,13 @@ export default {
     subTitle: 'Javascript のフレームワークの１つ Vue.js を学ぶ',
     menuItems: [
       {
-        linkPath: 'vueprograming/basic',
+        linkPath: '/vueprograming/basic/databinding',
         title: '基本構文',
         subTitle: 'データバインティング / 繰り返し / 制御構文 / イベントハンドリング',
         iconClass: 'fab fa-vuejs'
       },
       {
-        linkPath: 'vueprograming/sample',
+        linkPath: '/vueprograming/sample',
         title: 'サンプル集',
         subTitle: 'Vue で書いた簡単なウェブアプリ',
         iconClass: 'fab fa-vuejs'

@@ -6,6 +6,7 @@
         <h3>データバインディング</h3>
 	<div id="dataBinding">
 	  <h4>テキスト</h4>
+	  <script src="https://gist-it.appspot.com/github/irisAsh/vue-cdn-tutorial/blob/master/basic/main.js"></script>
 	  <p>variable: {{ variable }}</p>
 	  <h4>属性</h4>
 	  <p v-bind:class="className">クラス属性を変数で設定してます</p>

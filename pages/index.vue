@@ -6,9 +6,6 @@
           learning programing
         </h1>
       </header>
-      <h2 class="subtitle has-text-white">
-        技術を学ぶ
-      </h2>
     </section>
     <section class="container">
     </section>

@@ -10,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'my github pages' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/github-pages/favicon.ico' }
     ]
   },
   /*
@@ -48,6 +48,12 @@ module.exports = {
         }
       }
     }
+  },
+  /*
+   * Router configuration
+   */
+  router: {
+    base: '/github-pages/'
   }
 }
 

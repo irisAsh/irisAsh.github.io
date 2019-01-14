@@ -3,7 +3,7 @@
     <section class="header has-background-info">
       <header>
         <h1 class="title has-text-white">
-          ashiris's programing
+          learning programing
         </h1>
       </header>
       <h2 class="subtitle has-text-white">

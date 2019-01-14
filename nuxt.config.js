@@ -48,6 +48,12 @@ module.exports = {
         }
       }
     }
+  },
+  /*
+   * Router configuration
+   */
+  router: {
+    base: '/github-pages/'
   }
 }
 

@@ -20,6 +20,12 @@ export default {
     subTitle: 'Javascript のフレームワークの１つ Vue.js を学ぶ',
     menuItems: [
       {
+        linkPath: '/vueprograming/setup/cdn',
+        title: '環境構築',
+        subTitle: 'CDN',
+        iconClass: 'fab fa-vuejs'
+      },
+      {
         linkPath: '/vueprograming/basic/databinding',
         title: '基本構文',
         subTitle: 'データバインティング / 繰り返し / 制御構文 / イベントハンドリング',

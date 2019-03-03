@@ -4,15 +4,16 @@
 
 // 2. Set your own initial variables
 // Declare color
-$fuji: #b8a7f2;
-$fuji-invert: #fff;
+$theme: #3a8fb7;
+$theme-light: #7db9de;
+$theme-invert: #ffffff;
 // Add a serif family
 $family-serif: "Helvetica", "Georgia", serif;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
-$info: $fuji;
-$info-invert: $fuji-invert;
+$info: $theme;
+$info-invert: $theme-invert;
 // Use the new serif family
 $family-primary: $family-serif;
 
@@ -38,3 +39,5 @@ $colors: map-merge($colors, $addColors);
 
 // scss
 @import "commons/common";
+@import "commons/navbar";
+@import "commons/topmenu";

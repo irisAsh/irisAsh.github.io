@@ -17,7 +17,7 @@ export default {
   },
   data: () => ({
     title: 'Express (NodeJS)',
-    subTitle: 'NodeJSノWebアプリケーションフレームワークExpressを学びます',
+    subTitle: 'NodeJSのWebアプリケーションフレームワークExpressを学びます',
     menuItems: [
       {
         linkPath: '/express/gettingstarted',

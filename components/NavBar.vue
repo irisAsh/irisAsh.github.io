@@ -1,9 +1,6 @@
 <template>
-  <nav class="navbar has-background-light">
+  <nav class="navbar has-background-info">
     <div class="navbar-brand">
-      <nuxt-link class="navbar-item" to="/">
-        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma" width="112" height="28">
-      </nuxt-link>
       <div class="navbar-burger burger burger-font-icon" @click="showNav = !showNav" :class="{'is-active': showNav}">
         <i class="fas fa-bars"/>
       </div>
@@ -43,21 +40,19 @@ export default {
 </script>
 
 <style>
-.navbar {
-  margin-bottom: 20px;
-}
 .burger-font-icon i {
-  font-size: 24px;
-  height: 30px;
-  margin: 16px 0 0 16px;
+  font-size: 1.5rem;
+  height: 1.5rem;
+  margin: 1rem 0 0 1rem;
+  color: white;
 }
 .js-icon {
-  color: #f7df1e;
-  font-size: 24px;
-  padding-right: 8px;
+  color: white;
+  font-size: 1.5rem;
+  padding-right: 0.5rem;
 }
 .vuejs-icon {
-  color: #194d33;
+  color: white;
   font-size: 24px;
   padding-right: 8px;
 }

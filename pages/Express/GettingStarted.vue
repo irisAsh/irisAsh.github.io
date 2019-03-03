@@ -1,8 +1,10 @@
 <template>
   <div id="wrapper">
-    <section id="main">
-      <div v-html="testMd"></div>
-    </section>
+    <article id="main">
+      <section>
+        <div v-html="testMd"></div>
+      </section>
+    </article>
     <side-menu :menuSections="menuSections"/>
   </div>
 </template>

@@ -23,7 +23,6 @@ export default {
 }
 
 .title {
-  font-family: "HoeflerText-BlackItalic", "Cochin-BoldItalic", "Snell Roundhand", sans-serif;
   display: block;
   font-weight: 100;
   font-size: 50px;
@@ -32,7 +31,6 @@ export default {
 }
 
 .subtitle {
-  font-family: "HoeflerText-BlackItalic", "Cochin-BoldItalic", "Snell Roundhand", sans-serif;
   font-weight: 80;
   font-size: 20px;
   word-spacing: 5px;

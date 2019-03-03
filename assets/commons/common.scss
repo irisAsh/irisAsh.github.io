@@ -1,8 +1,13 @@
+html body {
+  background-color: #efefef;
+}
+
 #sidebar{
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 #main{
-  background-color: #efefef;
+  background-color: #f7f7f7;
+  line-height: 1.9;
 }
  
 @media screen and (min-width : 1088px) {
@@ -25,6 +30,7 @@
 
 pre {
   background-color: #333333;
+  margin: 1rem 0;
 
   code {
     color: white;
@@ -34,4 +40,23 @@ pre {
 code {
   background-color: #e2e2e2;
   color: #333333;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1.0rem 0;
+  border-bottom: 1px solid #b2b2b2;
+}
+
+a {
+  color: $theme;
+  text-decoration: underline;
+
+  &:hover {
+    color: $theme;
+    text-decoration: underline;
+  }
 }

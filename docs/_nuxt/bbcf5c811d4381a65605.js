@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{181:function(e,n,t){"use strict";t.r(n);var i=t(8),s=Object(i.a)({},function(){var e=this.$createElement,n=this._self._c||e;return n("div",[n("nuxt-link",{attrs:{to:"/vueprograming/sample/cardgame"}},[this._v("カードゲーム")])],1)},[],!1,null,null,null);s.options.__file="index.vue";n.default=s.exports}}]);

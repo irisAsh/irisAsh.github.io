@@ -11,6 +11,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/github-pages/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert' }
     ]
   },
   /*
@@ -54,6 +57,27 @@ module.exports = {
    */
   router: {
     base: '/github-pages/'
+  },
+  /*
+   * Modlue configuration
+   */
+  modules: [
+    '@nuxtjs/markdownit'
+  ],
+  /*
+   * markdownit modlue configuration
+   */
+  markdownit: {
+    preset: 'default',
+    injected: true, 
+    breaks: true, 
+    html: true, 
+    linkify: true,
+    typography: true, 
+    xhtmlOut: true,
+    langPrefix: 'language-',
+    quotes: '“”‘’',
+    highlight: function (/*str, lang*/) { return ''; }
   }
 }
 

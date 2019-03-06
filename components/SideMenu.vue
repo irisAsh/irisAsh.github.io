@@ -1,18 +1,11 @@
 <template>
   <div>
     <aside id="sidebar" class="">
-      <section v-for="menuSection in menuSections" :key="menuSection.label">
+      <section v-for="menuSection in menuSections" :key="menuSection.linkPath">
         <div class="js-menu-label">
-          <p class="sidebar-menu-label">
-            {{ menuSection.label }}
-          </p>
-          <ul class="sidebar-menu-list js-menu-list" v-for="menuItem in menuSection.menuList" :key="menuItem.title">
-            <li>
-              <nuxt-link :to="menuItem.linkPath">
-                {{ menuItem.title }}
-              </nuxt-link>
-            </li>
-          </ul>
+          <nuxt-link :to="menuSection.linkPath">
+            {{ menuSection.title }}
+          </nuxt-link>
         </div>
       </section>
     </aside>
@@ -22,17 +15,7 @@
 <script>
 export default {
   name: 'SideMenu',
-  props: ['menuSections'],
-  mounted() {
-    var $menuLabels = document.getElementsByClassName('js-menu-label')
-    if ($menuLabels.length > 0) {
-      Array.prototype.forEach.call($menuLabels, (element) => {
-        element.addEventListener('click', (event) => {
-          element.classList.toggle('js-menu-showable')
-        })
-      })
-    }
-  }
+  props: ['menuSections']
 }
 </script>
 

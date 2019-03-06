@@ -1,0 +1,22 @@
+{
+  "menuItems": [
+    {
+      "linkPath": "/express/gettingstarted",
+      "title": "はじめに / 環境構築",
+      "subTitle": "express-generator",
+      "iconClass": "fab fa-node-js"
+    },
+    {
+      "linkPath": "/express/gettingstarted",
+      "title": "はじめに / 環境構築",
+      "subTitle": "express-generator",
+      "iconClass": "fab fa-node-js"
+    },
+    {
+      "linkPath": "/express/gettingstarted",
+      "title": "はじめに / 環境構築",
+      "subTitle": "express-generator",
+      "iconClass": "fab fa-node-js"
+    }
+  ]
+}

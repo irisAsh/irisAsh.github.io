@@ -10,6 +10,7 @@
 
 <script>
 import TopMenu from '@/components/TopMenu'
+import ExpressMenu from '@/assets/json/express_menu.json'
 
 export default {
   components: {
@@ -18,26 +19,11 @@ export default {
   data: () => ({
     title: 'Express (NodeJS)',
     subTitle: 'NodeJSのWebアプリケーションフレームワークExpressを学びます',
-    menuItems: [
-      {
-        linkPath: '/express/gettingstarted',
-        title: 'はじめに / 環境構築',
-        subTitle: 'express-generator',
-        iconClass: 'fab fa-node-js'
-      },
-      {
-        linkPath: '/vueprograming/basic/databinding',
-        title: '基本構文',
-        subTitle: 'データバインティング / 繰り返し / 制御構文 / イベントハンドリング',
-        iconClass: 'fab fa-vuejs'
-      },
-      {
-        linkPath: '/vueprograming/sample',
-        title: 'サンプル集',
-        subTitle: 'Vue で書いた簡単なウェブアプリ',
-        iconClass: 'fab fa-vuejs'
-      }
-    ]
-  })
+    menuItems: ExpressMenu.menuItems
+  }),
+  //async asyncData() {
+  //  const menuItems = require('@/assets/json/express_menu.json').menuItems;
+  //  return { menuItems }
+  //}
 }
 </script>

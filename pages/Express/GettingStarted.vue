@@ -2,7 +2,7 @@
   <div id="wrapper">
     <article id="main">
       <section>
-        <div v-html="testMd"></div>
+        <div v-html="GettingStartedMd"></div>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>
@@ -11,15 +11,19 @@
 
 <script>
 import SideMenu from '@/components/SideMenu'
-import testMd from './test.md'
+import ExpressMenu from '@/assets/json/express_menu.json'
+import GettingStartedMd from '@/static/markdown/express/getting_started.md'
 
 export default {
   components: {
     SideMenu
   },
+  data: () => ({
+    menuSections: ExpressMenu.menuItems
+  }),
   computed: {
-    testMd() {
-      return testMd
+    GettingStartedMd() {
+      return GettingStartedMd
     }
   }
 }

@@ -28,26 +28,26 @@ export default {
   components: {
     SideMenu
   },
-  data: () => ({
-    menuSections: [
-      {
-        label: '基本構文',
-        menuList: [
-          {
-            title: 'データバインディング',
-            linkPath: '/vueprograming/basic/databinding',
-          },
-          {
-            title: '繰り返し',
-            linkPath: ''
-          },
-          {
-            title: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-            linkPath: ''
-          },
-        ]
-      }
-    ]
-  })
+  //data: () => ({
+  //  menuSections: [
+  //    {
+  //      label: '基本構文',
+  //      menuList: [
+  //        {
+  //          title: 'データバインディング',
+  //          linkPath: '/vueprograming/basic/databinding',
+  //        },
+  //        {
+  //          title: '繰り返し',
+  //          linkPath: ''
+  //        },
+  //        {
+  //          title: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+  //          linkPath: ''
+  //        },
+  //      ]
+  //    }
+  //  ]
+  //})
 }
 </script>

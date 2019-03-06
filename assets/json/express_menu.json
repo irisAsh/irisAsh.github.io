@@ -3,20 +3,20 @@
     {
       "linkPath": "/express/gettingstarted",
       "title": "はじめに / 環境構築",
-      "subTitle": "express-generator",
+      "subTitle": "プロジェクトの作成",
       "iconClass": "fab fa-node-js"
     },
     {
-      "linkPath": "/express/gettingstarted",
-      "title": "はじめに / 環境構築",
-      "subTitle": "express-generator",
-      "iconClass": "fab fa-node-js"
+      "linkPath": "/express/editrouting",
+      "title": "ルーティングの設定",
+      "subTitle": "ホームの作成",
+      "iconClass": "fas fa-home"
     },
     {
-      "linkPath": "/express/gettingstarted",
-      "title": "はじめに / 環境構築",
-      "subTitle": "express-generator",
-      "iconClass": "fab fa-node-js"
+      "linkPath": "/express/links",
+      "title": "リンク集",
+      "subTitle": "Expressの参考文献リンク集",
+      "iconClass": "far fa-bookmark"
     }
   ]
 }

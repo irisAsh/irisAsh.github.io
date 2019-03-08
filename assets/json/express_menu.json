@@ -9,7 +9,7 @@
     {
       "linkPath": "/express/editrouting",
       "title": "ルーティングの設定",
-      "subTitle": "ホームの作成",
+      "subTitle": "ホームの作成 / ルーティング / ミドルウェアの使用",
       "iconClass": "fas fa-home"
     },
     {

@@ -20,10 +20,6 @@ export default {
     title: 'Express (NodeJS)',
     subTitle: 'NodeJSのWebアプリケーションフレームワークExpressを学びます',
     menuItems: ExpressMenu.menuItems
-  }),
-  //async asyncData() {
-  //  const menuItems = require('@/assets/json/express_menu.json').menuItems;
-  //  return { menuItems }
-  //}
+  })
 }
 </script>

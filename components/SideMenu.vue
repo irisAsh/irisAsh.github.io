@@ -2,11 +2,9 @@
   <div>
     <aside id="sidebar" class="">
       <section v-for="menuSection in menuSections" :key="menuSection.linkPath">
-        <div class="js-menu-label">
-          <nuxt-link :to="menuSection.linkPath">
-            {{ menuSection.title }}
-          </nuxt-link>
-        </div>
+        <nuxt-link :to="menuSection.linkPath" :class="routePath == menuSection.linkPath ? 'access-now' : ''">
+          {{ menuSection.title }}
+        </nuxt-link>
       </section>
     </aside>
   </div>
@@ -15,40 +13,11 @@
 <script>
 export default {
   name: 'SideMenu',
-  props: ['menuSections']
+  props: ['menuSections'],
+  computed: {
+    routePath () {
+      return this.$route.path
+    },
+  }
 }
 </script>
-
-<style>
-.js-menu-list
-{
-  display: none;
-}
-.sidebar-menu-label
-{
-  margin: 1em 0;
-}
-.sidebar-menu-list li
-{
-  width: 100%;
-}
-.sidebar-menu-list li a
-{
-  display: block;
-  color: #3d3d3d;
-  padding: .5em .75em;
-  text-decoration: none;
-  border-radius: 2px;
-  overflow-wrap: break-word;
-}
-.sidebar-menu-list a:hover
-{
-  background-color: #f5f5f5;
-  color: #363636
-}
-.js-menu-showable .js-menu-list
-{
-  display: flex;
-}
-
-</style>

@@ -43,4 +43,5 @@ $colors: map-merge($colors, $addColors);
 @import "commons/common";
 @import "commons/navbar";
 @import "commons/topmenu";
+@import "commons/sidemenu";
 @import "commons/menuitem";

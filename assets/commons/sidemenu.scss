@@ -1,0 +1,15 @@
+#sidebar
+{
+  .access-now {
+    color: $theme;
+  }
+
+  a {
+    color: $text-light-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+}

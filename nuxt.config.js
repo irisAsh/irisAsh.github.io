@@ -56,7 +56,7 @@ module.exports = {
    * Router configuration
    */
   router: {
-    base: '/'
+    base: '/github-pages/'
   },
   /*
    * Modlue configuration

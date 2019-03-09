@@ -62,7 +62,8 @@ module.exports = {
    * Modlue configuration
    */
   modules: [
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    ['@nuxtjs/sitemap']
   ],
   /*
    * markdownit modlue configuration
@@ -78,6 +79,15 @@ module.exports = {
     langPrefix: 'language-',
     quotes: '“”‘’',
     highlight: function (/*str, lang*/) { return ''; }
+  },
+  /*
+   * Sitemap configuration
+   */
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://irisash.com',
+    generate: true,
+    exclude: []
   }
 }
 

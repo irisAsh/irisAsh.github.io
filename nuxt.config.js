@@ -10,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'my github pages' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/github-pages/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
       { src: 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert' }
@@ -56,7 +56,7 @@ module.exports = {
    * Router configuration
    */
   router: {
-    base: '/github-pages/'
+    base: '/'
   },
   /*
    * Modlue configuration

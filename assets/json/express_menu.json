@@ -1,22 +1,26 @@
 {
-  "menuItems": [
-    {
-      "linkPath": "/express/gettingstarted",
-      "title": "はじめに / 環境構築",
-      "subTitle": "プロジェクトの作成",
-      "iconClass": "fab fa-node-js"
-    },
-    {
-      "linkPath": "/express/editrouting",
-      "title": "ルーティングの設定",
-      "subTitle": "ホームの作成 / ルーティング / ミドルウェアの使用",
-      "iconClass": "fas fa-home"
-    },
-    {
-      "linkPath": "/express/links",
-      "title": "リンク集",
-      "subTitle": "Expressの参考文献リンク集",
-      "iconClass": "far fa-bookmark"
-    }
-  ]
+  "gettingstarted": {
+    "linkPath": "/express/gettingstarted/",
+    "title": "はじめに / 環境構築",
+    "subTitle": "プロジェクトの作成",
+    "iconClass": "fab fa-node-js",
+    "headerTitle": "Expressの環境構築",
+    "headerDescription": ""
+  },
+  "editrouting": {
+    "linkPath": "/express/editrouting/",
+    "title": "ルーティングの設定",
+    "subTitle": "ホームの作成 / ルーティング / ミドルウェアの使用",
+    "iconClass": "fas fa-home",
+    "headerTitle": "Expressのルーティング設定",
+    "headerDescription": ""
+  },
+  "links": {
+    "linkPath": "/express/links/",
+    "title": "リンク集",
+    "subTitle": "Expressの参考文献リンク集",
+    "iconClass": "far fa-bookmark",
+    "headerTitle": "Express学習の参考リンク集",
+    "headerDescription": ""
+  }
 }

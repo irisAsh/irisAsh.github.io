@@ -4,10 +4,11 @@ module.exports = {
   */
   head: {
     title: '足跡はもう見えない',
+    titleTemplate: '%s | 足跡はもう見えない',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'my github pages' }
+      { hid: 'description', name: 'description', content: 'このサイトは技術向上を目的としたサイトです。システム開発の技術は日々凄まじいスピードで進化しています。新しい技術においてかれないようにしなければいけません。昨日より一歩でも前に進むよう日々精進が必要です。' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

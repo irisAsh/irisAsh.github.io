@@ -19,11 +19,23 @@ export default {
     SideMenu
   },
   data: () => ({
-    menuSections: ExpressMenu.menuItems
+    menuSections: Object.values(ExpressMenu)
   }),
   computed: {
     EditRoutingMd() {
       return EditRoutingMd
+    }
+  },
+  head: () => {
+    return {
+      title: ExpressMenu.editrouting.headerTitle,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: ExpressMenu.editrouting.headerDescription
+        }
+      ]
     }
   }
 }

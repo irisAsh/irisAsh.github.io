@@ -19,7 +19,19 @@ export default {
   data: () => ({
     title: 'Express (NodeJS)',
     subTitle: 'NodeJSのWebアプリケーションフレームワークExpressを学びます',
-    menuItems: ExpressMenu.menuItems
-  })
+    menuItems: Object.values(ExpressMenu)
+  }),
+  head: () => {
+    return {
+      title: "Express NodeJS",
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: "ExpressはNodeJSの軽量・高速なWebアプリケーションフレームワークです。Expressを使えばWebサイトやAPIを簡単にかつ柔軟に作成することができます。"
+        }
+      ]
+    }
+  }
 }
 </script>

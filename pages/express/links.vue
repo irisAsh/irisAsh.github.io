@@ -19,11 +19,23 @@ export default {
     SideMenu
   },
   data: () => ({
-    menuSections: ExpressMenu.menuItems
+    menuSections: Object.values(ExpressMenu)
   }),
   computed: {
     LinkMd() {
       return LinkMd
+    }
+  },
+  head: () => {
+    return {
+      title: ExpressMenu.links.headerTitle,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: ExpressMenu.links.headerDescription
+        }
+      ]
     }
   }
 }

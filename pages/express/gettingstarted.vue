@@ -3,6 +3,7 @@
     <article id="main">
       <section>
         <div v-html="GettingStartedMd"></div>
+        <article-timestamp createdAt="2019/03/09" updatedAt="2019/03/09"/>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>
@@ -10,13 +11,15 @@
 </template>
 
 <script>
+import ArticleTimestamp from '@/components/ArticleTimestamp'
 import SideMenu from '@/components/SideMenu'
 import ExpressMenu from '@/assets/json/express_menu.json'
 import GettingStartedMd from '@/static/markdown/express/getting_started.md'
 
 export default {
   components: {
-    SideMenu
+    SideMenu,
+    ArticleTimestamp
   },
   data: () => ({
     menuSections: Object.values(ExpressMenu)

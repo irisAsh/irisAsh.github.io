@@ -6,21 +6,36 @@ html body {
   background-color: #f7f7f7;
   line-height: 1.9;
 }
+#sidebar
+{
+  .access-now {
+    color: $theme;
+  }
+
+  a {
+    color: $text-light-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
  
 @media screen and (min-width : 1088px) {
   #wrapper
   {
     display: flex;
   }
-  #sidebar
-  {
-    width: 250px;
-    padding: 20px;
-  }
   #main
   {
     flex: 1;
     order: 2;
+    padding: 20px;
+  }
+  #sidebar
+  {
+    width: 250px;
     padding: 20px;
   }
 }

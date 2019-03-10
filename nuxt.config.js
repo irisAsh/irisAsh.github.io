@@ -89,6 +89,12 @@ module.exports = {
     hostname: 'https://irisash.com',
     generate: true,
     exclude: []
-  }
+  },
+  /*
+   * Plugins configuration
+   */
+  plugins: [
+    '~/plugins/vue-scrollto'
+  ]
 }
 

@@ -3,7 +3,7 @@
 ホーム画面を用意するためにルーティングを設定します。ルーティングとは、アクセスされたURIとそれに対するアプリケーションの挙動(画面の描画やデータの操作など)を決めることです。  
 ここでは`/home/`というURIにアクセスした時の挙動を定義していきます。  
 
-## homeルートの追加
+<h2 id="create-home-router">homeルートの追加</h2>
 
 まずは`/home`のエンドポイント(URI)を開きます。とりあえず`/home`のアクセス時の挙動は`/`にアクセスした時の挙動と同じにしておきます。  
 
@@ -20,7 +20,7 @@ app.get('/home', function(req, res, next) {
 
 ファイルを保存したら、[http://localhost:3000/home](http://localhost:3000/home)にアクセスしてみましょう。[http://localhost:3000](http://localhost:3000)と同じ画面が表示されているはずです。  
 
-## ミドルウェアの使用
+<h2 id="use-middle-ware">ミドルウェアの使用</h2>
 
 Expressのミドルウェアはいくつかの種類のミドルウェアが使用できますが、ここではルーターレベルのミドルウェアを使用します。このミドルウェアを使ってルーティング処理をモジュール化することができます。これによってルーティングを細分化して定義したり処理の共通化を行うことができます。  
 今回は、`/home`および`/home`以下のURI（例えば`/home/help`や`/home/about`）の挙動を定義するモジュールを作成します。  
@@ -56,7 +56,7 @@ app.use('/home', homeRouter); // 追加 /home以下の処理をhome.jsに担わ�
 
 [http://localhost:3000/home](http://localhost:3000/home)を確認すると先程と同じ挙動になっていることが確認できます。  
 
-## リダイレクト
+<h2 id="redirect">リダイレクト</h2>
 
 最後に、[http://localhost:3000](http://localhost:3000)にアクセスされた場合はホーム画面[http://localhost:3000/home](http://localhost:3000/home)にリダイレクトするようにしましょう。  
 `routes/index.js`を下記のように編集するとリダイレクトするようになります。  

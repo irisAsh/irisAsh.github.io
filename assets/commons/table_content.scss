@@ -1,0 +1,28 @@
+#table-content
+{
+  width: 300px;
+  order: 3;
+}
+#table-content-list
+{
+  padding: 20px;
+  font-size: 0.9rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+.link-container
+{
+  margin-bottom: 0.3rem;
+  
+  a
+  {
+    color: $text-light-color;
+    text-decoration: none;
+
+    &:hover
+    {
+      color: $text-color;
+    }
+  }
+}

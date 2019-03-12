@@ -1,4 +1,4 @@
-# はじめに / 環境設定
+# はじめに / Expressの環境設定
 
 ここでは簡易なTODOアプリを作りながらNodeJSのWebアプリケーションフレームワーク [Express](https://expressjs.com/) の使い方を学んでいきます。  
 

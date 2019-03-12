@@ -18,9 +18,9 @@
   "links": {
     "linkPath": "/express/links/",
     "title": "リンク集",
-    "subTitle": "Expressの参考文献リンク集",
+    "subTitle": "Expressの学習参考リンク集",
     "iconClass": "far fa-bookmark",
-    "headerTitle": "Express学習の参考リンク集",
+    "headerTitle": "Expressの学習参考リンク集",
     "headerDescription": ""
   }
 }

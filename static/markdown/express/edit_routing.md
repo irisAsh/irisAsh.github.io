@@ -1,4 +1,4 @@
-# ルーティングの設定
+# Expressのルーティングの設定
 
 ホーム画面を用意するためにルーティングを設定します。ルーティングとは、アクセスされたURIとそれに対するアプリケーションの挙動(画面の描画やデータの操作など)を決めることです。  
 ここでは`/home/`というURIにアクセスした時の挙動を定義していきます。  
@@ -65,5 +65,33 @@ app.use('/home', homeRouter); // 追加 /home以下の処理をhome.jsに担わ�
 router.get('/', function(req, res, next) {
   res.redirect('/home'); // 変更
 });
+```
+
+<h2 id="add-controller">コントローラーの作成</h2>
+
+ルーティングファイルに処理を書いていっても良いのですが、ルーティングファイルにはアクセスパスの振分だけにしておきたいので、具体的な振る舞いはコントローラーとして分けておきましょう。  
+`controllers`フォルダを、その配下に`homeController.js`を作成し、ルーティングファイルに書いた内容を`homeController.js`に移しましょう。  
+
+```
+$ mkdir controllers
+$ touch controllers/homeController.js
+```
+```homeController.js.prettyprint
+// controllers/homeController.js
+
+exports.index = function(req, res) {
+  res.render('home/index');
+};
+
+```
+```home.js.prettyprint
+// routes/home.js
+
+var express = require('express');
+var router = express.Router();
+
+var homeController = require('../controllers/homeController'); // 追加
+
+router.get('/', homeController.index); // 変更
 ```
 

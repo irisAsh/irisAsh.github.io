@@ -8,8 +8,14 @@ html body {
 }
 #sidebar
 {
+  font-size: 0.9rem;
+
   .access-now {
     color: $theme;
+  }
+
+  section {
+    margin-bottom: 0.3rem;
   }
 
   a {
@@ -37,6 +43,7 @@ html body {
   {
     width: 250px;
     padding: 20px;
+    font-size: 0.9rem;
   }
 }
 

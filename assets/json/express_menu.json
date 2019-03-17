@@ -15,6 +15,14 @@
     "headerTitle": "Expressのルーティング設定",
     "headerDescription": ""
   },
+  "pug_reference": {
+    "linkPath": "/express/pug_reference/",
+    "title": "Pugの書き方まとめ",
+    "subTitle": "テンプレートエンジンPug",
+    "iconClass": "fas fa-dog",
+    "headerTitle": "Pug(HTMLテンプレートエンジン)の書き方まとめ",
+    "headerDescription": ""
+  },
   "links": {
     "linkPath": "/express/links/",
     "title": "リンク集",

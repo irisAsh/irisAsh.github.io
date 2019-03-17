@@ -14,7 +14,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert' }
+      { src: 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy' }
     ]
   },
   /*
@@ -23,10 +23,10 @@ module.exports = {
   loading: { color: '#3B8070' },
   css: [
     { src: '~/assets/main.scss', lang: 'scss' },
-    '@fortawesome/fontawesome-free-webfonts',
-    '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css',
-    '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css',
-    '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css',
+    '@fortawesome/fontawesome-free/css/fontawesome.css',
+    '@fortawesome/fontawesome-free/css/brands.css',
+    '@fortawesome/fontawesome-free/css/regular.css',
+    '@fortawesome/fontawesome-free/css/solid.css',
   ],
   /*
   ** Build configuration

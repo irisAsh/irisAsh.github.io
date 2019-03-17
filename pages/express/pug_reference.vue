@@ -3,7 +3,7 @@
     <article id="main">
       <section>
         <div v-html="PugReferenceMd"></div>
-        <article-timestamp createdAt="2019/03/16" updatedAt="2019/03/16"/>
+        <article-timestamp createdAt="2019/03/16" updatedAt="2019/03/17"/>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>

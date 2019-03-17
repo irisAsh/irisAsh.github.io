@@ -95,3 +95,38 @@ var homeController = require('../controllers/homeController'); // 追加
 router.get('/', homeController.index); // 変更
 ```
 
+<h2 id="home-page">Home画面の整形</h2>
+
+Homeの画面をモックデータを使ってTODOアプリ用に整形しておきましょう。`render`の第２引数にオブジェクト形式でView層にデータを渡すことができます。
+
+```homeController.js.prettyprint
+exports.index = function(req, res) {
+  res.render('home/index', {
+    remainingTodoCount: 4,
+    todayTodoCount: 2,
+    completedTodoCount: 1
+  });
+};
+```
+
+ここではテンプレートファイルにPugを使っているので、`#{変数名}`でController層から渡された値を描画できます。Pugの詳しい使い方は[こちら](https://irisash.com/express/pug_reference/)にまとめているのでご覧ください。
+
+```home/index.pug.prettyprint
+extends ../layout
+
+block content
+  h1 TODO アプリ
+  p 
+    | 残りのTODO: #{remainingTaskCount} [
+    a(href='') 一覧へ
+    |  ]
+  p
+    | 今日のTODO: #{todayTaskCount} [ 
+    a(href='') 一覧へ
+    |  ]
+  a(href='') TODOの追加
+```
+
+下のように画面が表示されます。
+
+<img src="images/express/edit_routing/home_page.png" alt="Home画面" title="Home画面" style="max-height:400px;">

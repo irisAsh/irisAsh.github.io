@@ -3,7 +3,7 @@
     <article id="main">
       <section>
         <div v-html="EditRoutingMd"></div>
-        <article-timestamp createdAt="2019/03/09" updatedAt="2019/03/12"/>
+        <article-timestamp createdAt="2019/03/09" updatedAt="2019/03/17"/>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>

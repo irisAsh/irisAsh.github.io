@@ -109,24 +109,137 @@ exports.index = function(req, res) {
 };
 ```
 
-ここではテンプレートファイルにPugを使っているので、`#{変数名}`でController層から渡された値を描画できます。Pugの詳しい使い方は[こちら](https://irisash.com/express/pug_reference/)にまとめているのでご覧ください。
+ここではテンプレートファイルにPugを使っているので、`#{変数名}`でController層から渡された値を描画できます。Pugの詳しい使い方は[Pug(HTMLテンプレートエンジン)の書き方まとめ](https://irisash.com/express/pug_reference/)にまとめているのでご覧ください。
 
 ```home/index.pug.prettyprint
 extends ../layout
 
 block content
   h1 TODO アプリ
-  p 
-    | 残りのTODO: #{remainingTaskCount} [
-    a(href='') 一覧へ
+  p
+    | 残りのTODO: #{remainingTodoCount} [
+    a(href='/todo') 一覧へ
     |  ]
   p
-    | 今日のTODO: #{todayTaskCount} [ 
-    a(href='') 一覧へ
+    | 今日のTODO: #{todayTodoCount} [
+    a(href='/todo/today') 一覧へ
     |  ]
-  a(href='') TODOの追加
+  p
+    | 完了済TODO: #{completedTodoCount} [
+    a(href='/todo/completed') 一覧へ
+    |  ]
+  a(href='/todo/create') TODOの追加
 ```
 
 下のように画面が表示されます。
 
 <img src="images/express/edit_routing/home_page.png" alt="Home画面" title="Home画面" style="max-height:400px;">
+
+<h2 id="todo-pages">TODO画面のルーティング</h2>
+
+ついでにTODOの一覧を表示する画面と作成する画面を用意してみましょう。実際にデータ取得や作成処理を実装するにはDBを利用します。実装については[ExpressでMongoDBを使う](https://irisash.com/express/mongodb/)をご参照ください。  
+Homeと同じようにルーティングを追加します。`routes/todo.js`, `controllers/todoController.js`はHomeとほぼ同様です  
+
+### ルーティング
+
+一覧画面は`/todo/`、作成画面は`/todo/create`としています。
+
+```routes/todo.js.prettyprint
+// routes/todo.js
+省略
+...
+router.get('/', todoController.index);
+router.get('/create', todoController.createGet);   
+...
+```
+
+### コントローラー
+
+`res.render`の引数には`views`配下のファイルパスを指定します。拡張子`.pug`は省略可能です。  
+また、TODOの作成はフォーム画面を`createGet`、作成処理を`createPost`と関数を命名していきます。  
+
+```controllers/todoController.js.prettyprint
+// controllers/todoController.js
+省略
+...
+exports.index = function(req, res) { 
+  res.render('todo/index');
+}
+exports.createGet = function(req, res) { 
+  res.render('todo/create');
+};
+...
+```
+
+### TODO一覧画面
+
+**コード**
+
+```views/todo/index.pug.prettyprint
+// views/todo/index.pug
+
+extends ../layout
+
+block content
+  h1 残りのTODO
+  ul
+    li
+      p 買い物
+      p リンゴを買う
+      p progress
+      p 2019/03/21
+      p
+	| [
+	a(href='') 編集
+	| ]
+      p
+	| [
+	a(href='') 削除
+	| ]
+  p
+    a(href='/') 戻る
+```
+
+**画面**
+
+
+<img src="images/express/edit_routing/todo_list.png" alt="Todo一覧画面" title="Todo一覧画面" style="max-height:400px;">
+
+### TODO作成画面
+
+**コード**
+
+```views/todo/create.pug.prettyprint
+// views/todo/create.pug
+
+extends ../layout
+
+block content
+  h1 TODO 作成
+ 
+  form(method='POST' action='/todo/create')
+    div
+      label(for='title') タイトル：
+      input#title(type='text', placeholder='やること' name='title' required='true' value='' )
+    div
+      label(for='description') 詳細説明：
+      input#description(type='text', placeholder='買い物に行く' name='description' value='' )
+    div
+      label(for='status') ステータス：
+      select#status(name='status')
+        option(value='backlog', selected='selected') 未着手
+        option(value='progress') 着手中
+        option(value='completed') 完了済
+    div
+      label(for='estimatedDate') 予定時刻：
+      input#estimatedDate(type='datetime-local', name='estimatedDate' value='')
+    div
+      input(type='submit')
+ 
+  br
+  a(href='/') 戻る
+```
+
+**画面**
+
+<img src="images/express/edit_routing/todo_form.png" alt="Todo作成画面" title="Todo作成画面" style="max-height:400px;">

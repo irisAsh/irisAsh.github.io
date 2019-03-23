@@ -5,7 +5,7 @@
     "subTitle": "プロジェクトの作成",
     "iconClass": "fab fa-node-js",
     "headerTitle": "Expressの環境構築",
-    "headerDescription": ""
+    "headerDescription": "Node.jsのWebアプリケーションフレームワークExpressの環境構築を説明します。express-generatorコマンドを使ってプロジェクトを作成しアプリ起動までを説明します。"
   },
   "editrouting": {
     "linkPath": "/express/editrouting/",
@@ -13,6 +13,14 @@
     "subTitle": "ホームの作成 / ルーティング / ミドルウェアの使用",
     "iconClass": "fas fa-home",
     "headerTitle": "Expressのルーティング設定",
+    "headerDescription": ""
+  },
+  "mongodb": {
+    "linkPath": "/express/mongodb/",
+    "title": "MongoDBを使う",
+    "subTitle": "MongoDB / MongoDB Node.JS Driver",
+    "iconClass": "fas fa-leaf",
+    "headerTitle": "ExpressでMongoDBを使う",
     "headerDescription": ""
   },
   "pug_reference": {

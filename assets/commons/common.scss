@@ -3,13 +3,12 @@ html body {
 }
 
 #main{
+  width: 100%;
   background-color: #f7f7f7;
   line-height: 1.9;
 }
 #sidebar
 {
-  font-size: 0.9rem;
-
   .access-now {
     color: $theme;
   }
@@ -38,6 +37,7 @@ html body {
     flex: 1;
     order: 2;
     padding: 20px;
+    width: calc(100% - 550px);
   }
   #sidebar
   {
@@ -50,9 +50,12 @@ html body {
 pre {
   background-color: #333333;
   margin: 1rem 0;
+  overflow: auto;
 
   code {
     color: white;
+    white-space: pre;
+    overflow: auto;
   }
 }
 
@@ -78,4 +81,8 @@ a {
     color: $theme;
     text-decoration: underline;
   }
+}
+
+p {
+  padding: 0.4rem 0;
 }

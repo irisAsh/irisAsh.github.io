@@ -3,7 +3,7 @@
     <article id="main">
       <section>
         <div v-html="MongodbMd"></div>
-        <article-timestamp createdAt="YYYY/MM/DD" updatedAt="YYYY/MM/DD"/>
+        <article-timestamp createdAt="2019/03/24" updatedAt="2019/03/24"/>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>

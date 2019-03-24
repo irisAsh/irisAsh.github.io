@@ -350,3 +350,172 @@ mixin kao(left, right, color)
 <p style="color:blue">Pug >;【･ω･`三´･ω･】<; Jade</p>
 <p style="color:red">EJS >;【･ω･`三´･ω･】<; Handlebars</p>
 ```
+
+<h2 id="includes">PugのIncludesを使う</h2>
+
+複数のページで共通のレイアウトやスクリプトを使いたい場合は、PugのIncludesという機能を利用することで実現できます。
+メインのファイル`include_example.pug`を用意し下記のファイル構成で共通ファイルを作成します。
+この後で説明するExtendsの機能と共通化する点は同じですが、こちらは文字通りメインのPugファイルに共通ファイルと取り込んでいる形になります。
+
+```
+.
+├── include_example.pug
+└── includes
+    ├── common_css.css
+    ├── common_script.js
+    └── common_view.pug
+```
+
+**Pug**
+
+```pug.prettyprint
+// include_example.pug
+
+doctype html
+html
+  head
+    style
+      include includes/common_css.css
+  body
+    h1 インクルード
+    div
+      include includes/common_view.pug
+      p.include-class CSSをインクルードしています
+      script
+        include includes/common_script.js
+```
+
+```common_css.css.prettyprint
+// common_css.css
+
+.include-class
+{
+  color: red; 
+}
+```
+
+```common_view.pug.prettyprint
+// common_view.pug
+
+div
+  p この箇所はインクルードされています
+```
+
+```common_script.js.prettyprint
+// common_script.js
+
+console.log('JSファイルがインクルードされました');
+```
+
+`include_example.pug`がコンパイルされてできるHTMLは次のようになります。
+
+**HTML**
+
+```html
+<html>
+<head>
+  <style>
+    .include-class
+    {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>インクルード</h1>
+  <div>
+    <div>
+      <p>この箇所はインクルードされています</p>
+    </div>
+    <p class="include-class">CSSをインクルードしています</p>
+    <script>
+      console.log('JSファイルがインクルードされました');
+    </script>
+  </div>
+</body>
+</html>
+```
+
+<h2 id="extends">PugのExtendsを使う</h2>
+
+Extendsを使っても共通化することができます。Exntendsの場合は共通の内容が書かれたテンプレートファイルに対して、各々個別の画面の内容を組み込む形になります。
+ファイル構成を下記のようにします。
+
+```
+├── template_example.pug
+├── templates
+│   └── layout.pug
+└── javascripts
+    ├── test_0.js
+    ├── test_1.js
+    ├── test_2.js
+    ├── test_3.js
+    └── test_4.js
+```
+
+**Pug**
+
+先ずはテンプレートファイルを用意します。
+`block ブロック名`と記述した箇所が、後で個別の内容を置換する箇所となります。
+
+```templates/layout.pug.prettyprint
+// templates/layout.pug
+
+doctype html
+html
+  head
+    script(src='/javascripts/test_0.js')
+    block scripts
+      script(src='/javascripts/test_1.js')
+  body
+    h1 テンプレート
+    block content
+```
+
+```javascripts/test_0.js.prettyprint
+// javascripts/test_0.js
+// test_1.js, ..., test_4.jsも出力の値を変えただけの内容です
+
+console.log('Test: 0');
+```
+
+使い方ですが`extends ファイル名`でまずテンプレートファイルを継承します。あとはテンプレートのブロック箇所に対して置換するだけです。`block ブロック名`でブロック箇所を指定し次の行で組み込む内容を記述します。
+また、`block`には`append`, `prepend`を記述することでテンプレートに組み込む順番を指定できます。`block append`でテンプレートの内容の後に、`block prepend`で前に組み込むことができます。
+
+```template_example.pug.prettyprint
+// template_example.pug
+
+extends templates/layout
+
+block append scripts
+  script(src='/javascripts/pug/test_3.js')
+
+block prepend scripts
+  script(src='/javascripts/pug/test_2.js')
+
+//-
+  下記のコメントを外すとscriptsのブロックは上書きされます
+//-
+  block scripts
+    script(src='/javascripts/pug/test_4.js')
+
+block content
+  p テンプレートを読み込んでます
+```
+
+**HTML**
+
+```html
+<html>
+<head>
+  <script src="/javascripts/pug/test_0.js"></script>
+  <script src="/javascripts/pug/test_2.js"></script>
+  <script src="/javascripts/pug/test_1.js"></script>
+  <script src="/javascripts/pug/test_3.js"></script>
+</head>
+<body>
+  <h1>テンプレート</h1>
+  <p>テンプレートを読み込んでます</p>
+</body>
+</html>
+```

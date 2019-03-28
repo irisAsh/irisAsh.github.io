@@ -238,9 +238,37 @@ exports.index = function(req, res) {
 
 Todoのフォーム画面は[Expressのルーティングの設定](https://irisash.com/express/editrouting/)で既に用意しています。残りは「submit」ボタンを押した後の処理の実装です。  
 
+**body-parser**
+
+POSTのリクエストボディからパラメータを解析し必要データを取り出す必要があるのですが、この取り出しを簡単にできる[body-parser](https://github.com/expressjs/body-parser)という外部ミドルウェアが用意されています。body-parserを使うと`req.body`というプロパティで参照できるようになります。  
+
+```
+$ yarn add body-parser
+```
+
+`app.js`を編集してミドルウェアを組み込みましょう。  
+
+```app.js.prettyprint
+// app.js
+省略
+...
+// ミドルウェアをインポート
+var bodyParser = require('body-parser');
+...
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// body-parserの設定
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/', indexRouter);
+...
+
+```
+
 **routes/todo.js**
 
-  
 データの追加処理はPOSTリクエストなので`routes/todo.js`では`router.post`を使って`/create`のPOST処理を登録しましょう。  
 
 ```routes/todo.js.prettyprint
@@ -302,7 +330,7 @@ exports.createPost = function(req, res) {
 
 データ追加関数`createOneTodo`はDBインスタンスと挿入データとしています。データを1件追加にはコレクションの関数`insertOne`を利用します。第１引数に挿入データを第２引数には追加後のコールバックです。コールバックには追加した結果が渡されます。追加の成功件数や追加データなどが参照できます。ここではPromiseで結果情報を参照できるようにしていますが特には使用していません。  
   
-また、POSTリクエストで渡されたデータは`req.body`から参照することができます。`createOneTodo`に渡すデータは`req.body`から拾って、適宜加工してから渡します。  
+`createOneTodo`に渡すデータは`req.body`から拾って、適宜加工してから渡します。  
   
 最後にPOST処理なのでデータ登録完了後は`res.redirect('/todo');`でTodoの一覧画面にリダイレクトしておきましょう。  
 
@@ -543,4 +571,343 @@ exports.index = function(req, res) {
 `/home`の件数が期待どうりに取得できていれば成功です。  
 
 <h2 id="delete-mongodb">MongoDBでデータを削除する</h2>
+
+続いては、Todoの削除機能を追加します。MongoDBでデータを1件削除するには`deleteOne`を使います。引数に削除データに合致する条件と削除後のコールバックを指定します。  
+ここでは条件としてデータのIDを使用します。このIDはデータを追加した際にMongoDBが自動で生成するものです。データ取得で参照されるIDは文字列となっていますが、検索条件に指定する場合は、MongoDBのObjectIDのクラスに直さないといけません。DB部品に文字列IDをObjectIDに変換する関数を追加しておきましょう。  
+
+**lib/dbUtils.js**
+
+```lib/dbUtils.js.prettyprint
+// lib/dbUtils.js
+省略
+...
+exports.createObjectID = function(id) {
+  return new mongodb.ObjectID(id);
+}
+```
+
+**controllers/todoController.js**
+
+データ追加・取得同様に削除機能のコントローラーを追加しましょう。  
+
+```controllers/todoController.js.prettyprint
+// controllers/todoController.js
+省略
+...
+exports.delete = function(req, res) {
+  var dbClient;
+  var deleteOneTodo = function(db, id) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      // IDを検索条件にデータを削除
+      .deleteOne({ _id: dbUtils.createObjectID(id) }, function(error, r) {
+        if (error) {    
+          reject(error);
+        } else {                       
+          resolve(r);             
+        }           
+      });
+    });
+  };
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    // アクセスURLno「/todo/ID文字列」からID文字列を取得しています
+    var { id } = req.params;         
+    return deleteOneTodo(db, id);
+  })                                    
+  .then(function(result) {                        
+    res.redirect('/todo');  
+  })                                                                      
+  .catch(function(err) {
+    console.log(err);   
+    next(err);  
+  })                 
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+};                        
+```
+
+**routes/todo.js**
+
+削除のためのリクエストは「/todo/ID文字列」のDELETEリクエストとします。`/:id`とすることで「/todo/xxxxx」形式のDELETEリクエストで来た時にxxxxxをパラメータ（パラメータ名はid）として拾えるようになります。  
+
+```routes/todo.js.prettyprint
+// routes/todo.js
+省略
+...
+router.delete('/:id', todoController.delete);
+```
+
+さて、あとは画面側の削除ボタンを作成するだけですが、HTMLのformはDELETEリクエストを発行することができません。そのためformから送信した時点ではPOSTとして送信しますが、受け取り時にDELETEリクエストに変換するようにしなければなりません。  
+[method-override](https://github.com/expressjs/method-override)というパッケージを利用することで実装することができます。  
+
+**インストール**
+
+```
+$ yarn add method-override
+```
+
+**app.js**
+
+```app.js.prettyprint
+// app.js
+省略
+...
+// 追加
+var methodOverride = require('method-override')
+...
+...
+// 追加
+app.use(methodOverride('_method'))
+
+app.use('/', indexRouter);
+```
+
+**views/todo/index.pug**
+
+```views/todo/index.pug.prettyprint
+// views/todo/index.pug
+省略
+...
+    p                
+      | [            
+      a(href='') 編集
+      | ]            
+      form(method='POST' action=`/todo/${todo._id}?_method=DELETE`)
+        div
+          span [
+          input(
+            type='submit'
+            value='削除'
+            style={
+              'border': 'none',
+              'padding': 0,
+              'font-size': '14px',
+              'text-decoration': 'underline',
+              'color': '#00B7FF'
+            })
+          span ]
+```
+
+formのaction属性には`/todo/TodoのID?_method=DELETE`と指定しています。パラメータの`?_method=DELETE`を付けることで受け取った後にPOSTリクエストをDELETEリクエストに変換されるようになっています。  
+  
+以上で完了です。削除ボタンを押して画面から削除対象のTodoが消えればOKです。  
+
 <h2 id="update-mongodb">MongoDBでデータを更新する</h2>
+
+残りの機能はTODOの編集機能です。基本的には他のDB操作と同じです。  
+更新のフォーム画面(GET)と更新処理(PATCH)を用意する必要があります。それぞれ`updateGet`, `updatePatch`としてコントローラーを用意します。  
+
+**routes/todo.js**
+
+```routes/todo.js.prettyprint
+// routes/todo.js
+
+router.get('/update/:id', todoController.updateGet);
+router.patch('/update/:id', todoController.updatePatch);
+```
+
+### フォーム画面
+
+**views/todo/update.pug**
+
+基本的にはコントローラーからtodoデータをもらってそれぞれinputタグのvalueに設定するだけです。  
+但し、予定時刻だけ`estimatedDateISOS`となっています。これは日付データの値をそのまま`datetime-local`型のinputに設定することができないため、コントローラー側で値を加工してから渡してきています。加工値のプロパティ名を敢えて`estimatedDateISOS`と名付けています。  
+また、削除の時と同様にフォームからPATCHリクエストを送信するために一度メソッドをPOSTにした上で、PATCHに書き換えるようにしています。  
+
+```views/todo/update.pug.prettyprint
+// views/todo/update.pug
+
+extends ../layout
+
+block content
+  h1 TODO 作成
+
+  form(method='POST' action=`/todo/update/${todo._id}?_method=PATCH`)
+  div
+    label(for='title') タイトル：
+    input#title(
+      type='text'
+      placeholder='やること'
+      name='title'
+      required='true'
+      value=todo.title
+    )
+  div
+    label(for='description') 詳細説明：
+    input#description(
+      type='text'
+      placeholder='買い物に行く'
+      name='description'
+      value=todo.description
+    )
+  div
+    label(for='status') ステータス：
+    select#status(name='status')
+      option(
+        value='backlog'
+        selected= 'backlog' === todo.status
+      ) 未着手
+      option(
+        value='progress'
+        selected= 'progress' === todo.status
+      ) 着手中
+      option(
+        value='completed'
+        selected= 'completed' === todo.status
+      ) 完了済
+  div
+    label(for='estimatedDate') 予定時刻：
+    input#estimatedDate(
+      type='datetime-local'
+      name='estimatedDate'
+      value=todo.estimatedDateISOS
+    )
+  div
+    input(type='submit')
+
+  br
+  a(href='/') 戻る
+```
+
+**lib/dateUtils.js**
+
+コントローラーの作成前に先程説明した日付データの値を加工するヘルパーを用意します。データのままでは`YYYY-MM-DDThh:mm:ss.sssZ`となっているのですが、フォームでは`YYYY-MM-DDThh:mm:ss`という形式である必要があります。  
+形式変換は後ろの`.sssZ`を省くだけで良いのですが、共通部品なので渡された引数が時刻として正しいか一度確認しています。  
+
+```lib/dateUtils.js.prettyprint
+// lib/dateUtils.js
+exports.date2ISOS = function (dateStr) {
+  var dateObj = new Date(dateStr);
+  if (!dateObj || dateObj.toString() === 'Invalid Date') {
+    return '';
+  }
+  return dateObj.toISOString().substr(0,19);
+}
+```
+
+**controllers/todoController.js**
+
+さてフォームのためのコントローラーですが、編集対象のデータを１つ取得する必要があります。  
+そのためMongoDBの`findOne`を使っています。引数には検索条件が必要です。ここではMongoDBのデータIDを指定しています。  
+描画関数には先程作成した部品で日付変換をしてからTodoデータを渡しています。  
+
+```controllers/todoController.js.prettyprint
+// controllers/todoController.js
+省略
+...
+var dateUtils = require('../lib/dateUtils');
+...
+// 更新フォームのコントローラー
+exports.updateGet = function(req, res, next) {
+  var dbClient;
+  var findOne = function(db, id) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      .findOne(
+        { _id: dbUtils.createObjectID(id) },
+        function(error, docs) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(docs);
+          }
+        }
+      );
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    var { id } = req.params;
+    return findOne(db, id);
+  })
+  .then(function(result) {
+    res.render('todo/update', {
+      todo: {
+        ...result,
+        estimatedDateISOS: dateUtils.date2ISOS(result.estimatedDate)
+      }
+    });
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+}
+```
+
+### データ更新処理
+
+MongoDBで１つのデータを更新するにはコレクション関数の`updateOne`を使います。引数には検索条件、更新値、更新後のコールバックを指定します。  
+ここでは検索条件は削除の時と同様データのIDを使っています。MongoDBのObjectIDに注意です。  
+更新値の書き方は`{ $set: データのオブジェクト }`となります。  
+
+**controllers/todoController.js**
+
+```controllers/todoController.js.prettyprint
+// controllers/todoController.js
+省略
+...
+// 更新処理のコントローラー
+exports.updatePatch = function(req, res, next) {
+  var dbClient;
+  var updateOne = function(db, id, data) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      // コレクションのupdateOneを使う
+      .updateOne(
+        { _id: dbUtils.createObjectID(id) },
+        { $set: data },
+        function(error, docs) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(docs);
+          }
+        }
+      );
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    var { id } = req.params;
+    var { title, description, status, estimatedDate } = req.body;
+    return updateOne(db, id, {
+      title,
+      description,
+      status,
+      estimatedDate: new Date(estimatedDate)
+    });
+  })
+  .then(function(result) {
+    res.redirect('/todo');
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+```
+
+
+<h2 id="summary-mongodb">まとめ</h2>
+
+以上でMongoDBを使ったTodo機能の実装が完了です。最低限の機能となっていますが、MongoDBの基本的な使い方が確認できたのではないでしょうか。紹介したものはMongoDBの一部ですので、機能を拡張していくと必要になる実装がでてくるかと思います。その場合はMongoDB Driverの[公式サイト](http://mongodb.github.io/node-mongodb-native/)を適宜参照していくのが良いでしょう。  

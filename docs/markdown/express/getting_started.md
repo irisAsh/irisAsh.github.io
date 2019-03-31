@@ -1,7 +1,7 @@
-# はじめに / Expressの環境設定
+# Express入門（環境設定）
 
 ここでは簡易なTODOアプリを作りながらNodeJSのWebアプリケーションフレームワーク [Express](https://expressjs.com/) の使い方を学んでいきます。  
-
+[こちら](https://github.com/irisAsh/express-todo-tutorial/tree/master)に完成済みのサンプルを置いておきます。サンプルは後記事の[Expressのルーティングの設定](https://irisash.com/express/editrouting/)、[ExpressでMongoDBを使う](https://irisash.com/express/mongodb/)の内容を含んでいます。  
 
 **環境**
 

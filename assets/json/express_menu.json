@@ -1,26 +1,26 @@
 {
   "gettingstarted": {
     "linkPath": "/express/gettingstarted/",
-    "title": "はじめに / 環境構築",
+    "title": "環境設定",
     "subTitle": "プロジェクトの作成",
     "iconClass": "fab fa-node-js",
-    "headerTitle": "Expressの環境構築",
+    "headerTitle": "Express入門（環境構築）",
     "headerDescription": "Node.jsのWebアプリケーションフレームワークExpressの環境構築を説明します。express-generatorコマンドを使ってプロジェクトを作成しアプリ起動までを説明します。"
   },
   "editrouting": {
     "linkPath": "/express/editrouting/",
-    "title": "ルーティングの設定",
-    "subTitle": "ホームの作成 / ルーティング / ミドルウェアの使用",
+    "title": "ルーティング",
+    "subTitle": "ルーティング / ミドルウェアの使用",
     "iconClass": "fas fa-home",
-    "headerTitle": "Expressのルーティング設定",
+    "headerTitle": "Express入門（ルーティング）",
     "headerDescription": ""
   },
   "mongodb": {
     "linkPath": "/express/mongodb/",
-    "title": "MongoDBを使う",
+    "title": "MongoDBの利用",
     "subTitle": "MongoDB / MongoDB Node.JS Driver",
     "iconClass": "fas fa-leaf",
-    "headerTitle": "ExpressでMongoDBを使う",
+    "headerTitle": "Express入門（MongoDBの利用）",
     "headerDescription": ""
   },
   "pug_reference": {
@@ -28,7 +28,7 @@
     "title": "Pugの書き方まとめ",
     "subTitle": "テンプレートエンジンPug",
     "iconClass": "fas fa-dog",
-    "headerTitle": "Pug(HTMLテンプレートエンジン)の書き方まとめ",
+    "headerTitle": "Pug（HTMLテンプレートエンジン）の書き方まとめ",
     "headerDescription": ""
   },
   "links": {

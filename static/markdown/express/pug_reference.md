@@ -3,6 +3,8 @@
 <h2 id="overview">Pugの概要</h2>
 
 HTMLのテンプレートエンジンの１つ[Pug](https://pugjs.org/api/getting-started.html)(旧Jade)の書き方についてまとめてみました。Webアプリケーションフレームワーク[Express](https://expressjs.com/ja/)のプロジェクト作成コマンドでは現在はデフォルトでJadeをテンプレートエンジンとして使うようになっていますが、今後JadeはPugに名称を変え移行されるようなのでPugに慣れておくのが良いでしょう。  
+  
+また、[こちら](https://github.com/irisAsh/express-todo-tutorial/tree/master/views/pug)にソースコードをまとめたものを置いておきます。  
 
 <h2 id="filename">Pugファイル</h2>
 

@@ -6,6 +6,11 @@ html body {
   width: 100%;
   background-color: #f7f7f7;
   line-height: 1.9;
+
+  ul {
+    list-style: disc;
+    padding-left: 40px;
+  }
 }
 #sidebar
 {

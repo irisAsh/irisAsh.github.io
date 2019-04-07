@@ -59,7 +59,7 @@ Node.jsでMongoDBを扱うためのライブラリがあります。[MongoDB Nod
   
 対してMongooseの方は扱う上でスキーマの構造を定義するので、MVCモデルでWebアプリを作成するのであればMongooseを使う方が後々楽になります。  
   
-ここではMongoDB Driverの使い方を説明します。Mongooseの使い方は次回説明していきます。  
+ここではMongoDB Driverの使い方を説明します。Mongooseの使い方は[Express入門（Mongooseの利用）](https://irisash.com/express/mongoose/)で説明します。  
 
 ### インストール
 

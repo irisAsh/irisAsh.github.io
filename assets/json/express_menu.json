@@ -23,6 +23,14 @@
     "headerTitle": "Express入門（MongoDBの利用）",
     "headerDescription": ""
   },
+  "mongoose": {
+    "linkPath": "/express/mongoose/",
+    "title": "Mongooseの利用",
+    "subTitle": "MongoDB / Mongoose",
+    "iconClass": "fas fa-otter",
+    "headerTitle": "Express入門（Mongooseの利用）",
+    "headerDescription": ""
+  },
   "pug_reference": {
     "linkPath": "/express/pug_reference/",
     "title": "Pugの書き方まとめ",

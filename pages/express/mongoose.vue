@@ -2,12 +2,12 @@
   <div id="wrapper">
     <article id="main">
       <section>
-        <div v-html="MongodbMd"></div>
-        <article-timestamp createdAt="2019/03/24" updatedAt="2019/04/07"/>
+        <div v-html="MongooseMd"></div>
+        <article-timestamp createdAt="2019/04/07" updatedAt="2019/04/07"/>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>
-    <table-content :articleMd="MongodbMd"/>
+    <table-content :articleMd="MongooseMd"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import ArticleTimestamp from '@/components/ArticleTimestamp'
 import SideMenu from '@/components/SideMenu'
 import TableContent from '@/components/TableContent'
 import ExpressMenu from '@/assets/json/express_menu.json'
-import MongodbMd from '@/static/markdown/express/mongodb.md'
+import MongooseMd from '@/static/markdown/express/mongoose.md'
 
 export default {
   components: {
@@ -28,8 +28,8 @@ export default {
     menuSections: Object.values(ExpressMenu)
   }),
   computed: {
-    MongodbMd() {
-      return MongodbMd
+    MongooseMd() {
+      return MongooseMd
     }
   },
   head: () => {
@@ -39,7 +39,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: ExpressMenu.mongodb.headerDescription
+          content: ExpressMenu.mongoose.headerDescription
         }
       ]
     }

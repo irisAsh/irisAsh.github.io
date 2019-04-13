@@ -13,7 +13,7 @@
     "subTitle": "ルーティング / ミドルウェアの使用",
     "iconClass": "fas fa-home",
     "headerTitle": "Express入門（ルーティング）",
-    "headerDescription": ""
+    "headerDescription": "WebアプリケーションフレームワークExpressでのルーティングの仕方を説明します。簡単なTodoアプリを作りながら説明をしていきます。"
   },
   "mongodb": {
     "linkPath": "/express/mongodb/",
@@ -21,7 +21,7 @@
     "subTitle": "MongoDB / MongoDB Node.JS Driver",
     "iconClass": "fas fa-leaf",
     "headerTitle": "Express入門（MongoDBの利用）",
-    "headerDescription": ""
+    "headerDescription": "ExpressでMongoDBを使ってTodoアプリを作っていきます。MongoDBはNoSQLデータベースの１つでデータをJSON形式で扱うことができます。またデータベースの操作にはMongoDB Node.js Driverを使っていきます。"
   },
   "mongoose": {
     "linkPath": "/express/mongoose/",
@@ -29,7 +29,7 @@
     "subTitle": "MongoDB / Mongoose",
     "iconClass": "fas fa-otter",
     "headerTitle": "Express入門（Mongooseの利用）",
-    "headerDescription": ""
+    "headerDescription": "ExpressでMongooseを使ってみます。MongooseはNode.js用のMongoDBライブラリです。MongoDB Node.js Driverと違いモデルを定義することができ、ExpressでMVCモデルを構成することができる１つの方法です。"
   },
   "pug_reference": {
     "linkPath": "/express/pug_reference/",
@@ -37,7 +37,7 @@
     "subTitle": "テンプレートエンジンPug",
     "iconClass": "fas fa-dog",
     "headerTitle": "Pug（HTMLテンプレートエンジン）の書き方まとめ",
-    "headerDescription": ""
+    "headerDescription": "HTMLテンプレートエンジンの１つPugの書き方についてまとめました。PugはExpressなどNode.js環境で動かすことができます。記法はRailsでよく使われるHamlによく似ているので、Hamlを使ったことがある人には親しみやすいでしょう。"
   },
   "links": {
     "linkPath": "/express/links/",

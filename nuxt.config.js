@@ -90,7 +90,10 @@ module.exports = {
     path: '/sitemap.xml',
     hostname: 'https://irisash.com',
     generate: true,
-    exclude: []
+    exclude: [],
+    filter: ({ routes }) => {
+      return routes.map(route => route.url = `${route.url}/`)
+    }
   },
   /*
    * Plugins configuration

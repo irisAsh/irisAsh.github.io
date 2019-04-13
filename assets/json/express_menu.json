@@ -31,6 +31,14 @@
     "headerTitle": "Express入門（Mongooseの利用）",
     "headerDescription": "ExpressでMongooseを使ってみます。MongooseはNode.js用のMongoDBライブラリです。MongoDB Node.js Driverと違いモデルを定義することができ、ExpressでMVCモデルを構成することができる１つの方法です。"
   },
+  "css_preprocessor": {
+    "linkPath": "/express/css_preprocessor/",
+    "title": "CSSプリプロセッサの利用",
+    "subTitle": "Less / Sass(Scss) / Stylus",
+    "iconClass": "fab fa-sass",
+    "headerTitle": "ExpressでCSSプリプロセッサを利用する",
+    "headerDescription": "ExpressでCSSプリプロセッサ(Less/Sass/Scss/Stylus)の導入してみます。express-generatorのプロジェクト作成時での導入する方法と既に作成されているプロジェクトの途中で組み込む方法を説明します。"
+  },
   "pug_reference": {
     "linkPath": "/express/pug_reference/",
     "title": "Pugの書き方まとめ",

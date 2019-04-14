@@ -34,7 +34,7 @@ export default {
   },
   head: () => {
     return {
-      title: ExpressMenu.mongodb.headerTitle,
+      title: ExpressMenu.mongoose.headerTitle,
       meta: [
         {
           hid: 'description',

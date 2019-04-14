@@ -1,20 +1,4 @@
 #top-menu {
-  h2 {
-    border: none;
-    padding: 0;
-  }
-  .header {
-    padding: 1.2rem;
-    background-color: $theme-light;
-  }
-  .title {
-    display: block;
-    font-weight: bold;
-    font-size: 2.5rem;
-  }
-  .subtitle {
-    font-size: 1.2rem;
-  }
   .menu-list {
     display: flex;
     flex-wrap: wrap;

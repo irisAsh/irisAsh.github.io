@@ -1,15 +1,5 @@
 <template>
   <div id="top-menu">
-    <section class="header">
-      <header>
-        <h1 class="title has-text-white">
-          {{ title }}
-        </h1>
-      </header>
-      <h2 class="subtitle has-text-white">
-        {{ subTitle }}
-      </h2>
-    </section>
     <article class="container">
       <section>
         <div class="menu-list">
@@ -32,7 +22,7 @@ import MenuItem from '@/components/MenuItem'
 
 export default {
   name: 'TopMenu',
-  props: ['title', 'subTitle', 'menuItems'],
+  props: ['menuItems'],
   components: {
     MenuItem
   }

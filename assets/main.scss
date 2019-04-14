@@ -9,6 +9,8 @@ $theme-light: #7db9de;
 $theme-invert: #ffffff;
 $text-color: $grey-darker;
 $text-light-color: $grey-light;
+$site-white-light: #efefef;
+$site-white: #f7f7f7;
 // Add a serif family
 $family-serif: "Helvetica", "Georgia", serif;
 
@@ -45,3 +47,4 @@ $colors: map-merge($colors, $addColors);
 @import "commons/topmenu";
 @import "commons/menuitem";
 @import "commons/table_content";
+@import "css/express/main";

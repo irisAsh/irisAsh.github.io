@@ -1,0 +1,124 @@
+@keyframes typewriter-1 {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 100%;
+  }
+}
+@keyframes typewriter-2 {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 0;
+  }
+  40% {
+    width: 100%;
+  }
+}
+@keyframes typewriter-3 {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 0;
+  }
+  60% {
+    width: 100%;
+  }
+}
+@keyframes typewriter-4 {
+  0% {
+    width: 0;
+  }
+  60% {
+    width: 0;
+  }
+  80% {
+    width: 100%;
+  }
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: black;}
+  to{border-right-color: white;}
+}
+#express-header {
+  padding: 1.2rem;
+  background-color: $theme-light;
+  .title {
+    color: $site-white;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .subtitle {
+    color: $site-white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .editor-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .editor {
+      display: flex;
+      padding: 1.0rem;
+      width: 60%;
+      background-color: #2E5C6E;
+      border-radius: 5px;
+      @media screen and (max-width : 1023px) {
+        width: 80%;
+      }
+      p {
+        line-height: 1.5rem;
+      }
+      .line-number {
+        color: #6699A1;
+        padding-right: 15px;
+      }
+      .code-area {
+        flex: 1;
+        overflow: hidden;
+        .blank-p {
+          color: #2E5C6E;
+          width: 100%;
+        }
+        .code-line {
+          color: #77969A;
+          font-size: 1.0rem;
+          white-space: nowrap;
+          overflow: hidden;
+          animation-duration: 20s;
+          animation-timing-function: steps(50);
+          animation-delay: 1s;
+          animation-iteration-count: infinite;
+          animation-direction: normal;
+          animation-fill-mode: both;
+          &.line-1 {
+            animation-name: typewriter-1;
+          }
+          &.line-2 {
+            animation-name: typewriter-2;
+          }
+          &.line-3 {
+            animation-name: typewriter-3;
+          }
+          &.line-4 {
+            animation-name: typewriter-4;
+          }
+          .reserved {
+            color: #A8D8B9;
+          }
+          .string {
+            color: #2EA9DF;
+          }
+          .function {
+            color: #DC9FB4;
+          }
+        }
+      }
+    }
+  }
+}

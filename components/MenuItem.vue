@@ -6,7 +6,7 @@
           <i :class="iconClass"/>
         </div>
         <div class="menu-text-area">
-          <h3 class="menu-title">{{ title }}</h3>
+          <h2 class="menu-title">{{ title }}</h2>
           <p class="menu-sub-title">{{ subTitle }}</p>
         </div>
       </div>

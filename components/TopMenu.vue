@@ -1,7 +1,7 @@
 <template>
   <div id="top-menu">
     <article class="container">
-      <section>
+      <section class="menu-list-container">
         <div class="menu-list">
           <menu-item
             v-for="menuItem in menuItems"

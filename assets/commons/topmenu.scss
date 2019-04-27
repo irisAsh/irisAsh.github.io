@@ -1,10 +1,15 @@
 #top-menu {
-  .menu-list {
+  .menu-list-container {
     display: flex;
-    flex-wrap: wrap;
-    margin: 1rem 0;
-  }
-  .menu-box {
-    width: 50%;
+    flex: 1;
+    .menu-list {
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .menu-box {
+      width: 50%;
+    }
   }
 }

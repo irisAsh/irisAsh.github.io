@@ -1,0 +1,10 @@
+{
+  "setup": {
+    "linkPath": "/redis/setup/",
+    "title": "環境設定",
+    "subTitle": "homebrew",
+    "iconClass": "fab fa-node-js",
+    "headerTitle": "Redis 環境設定",
+    "headerDescription": ""
+  }
+}

@@ -16,8 +16,20 @@
             JS
           </a>
           <div class="navbar-dropdown is-boxed">
-            <nuxt-link v-for="item in items" :key="item.title" :to="item.url" class="navbar-item">
-              <i class="fab vuejs-icon" v-bind:class="item.icon"/>
+            <nuxt-link v-for="item in jsMenus" :key="item.title" :to="item.url" class="navbar-item">
+              <i class="vuejs-icon" v-bind:class="item.icon"/>
+              {{ item.title }}
+            </nuxt-link>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <i class="fas fa-database js-icon"/>
+            SQL
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <nuxt-link v-for="item in sqlMenus" :key="item.title" :to="item.url" class="navbar-item">
+              <i class="vuejs-icon" v-bind:class="item.icon"/>
               {{ item.title }}
             </nuxt-link>
           </div>
@@ -31,9 +43,12 @@
 export default {
   data: () => ({
     showNav: false,
-    items: [
-      { title: 'Express', icon: 'fa-node-js', url: '/express/' },
-      { title: 'Vue', icon: 'fa-vuejs', url: '/vueprograming/' }
+    jsMenus: [
+      { title: 'Express', icon: 'fab fa-node-js', url: '/express/' },
+      { title: 'Vue', icon: 'fab fa-vuejs', url: '/vueprograming/' }
+    ],
+    sqlMenus: [
+      { title: 'Redis', icon: 'fas fa-layer-group', url: '/redis/' },
     ]
   })
 }

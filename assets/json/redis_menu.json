@@ -2,9 +2,9 @@
   "setup": {
     "linkPath": "/redis/setup/",
     "title": "環境設定",
-    "subTitle": "homebrew",
-    "iconClass": "fab fa-node-js",
+    "subTitle": "redis-server / redis-cli",
+    "iconClass": "fas fa-layer-group",
     "headerTitle": "Redis 環境設定",
-    "headerDescription": ""
+    "headerDescription": "RedisはNoSQLと呼ばれるデータベースの１つで、データをキー・バリューの形で扱うインメモリデータベースです。メモリ上にデータを保存するので高速な処理ができます。また、バックアップの設定で永続的にデータを保存することもできます。"
   }
 }

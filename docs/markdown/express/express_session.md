@@ -146,4 +146,46 @@ sessions
 
 <h2 id="connect-redis">Redisでセッションを管理する</h2>
 
-編集予定
+MongoDBの時と同様にRedisを使ってセッション管理ができるようにしてみましょう。  
+  
+Redisと連携するパッケージ[connect-redis](https://github.com/tj/connect-redis)を使って実装します。  
+  
+また、Redis自体の使い方については[Redisの環境設定](https://irisash.com/redis/setup/)をご参考ください。  
+  
+
+**インストール**
+
+```shell.prettyprint
+$ yarn add connect-redis
+```
+
+**実装**
+
+```app.js.prettyprint
+// app.js
+
+var session = require("express-session");
+// 追加
+var RedisStore = require('connect-redis')(session);
+...
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: "secret word",
+  resave: false,
+  saveUninitialized: false,
+  // 追加
+  store: new RedisStore({
+    host: '127.0.0.1',
+    port: 6379,
+    prefix: 'session-tutorial:',
+    ttl: 60
+  })
+}));
+```
+
+Expressとconnect-redisの連携は`require('connect-mongo')(session)`で設定します。そして`express-session`の`store`オプションにRedisを指定します。  
+また、`connect-redis`のオプションについてですが、`host`と`port`オプションはRedisの場所を指定します。初期設定はホストが`127.0.0.1`で、ポートが`6379`です。  
+`prefix`はRedisに保存する時のキーの接頭辞になります。上記の場合は`session-tutorial:ランダム値`の形式でキーが作成されます。  
+`ttl`はセッションの保存期間で単位は秒です。  

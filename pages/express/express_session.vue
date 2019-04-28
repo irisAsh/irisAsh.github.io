@@ -3,7 +3,7 @@
     <article id="main">
       <section>
         <div v-html="ExpressSessionMd"></div>
-        <article-timestamp createdAt="2019/04/27" updatedAt="2019/04/27"/>
+        <article-timestamp createdAt="2019/04/27" updatedAt="2019/04/28"/>
       </section>
     </article>
     <side-menu :menuSections="menuSections"/>

@@ -55,6 +55,14 @@
     "headerTitle": "ExpressでBasic認証を実装する",
     "headerDescription": "ExpressでBasic認証機能を実装してみます。Basic認証は認証方式の１つで簡単に導入できるので場面によってはとても有用です。ライブラリを使用しない実装方法とbasic-authというライブラリを使用する方法を説明します。"
   },
+  "digest_auth": {
+    "linkPath": "/express/digest_auth/",
+    "title": "Digest認証",
+    "subTitle": "WWW-Authenticate / express-session",
+    "iconClass": "fas fa-lock",
+    "headerTitle": "ExpressでDigest認証を実装する",
+    "headerDescription": "ExpressでDigest認証機能を実装してみます。Basic認証ではセキュリティ面で脆弱性があります。そこで考えられたのがパスワードをハッシュ化(Digest)して通信する認証です。サーバーとクライアントはハッシュ化された値でやり取りされるのでセキュリティがより強固になります。"
+  },
   "third_party": {
     "linkPath": "/express/third_party/",
     "title": "Express サードパーティ一覧",

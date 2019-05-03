@@ -91,3 +91,20 @@ a {
 p {
   padding: 0.4rem 0;
 }
+
+table {
+  th {
+    padding: 0px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #3a8fb7;
+    background-color: #7db9de;
+    color: $site-white-light;
+  }
+  td {
+    padding: 0px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #3a8fb7;
+  }
+}

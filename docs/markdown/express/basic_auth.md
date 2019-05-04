@@ -52,7 +52,7 @@ block content
   a(href='/logout') logout
 ```
 
-<img src="images/express/basic_auth/root.png" alt="ルート画面" title="ルート画面" style="max-height:400px;">
+<img src="github-pages/images/express/basic_auth/root.png" alt="ルート画面" title="ルート画面" style="max-height:400px;">
 
 **チュートリアル画面/About画面**
 
@@ -110,7 +110,7 @@ app.use('/', indexRouter);
   
 さて、`/tutorial`にアクセスしチュートリアル画面を確認してみましょう。ユーザー名とパスワードを要求されるポップアップが表示されるようになっています。  
 
-<img src="images/express/basic_auth/popup.png" alt="認証ポップアップ画面" title="認証ポップアップ画面" style="max-height:400px;">
+<img src="github-pages/images/express/basic_auth/popup.png" alt="認証ポップアップ画面" title="認証ポップアップ画面" style="max-height:400px;">
 
 <h2 id="decode-authenticate">認証の情報を読み取る</h2>
 

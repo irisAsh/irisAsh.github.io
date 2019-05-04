@@ -232,7 +232,7 @@ exports.index = function(req, res) {
   
 最後に取得した件数を`remainingTodoCount`の値として設定すれば件数取得の完了です。現在はデータがないので画面には0件と表示されるでしょう。  
 
-<img src="images/express/mongodb/get_data_count.png" alt="Todo件数取得" title="Todo件数取得" style="max-height:400px;">
+<img src="github-pages/images/express/mongodb/get_data_count.png" alt="Todo件数取得" title="Todo件数取得" style="max-height:400px;">
 
 <h2 id="insert-mongodb">MongoDBにデータを書き込む</h2>
 
@@ -419,7 +419,7 @@ exports.index = function(req, res, next) {
 
 追加画面で登録した内容が表示されれば成功です。  
 
-<img src="images/express/mongodb/get_todo_list.png" alt="Todo件数取得" title="Todo件数取得" style="max-height:400px;">
+<img src="github-pages/images/express/mongodb/get_todo_list.png" alt="Todo件数取得" title="Todo件数取得" style="max-height:400px;">
 
 <h2 id="where-mongodb">MongoDBで検索条件を指定する</h2>
 

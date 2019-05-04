@@ -1,7 +1,7 @@
 # Express入門（環境設定）
 
 ここでは簡易なTODOアプリを作りながらNodeJSのWebアプリケーションフレームワーク [Express](https://expressjs.com/) の使い方を学んでいきます。  
-[こちら](https://github.com/irisAsh/express-todo-tutorial/tree/master)に完成済みのサンプルを置いておきます。サンプルは後記事の[Expressのルーティングの設定](https://irisash.com/express/editrouting/)、[ExpressでMongoDBを使う](https://irisash.github.io/github-pages/express/mongodb/)の内容を含んでいます。  
+[こちら](https://github.com/irisAsh/express-todo-tutorial/tree/master)に完成済みのサンプルを置いておきます。サンプルは後記事の[Expressのルーティングの設定](https://irisash.github.io/github-pages/express/editrouting/)、[ExpressでMongoDBを使う](https://irisash.github.io/github-pages/express/mongodb/)の内容を含んでいます。  
 
 **環境**
 
@@ -76,7 +76,7 @@ $ DEBUG=express-todo-tutorial:* yarn start
 コマンド実行後にブラウザから[http://localhost:3000](http://localhost:3000)にアクセスしてみましょう。以下のように画面が表示されれば起動完了です。  
 また、起動を終了するときは`Ctrl+c`で終了することができます。  
 
-<img src="images/express/gettingstarted/run-start.png" alt="起動確認" title="起動確認" style="max-height:400px;">
+<img src="github-pages/images/express/gettingstarted/run-start.png" alt="起動確認" title="起動確認" style="max-height:400px;">
 
 このままでも開発を進めることはできますが、ファイルを編集する度にサーバー停止・`yarn stat`実行をするのは手間になるので、[nodemon](https://github.com/remy/nodemon) をインストールしておきましょう。`nodemon`を使うとファイル更新の度に自動でサーバーを再起動してくれます。  
 

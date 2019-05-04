@@ -10,7 +10,7 @@
 
 **使用例**
 
-- [Express入門（MongoDBの利用）](https://irisash.com/express/mongodb/)
+- [Express入門（MongoDBの利用）](https://irisash.github.io/github-pages/express/mongodb/)
 
 <h2 id="method-override">method-override</h2>
 
@@ -22,7 +22,7 @@ HTMLフォームではDELETやPUTなどを送信することができません�
 
 **使用例**
 
-- [Express入門（MongoDBの利用）](https://irisash.com/express/mongodb/)
+- [Express入門（MongoDBの利用）](https://irisash.github.io/github-pages/express/mongodb/)
 
 <h2 id="express-session">express-session</h2>
 
@@ -34,5 +34,5 @@ HTMLフォームではDELETやPUTなどを送信することができません�
 
 **使用例**
 
-- [Expressでセッションを利用する](https://irisash.com/express/express_session/)
+- [Expressでセッションを利用する](https://irisash.github.io/github-pages/express/express_session/)
 

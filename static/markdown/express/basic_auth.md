@@ -34,7 +34,7 @@ Basic認証を試すだけですので、各画面は特に重要な実装はあ
 **ルート画面**
 
 `/tutorials`,`/about`へのリンクとログアウトのボタンがあるだけです。  
-(サンプルではテンプレートエンジンにPugを使っています。Pugの書き方がわからない方は[Pugの書き方まとめ](https://irisash.com/express/pug_reference/)をご参考ください。)  
+(サンプルではテンプレートエンジンにPugを使っています。Pugの書き方がわからない方は[Pugの書き方まとめ](https://irisash.github.io/github-pages/express/pug_reference/)をご参考ください。)  
 
 ```index.pug.prettyprint
 // index.pug

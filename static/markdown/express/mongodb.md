@@ -59,7 +59,7 @@ Node.jsでMongoDBを扱うためのライブラリがあります。[MongoDB Nod
   
 対してMongooseの方は扱う上でスキーマの構造を定義するので、MVCモデルでWebアプリを作成するのであればMongooseを使う方が後々楽になります。  
   
-ここではMongoDB Driverの使い方を説明します。Mongooseの使い方は[Express入門（Mongooseの利用）](https://irisash.com/express/mongoose/)で説明します。  
+ここではMongoDB Driverの使い方を説明します。Mongooseの使い方は[Express入門（Mongooseの利用）](https://irisash.github.io/github-pages/express/mongoose/)で説明します。  
 
 ### インストール
 
@@ -107,7 +107,7 @@ MongoClient.connect(
 
 <h2 id="select-mongodb">MongoDBからデータ数を取得する</h2>
 
-MongoDBからデータを取得し、TODOの件数を画面に表示します。表示内容の詳細については[Expressのルーティングの設定](https://irisash.com/express/editrouting/)をご参照ください。  
+MongoDBからデータを取得し、TODOの件数を画面に表示します。表示内容の詳細については[Expressのルーティングの設定](https://irisash.github.io/github-pages/express/editrouting/)をご参照ください。  
 
 ### DBアクセス部品の作成
 
@@ -238,7 +238,7 @@ exports.index = function(req, res) {
 
 データ件数を取得できるようになりましたが、今のままではデータを追加できないので一覧は0件のままです。データ追加を実装して正しく件数が表示されることを確認していきましょう。  
 
-Todoのフォーム画面は[Expressのルーティングの設定](https://irisash.com/express/editrouting/)で既に用意しています。残りは「submit」ボタンを押した後の処理の実装です。  
+Todoのフォーム画面は[Expressのルーティングの設定](https://irisash.github.io/github-pages/express/editrouting/)で既に用意しています。残りは「submit」ボタンを押した後の処理の実装です。  
 
 **body-parser**
 
@@ -392,7 +392,7 @@ exports.index = function(req, res, next) {
 「残りのTODO」を取得する場合は検索条件を指定する必要がありますが、ここでは一旦全件検索しておきます。検索条件は後で設定します。  
 
 **views/todo/index.pug**
-[Expressのルーティングの設定](https://irisash.com/express/editrouting/)では、画面は固定の文字を表示していたので、データの中身を表示するように編集しましょう。
+[Expressのルーティングの設定](https://irisash.github.io/github-pages/express/editrouting/)では、画面は固定の文字を表示していたので、データの中身を表示するように編集しましょう。
 
 ```views/todo/index.pug.prettyprint
 // views/todo/index.pug

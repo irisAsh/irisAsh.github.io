@@ -59,7 +59,7 @@ module.exports = {
    * Router configuration
    */
   router: {
-    base: '/'
+    base: '/github-pages'
   },
   /*
    * Modlue configuration
@@ -88,7 +88,7 @@ module.exports = {
    */
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://irisash.com',
+    hostname: 'https://irisash.github.io/github-pages/',
     generate: true,
     exclude: [],
     filter: ({ routes }) => {

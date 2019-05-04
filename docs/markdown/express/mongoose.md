@@ -1,11 +1,11 @@
 # Express入門（Mongooseの利用）
 
-[Express入門（MongoDBの利用）](https://irisash.com/express/mongodb/)ではMongoDB Node.js Driverを使ったTodoの検索・作成・削除を説明しましたが、今回はNode.js用のMongoDBライブラリ[Mongoose](https://mongoosejs.com)の使い方を説明していきます。  
+[Express入門（MongoDBの利用）](https://irisash.github.io/github-pages/express/mongodb/)ではMongoDB Node.js Driverを使ったTodoの検索・作成・削除を説明しましたが、今回はNode.js用のMongoDBライブラリ[Mongoose](https://mongoosejs.com)の使い方を説明していきます。  
   
 
 <h2 id="mongodb-install">MongoDBのインストール</h2>
 
-MongoDB自体のインストールは[Express入門（MongoDBの利用）](https://irisash.com/express/mongodb/)の「MongoDBのインストール」と同様なのでそちらの方をご参照ください。  
+MongoDB自体のインストールは[Express入門（MongoDBの利用）](https://irisash.github.io/github-pages/express/mongodb/)の「MongoDBのインストール」と同様なのでそちらの方をご参照ください。  
 
 <h2 id="mongoose-install">Mongooseのインストール</h2>
 

@@ -1,6 +1,6 @@
 # ExpressでDigest認証を実装する
 
-[ExpressでBasic認証を実装する](https://irisash.com/express/basic_auth/)でBasic認証の仕組みをみました。そこで分かるのは、送信される情報の値を取得できれば、Base64でデコードするだけでパスワードを解読できてしまうということです。  
+[ExpressでBasic認証を実装する](https://irisash.github.io/github-pages/express/basic_auth/)でBasic認証の仕組みをみました。そこで分かるのは、送信される情報の値を取得できれば、Base64でデコードするだけでパスワードを解読できてしまうということです。  
   
 そこでクライアントから送信するパスワードはハッシュ化して、またサーバー側でも登録しているパスワードをハッシュ化し、それぞれの値を照合することで認可する方法が考案されました。これがDigest認証です。  
   
@@ -29,7 +29,7 @@ $ yarn add uuid
 
 照合値の算出時にランダムな文字列(nonce)やリクエスト回数(nc)をサーバー側で保持しておく必要があります。それらの値はセッションで管理することにしました。Expressでセッションを管理するには[express-session](https://github.com/expressjs/session)を使います。  
   
-`express-session`の使い方については[Expressでセッションを利用する](https://irisash.com/express/express_session/)で説明しているのでご参考にしてください。  
+`express-session`の使い方については[Expressでセッションを利用する](https://irisash.github.io/github-pages/express/express_session/)で説明しているのでご参考にしてください。  
   
 ```shell.prettyprint
 $ yarn add express-session

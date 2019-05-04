@@ -109,7 +109,7 @@ exports.index = function(req, res) {
 };
 ```
 
-ここではテンプレートファイルにPugを使っているので、`#{変数名}`でController層から渡された値を描画できます。Pugの詳しい使い方は[Pug(HTMLテンプレートエンジン)の書き方まとめ](https://irisash.com/express/pug_reference/)にまとめているのでご覧ください。
+ここではテンプレートファイルにPugを使っているので、`#{変数名}`でController層から渡された値を描画できます。Pugの詳しい使い方は[Pug(HTMLテンプレートエンジン)の書き方まとめ](https://irisash.github.io/github-pages/express/pug_reference/)にまとめているのでご覧ください。
 
 ```home/index.pug.prettyprint
 extends ../layout
@@ -137,7 +137,7 @@ block content
 
 <h2 id="todo-pages">TODO画面のルーティング</h2>
 
-ついでにTODOの一覧を表示する画面と作成する画面を用意してみましょう。実際にデータ取得や作成処理を実装するにはDBを利用します。実装については[ExpressでMongoDBを使う](https://irisash.com/express/mongodb/)をご参照ください。  
+ついでにTODOの一覧を表示する画面と作成する画面を用意してみましょう。実際にデータ取得や作成処理を実装するにはDBを利用します。実装については[ExpressでMongoDBを使う](https://irisash.github.io/github-pages/express/mongodb/)をご参照ください。  
 Homeと同じようにルーティングを追加します。`routes/todo.js`, `controllers/todoController.js`はHomeとほぼ同様です  
 
 ### ルーティング

@@ -89,8 +89,8 @@ express-sessionを設定したことにより、`req.session`からセッショ�
   
 また、MongoDBのインストールや使い方は以下を参考にしてください。  
 
-- [Express入門（MongoDBの利用）](https://irisash.com/express/mongodb/)
-- [Express入門（Mongooseの利用）](https://irisash.com/express/mongoose/)
+- [Express入門（MongoDBの利用）](https://irisash.github.io/github-pages/express/mongodb/)
+- [Express入門（Mongooseの利用）](https://irisash.github.io/github-pages/express/mongoose/)
 
 **インストール**
 
@@ -150,7 +150,7 @@ MongoDBの時と同様にRedisを使ってセッション管理ができるよ�
   
 Redisと連携するパッケージ[connect-redis](https://github.com/tj/connect-redis)を使って実装します。  
   
-また、Redis自体の使い方については[Redisの環境設定](https://irisash.com/redis/setup/)をご参考ください。  
+また、Redis自体の使い方については[Redisの環境設定](https://irisash.github.io/github-pages/redis/setup/)をご参考ください。  
   
 
 **インストール**

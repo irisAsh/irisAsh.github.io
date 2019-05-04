@@ -133,7 +133,7 @@ block content
 
 下のように画面が表示されます。
 
-<img src="images/express/edit_routing/home_page.png" alt="Home画面" title="Home画面" style="max-height:400px;">
+<img src="github-pages/images/express/edit_routing/home_page.png" alt="Home画面" title="Home画面" style="max-height:400px;">
 
 <h2 id="todo-pages">TODO画面のルーティング</h2>
 
@@ -203,7 +203,7 @@ block content
 **画面**
 
 
-<img src="images/express/edit_routing/todo_list.png" alt="Todo一覧画面" title="Todo一覧画面" style="max-height:400px;">
+<img src="github-pages/images/express/edit_routing/todo_list.png" alt="Todo一覧画面" title="Todo一覧画面" style="max-height:400px;">
 
 ### TODO作成画面
 
@@ -242,4 +242,4 @@ block content
 
 **画面**
 
-<img src="images/express/edit_routing/todo_form.png" alt="Todo作成画面" title="Todo作成画面" style="max-height:400px;">
+<img src="github-pages/images/express/edit_routing/todo_form.png" alt="Todo作成画面" title="Todo作成画面" style="max-height:400px;">

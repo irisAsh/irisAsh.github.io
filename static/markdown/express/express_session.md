@@ -59,7 +59,7 @@ app.use(session({
 
 下図のようにページを訪れた回数をセッションを使って表示します。  
 
-<img src="images/express/express_session/home_page.png" alt="Home画面" title="Home画面" style="max-height:400px;">
+<img src="github-pages/images/express/express_session/home_page.png" alt="Home画面" title="Home画面" style="max-height:400px;">
 
 実装は下記のようになります。  
 
@@ -81,7 +81,7 @@ express-sessionを設定したことにより、`req.session`からセッショ�
   
 実際に画面を開くと、画面を更新する度に訪問回数が増えていくのが確認できます。また、今回はセッションの設定で保存時間を１分に設定しているので１分以上経ってから画面を更新すると訪問回数が１回に戻るようになっています。  
 
-<img src="images/express/express_session/visit_five_times.png" alt="訪問回数" title="訪問回数" style="max-height:400px;">
+<img src="github-pages/images/express/express_session/visit_five_times.png" alt="訪問回数" title="訪問回数" style="max-height:400px;">
 
 <h2 id="connect-mongo">MongoDBでセッションを管理する</h2>
 

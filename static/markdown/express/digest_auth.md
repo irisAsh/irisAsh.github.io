@@ -12,7 +12,7 @@ Digest認証のアルゴリズムや詳細については記事最後の参考�
   
 実装目標はサンプルの`/tutorial`ページにDigest認証を設定とします。  
   
-<img src="images/express/digest_auth/root.png" alt="ルート画面" title="ルート画面" style="max-height:400px;">
+<img src="github-pages/images/express/digest_auth/root.png" alt="ルート画面" title="ルート画面" style="max-height:400px;">
   
 まずは実装に利用するパッケージをインストールします。  
 
@@ -169,7 +169,7 @@ WWW-Authenticate: Digest
 
 クライアントからユーザー名とパスワードが送信されるので、送信される値から Digest の値を算出します。  
 
-<img src="images/express/digest_auth/root.png" alt="認証画面" title="認証画面" style="max-height:400px;">
+<img src="github-pages/images/express/digest_auth/root.png" alt="認証画面" title="認証画面" style="max-height:400px;">
 
 クライアントから送信される値は次のようになります。  
 

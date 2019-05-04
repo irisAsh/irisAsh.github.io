@@ -81,7 +81,7 @@ Schemeを生成する際の引数にTodoのカラム定義を指定します。`
 
 Mongooseを使ってTodoの件数を取得してみます。サンプルでは以下のような画面になります。  
 
-<img src="images/express/mongoose/home_page.png" alt="Todo件数取得" title="Todo件数取得" style="max-height:400px;">
+<img src="github-pages/images/express/mongoose/home_page.png" alt="Todo件数取得" title="Todo件数取得" style="max-height:400px;">
 
 先程定義したModelは`var Todo = require('../models/todo');`で読み込むことができます。この`Todo`を使ってDB操作を行えます。  
   
@@ -222,7 +222,7 @@ exports.index = function(req, res, next) {
 
 Mongooseを使ってTodoを登録する処理を作りましょう。プロジェクトのテンプレートに用意してあるフォーム画面に登録処理を組み込みます。  
   
-<img src="images/express/mongoose/form_page.png" alt="Form画面" title="Form画面" style="max-height:400px;">
+<img src="github-pages/images/express/mongoose/form_page.png" alt="Form画面" title="Form画面" style="max-height:400px;">
   
 POST処理を受け取ると`todoController.js`の`createPost`へ処理が走るようになっています。`createPost`にMongooseの登録処理を追加しましょう。  
 追加処理はモデルの`create`関数を使います。使い方ですが引数に登録するTodoデータの値を指定するだけです。登録後の処理は検索時と同じように、引数にコールバックを指定するか、コールバックを指定しない場合は`create`関数がPromiseを返すのでPromiseを使って後続処理を実装できます。  

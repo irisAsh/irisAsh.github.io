@@ -209,3 +209,7 @@ router.get('/handlers/login_check',
   }
 );
 ```
+
+<h2 id="reference">参考サイト</h2>
+
+- [Express でのルーティング](https://expressjs.com/ja/guide/routing.html)

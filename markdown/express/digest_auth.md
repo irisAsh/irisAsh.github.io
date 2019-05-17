@@ -44,7 +44,7 @@ $ yarn add express-session
 $ yarn add blueimp-md5
 ```
 
-<h2 id="response">Digest認証の実装</h2>
+<h2 id="digest">Digest認証の実装</h2>
 
 先に実装全体を記載してしまいます。  
 

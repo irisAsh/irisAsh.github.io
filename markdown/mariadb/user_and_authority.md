@@ -133,7 +133,7 @@ MariaDB [(none)]> SHOW GRANTS FOR test_user@localhost;
 
 <h2 id="grant-user">権限の付与</h2>
 
-権限は`GRANT 権限の種類 ON *.* TO ユーザー@ホスト`で付与できます。  
+権限は`GRANT 権限の種類 ON DB名.* TO ユーザー@ホスト`で付与できます。  
 下記の処理は`test_user`に全権限を付与しています。権限の種類は[こちら](https://mariadb.com/kb/en/library/grant/#the-all-privileges-privilege)を参照ください。  
 
 ```shell.prettyprint
@@ -145,6 +145,20 @@ MariaDB [(none)]> SHOW GRANTS FOR test_user@localhost;
 +---------------------------------------------------------------------------------------------------------------------------+
 | GRANT ALL PRIVILEGES ON *.* TO 'test_user'@'localhost' IDENTIFIED BY PASSWORD '*0913BF2E2CE20CE21BFB1961AF124D4920458E5F' |
 +---------------------------------------------------------------------------------------------------------------------------+
+```
+
+DBを限定して権限を与える場合。  
+
+```shell.prettyprint
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON dbname.* TO test_user@localhost;
+
+MariaDB [(none)]> SHOW GRANTS FOR test_user@localhost;
++------------------------------------------------------------------------------------------------------------------+
+| Grants for test_user@localhost                                                                                   |
++------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'test_user'@'localhost' IDENTIFIED BY PASSWORD '*94BDCEBE19083CE2A1F959FD02F964C7AF4CFC29' |
+| GRANT ALL PRIVILEGES ON `dbname`.* TO 'test_user'@'localhost'                                                    |
++------------------------------------------------------------------------------------------------------------------+
 ```
 
 <h2 id="reference-link">参考サイト</h2>

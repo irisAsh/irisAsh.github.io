@@ -1,7 +1,7 @@
 <!doctype html>
 <html data-n-head-ssr amp data-n-head="%7B%22amp%22:%7B%22ssr%22:true%7D%7D">
   <head>
-    <title>Express入門（MongoDBの利用） | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="ExpressでMongoDBを使ってTodoアプリを作っていきます。MongoDBはNoSQLデータベースの１つでデータをJSON形式で扱うことができます。またデータベースの操作にはMongoDB Node.js Driverを使っていきます。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/mongodb"><link rel="preload" href="/_nuxt/5c215998f326e3005d71.js" as="script"><link rel="preload" href="/_nuxt/15079d49ab1d9cfbcb09.js" as="script"><link rel="preload" href="/_nuxt/f3d6a8031bef5f7001eb.js" as="script"><link rel="preload" href="/_nuxt/f20718914cc762e98b62.js" as="script"><link rel="preload" href="/_nuxt/2088e84dbdcaa1312235.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 2c1f7920:0 dad36f06:0 7df61210:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-92531920]{box-sizing:border-box}.__amp a[data-v-92531920]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-92531920]:visited{color:inherit}.__amp .m0[data-v-92531920]{margin:0}.__amp .p0[data-v-92531920]{padding:0}.__amp .pl1[data-v-92531920]{padding-left:.5rem}.__amp .pl2[data-v-92531920]{padding-left:1rem}.__amp .pl3[data-v-92531920]{padding-left:1.5rem}.__amp .pl4[data-v-92531920]{padding-left:2rem}.__amp .pr1[data-v-92531920]{padding-right:.5rem}.__amp .pr2[data-v-92531920]{padding-right:1rem}.__amp .pr3[data-v-92531920]{padding-right:1.5rem}.__amp .pr4[data-v-92531920]{padding-right:2rem}.__amp .menu-link[data-v-92531920]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-92531920]:visited{color:inherit}.__amp .headerbar[data-v-92531920]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-92531920]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-92531920]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-92531920]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-92531920]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-92531920]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-92531920]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-92531920]{text-align:left}.__amp .nav-single[data-v-92531920]{min-width:100px}.__amp .nav-dropdown[data-v-92531920]{position:relative;min-width:140px}.__amp .humbarger[data-v-92531920]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-92531920]{display:none}}.__amp .sidebar[data-v-92531920]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-92531920]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-92531920]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-92531920]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-92531920]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-92531920]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-92531920]{text-align:left;margin:0 0 1rem}.footer[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-92531920]{color:#efefef}#table-content[data-v-92531920]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-92531920]{padding:20px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:10px}.link-container[data-v-92531920]{margin-bottom:.3rem}.link-container a[data-v-92531920]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-92531920]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <title>Express入門（MongoDBの利用） | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="ExpressでMongoDBを使ってTodoアプリを作っていきます。MongoDBはNoSQLデータベースの１つでデータをJSON形式で扱うことができます。またデータベースの操作にはMongoDB Node.js Driverを使っていきます。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/mongodb"><link rel="preload" href="/_nuxt/a3a4612808a61b95b7d2.js" as="script"><link rel="preload" href="/_nuxt/2b0336898229d549ef28.js" as="script"><link rel="preload" href="/_nuxt/5f861a9e92873ef4fe81.js" as="script"><link rel="preload" href="/_nuxt/52f7748893ef32fb82ba.js" as="script"><link rel="preload" href="/_nuxt/531091715d090f6a4067.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 2c1f7920:0 dad36f06:0 5e6f4ba6:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-47ae3f5c]{box-sizing:border-box}.__amp a[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-47ae3f5c]:visited{color:inherit}.__amp .m0[data-v-47ae3f5c]{margin:0}.__amp .p0[data-v-47ae3f5c]{padding:0}.__amp .pl1[data-v-47ae3f5c]{padding-left:.5rem}.__amp .pl2[data-v-47ae3f5c]{padding-left:1rem}.__amp .pl3[data-v-47ae3f5c]{padding-left:1.5rem}.__amp .pl4[data-v-47ae3f5c]{padding-left:2rem}.__amp .pr1[data-v-47ae3f5c]{padding-right:.5rem}.__amp .pr2[data-v-47ae3f5c]{padding-right:1rem}.__amp .pr3[data-v-47ae3f5c]{padding-right:1.5rem}.__amp .pr4[data-v-47ae3f5c]{padding-right:2rem}.__amp .menu-link[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-47ae3f5c]:visited{color:inherit}.__amp .headerbar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-47ae3f5c]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-47ae3f5c]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-47ae3f5c]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-47ae3f5c]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-47ae3f5c]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-47ae3f5c]{text-align:left}.__amp .nav-single[data-v-47ae3f5c]{min-width:100px}.__amp .nav-dropdown[data-v-47ae3f5c]{position:relative;min-width:140px}.__amp .humbarger[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-47ae3f5c]{display:none}}.__amp .sidebar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-47ae3f5c]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-47ae3f5c]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-47ae3f5c]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-47ae3f5c]{text-align:left;margin:0 0 1rem}.footer[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-47ae3f5c]{color:#efefef}#table-content[data-v-47ae3f5c]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-47ae3f5c]{padding:16px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:3.5rem}.link-container[data-v-47ae3f5c]{margin-bottom:.3rem}.link-container a[data-v-47ae3f5c]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-47ae3f5c]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   </head>
   <body class="__amp" data-n-head="%7B%22class%22:%7B%22ssr%22:%22%20__amp%22%7D%7D">
     <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div class="site"><div><header class="headerbar pl2 pr4"><div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="humbarger pr2">☰</div> <nav class="headerbar-nav"><ul class="m0 p0"><li class="nav-single"><a href="/" class="menu-link nuxt-link-active">
@@ -817,24 +817,779 @@ exports.updatePatch = function(req, res, next) {
           Express サードパーティ一覧
         </a></div><div class="menu-item" data-v-967b7d70><a href="/express/links/" data-v-967b7d70>
           参考リンク
-        </a></div></section></aside></div> <div id="table-content" data-v-92531920><aside id="table-content-list" data-v-92531920><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBのインストール
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDB Node.JS Driverを使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBからデータ数を取得する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBにデータを書き込む
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBでデータ詳細を取得する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBで検索条件を指定する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBでデータを削除する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        MongoDBでデータを更新する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/mongodb" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        まとめ
-      </a></div></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
+        </a></div></section></aside></div> <div id="table-content" articlemd="<section><h1>Express入門（MongoDBの利用）</h1>
+<p>Expressでデーターベースを使ってデータ管理をします。データベースといえばオープンソースではPostgreSQLやMySQL、商用ではOracle Database、Microsoft SQL ServerなどのRDB(リレーショナルデータベース)が一般的に利用されています。<br />
+しかし、ここではNoSQLと呼ばれるデータベースの１つMongoDBを使っていきます。MongoDBを使うメリットとしては、「大量のデータを高速で扱うことができる（扱うデータの構造には依ります）」「スキーマレスなデータ（ログ、スキーマ構造の変更が多いデータなど）をJSONで扱うことができる」などです。JSON形式でデータを扱えるのでJavascriptとも親和性が良いです。<br />
+逆に、スキーマ間の複雑な関係性が必要な場合やデータ整合性を重視する場合、トランザクションを頻繁に必要とする場合はRDBの方が向いています。</p>
+<p>またこの記事の完成済みのサンプルを<a href=&#34;https://github.com/irisAsh/express-todo-tutorial/tree/master&#34;>こちら</a>に置いています。ソースコード全体を確認したい場合はご参照ください。</p>
+<h2 id=&#34;install-mongodb&#34;>MongoDBのインストール</h2>
+<p>MacOSでのインストールを説明します。その他の環境では<a href=&#34;https://www.mongodb.com/download-center/community&#34;>公式サイト</a>等を参照ください。<br />
+説明といっても<a href=&#34;https://brew.sh/index_ja&#34;>Homebrew</a>を使うとワンライナーで済みます。<br />
+下記のコマンドを実行するだけです。</p>
+<pre><code>$ brew install mongodb
+</code></pre>
+<p>次のコマンドでインストールの確認ができます。MongoDBのバージョンが確認できればインストール完了です。</p>
+<pre><code>$ mongo                     
+MongoDB shell version v4.0.3
+</code></pre>
+<p>MongoDBの起動は次のコマンドで起動できます。</p>
+<pre><code>$ mongod
+</code></pre>
+<p>設定ファイルを参照しない場合はデフォルトで<code>/data</code>以下にデータが作成されていきます。変更する場合は<code>--dbpath パス</code>で指定できます。また、ログファイルの出力先も<code>--logpath パス</code>で変更できます。<br />
+Homebrewを使ってMongoDBをインストールした場合は<code>/usr/local/etc/mongod.conf</code>に設定ファイルが作成されています。この設定ファイルを使ってデータとログの書き込み先を変更する場合は下記のように起動時に<code>--config</code>オプションを使います。</p>
+<pre><code>$ mongod --config /usr/local/etc/mongod.conf
+</code></pre>
+<p>MongoDBをコンソール上で操作する場合はMongoDB起動後に<code>mongo</code>コマンドを実行するとコンソールが立ち上がります。下記では<code>use DB名</code>コマンドを使ってDBを作成しています。他DBに切り替える時もこのコマンドを使います。コンソールから抜ける時は<code>quite()</code>を使います。</p>
+<pre><code>$ mongo
+MongoDB shell version v4.0.3
+connecting to: mongodb://127.0.0.1:27017
+...
+...
+&amp;gt;
+&amp;gt; use express-todo-tutorial
+switched to db express-todo-tutorial
+&amp;gt; quite()
+
+</code></pre>
+<h2 id=&#34;mongodb-nodejs-driver&#34;>MongoDB Node.JS Driverを使う</h2>
+<p>Node.jsでMongoDBを扱うためのライブラリがあります。<a href=&#34;http://mongodb.github.io/node-mongodb-native/&#34;>MongoDB Node.JS Driver</a>や<a href=&#34;https://mongoosejs.com/&#34;>Mongoose</a>が有名です。</p>
+<p>それぞれの特徴を比較してみると、MongoDB Driverはより高速に処理を行うことができます。しかし、ライブラリ自体にスキーマ構造を作成するような機能はないので、もし必要な場合は自前で用意する必要があります。単にDBへ読み描きするだけであればMongoDB Driverを使うのが良いでしょう。</p>
+<p>対してMongooseの方は扱う上でスキーマの構造を定義するので、MVCモデルでWebアプリを作成するのであればMongooseを使う方が後々楽になります。</p>
+<p>ここではMongoDB Driverの使い方を説明します。Mongooseの使い方は<a href=&#34;https://irisash.github.io/express/mongoose/&#34;>Express入門（Mongooseの利用）</a>で説明します。</p>
+<h3>インストール</h3>
+<p>プロジェクトフォルダのトップに移って下記のコマンドを実行しましょう。これだけでライブラリのインストールは完了です。</p>
+<pre><code>$ yarn add bson-ext kerberos node-gyp mongodb
+</code></pre>
+<h3>接続確認</h3>
+<p><code>app.js</code>でMongoDBの接続確認を行う処理を追加しましょう。</p>
+<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
+
+var app = express();
+ 
+// 以下を追加
+var MongoClient = require('mongodb').MongoClient;
+MongoClient.connect(
+  'mongodb://127.0.0.1:27017/express-todo-tutorial',
+  { useNewUrlParser: true },
+  function(err, client) {
+    console.log(&amp;quot;Connected successfully to DB&amp;quot;);
+    client.close();
+  }
+);
+
+</code></pre>
+<p>ブラウザからlocalhostにアクセスして、Nodeサーバー上で「Connected successfully to DB」が出力されていれば成功です。（アプリ起動前には<code>mongod</code>でMongoDBを起動しておく事を忘れないでください。）</p>
+<p>コードの説明ですが、<code>require('mongodb').MongoClient</code>でMongoDBのクライアントクラスをロードしています。<br />
+<code>MongoClient</code>の<code>connect</code>を使って実際にMongoDBにアクセスします。<br />
+第１引数には、接続先のMongoDBのURLを指定します。デフォルトのままであれば<code>mongodb://127.0.0.1:27017/スキーマ名</code>でアクセスできます。<br />
+第２引数にはオプションを指定します。ここでは<code>{useNewUrlParser true}</code>を指定して新しいURL解析を利用するようにしています。今後のMongoDBの接続URL形式更新に伴い指定する必要があります。指定しない場合は以下のような警告が表示されます。</p>
+<pre><code>(node:32386) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+</code></pre>
+<p>そして<code>connect</code>の第３引数には接続後に実行されるコールバックを指定します。今回は接続確認なのでログ出力後に接続を切断する処理を書いています。</p>
+<h2 id=&#34;select-mongodb&#34;>MongoDBからデータ数を取得する</h2>
+<p>MongoDBからデータを取得し、TODOの件数を画面に表示します。表示内容の詳細については<a href=&#34;https://irisash.github.io/express/editrouting/&#34;>Expressのルーティングの設定</a>をご参照ください。</p>
+<h3>DBアクセス部品の作成</h3>
+<p>MongoDBにアクセスする処理はデータ取得以外にも追加や削除などでも度々行うので、共通化して部品にしておきましょう。プロジェクト直下に<code>lib</code>フォルダを作成して、<code>constants.js</code>, <code>dbUtils.js</code>を用意しましょう。</p>
+<p><strong>フォルダ構造</strong></p>
+<pre><code>.
+├── app.js
+├── bin
+│   └── www
+├── controllers
+│   ├── homeController.js
+│   └── todoController.js
+└── lib
+    ├── constants.js
+    └── dbUtils.js
+</code></pre>
+<p><strong>constants.js</strong></p>
+<p>アプリケーション定数の定義をまとめておくために<code>constants.js</code>を用意しています。<br />
+<a href=&#34;https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze&#34;>Object.freeze()</a>を使うとオブジェクトの値変更などを禁止してくれます。</p>
+<pre><code class=&#34;language-lib/constants.js.prettyprint&#34;>// lib/constants.js
+
+module.exports = Object.freeze({
+  DB_URL: 'mongodb://127.0.0.1:27017/',
+  DB_NAME: 'express-todo-tutorial'
+});
+</code></pre>
+<p><strong>dbUtils.js</strong></p>
+<pre><code class=&#34;language-lib/dbUtils.js.prettyprint&#34;>// lib/dbUtils.js
+
+var constants = require('./constants');
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
+
+exports.connectionToDB = function() {
+  return new Promise(function(resolve, reject) {
+    MongoClient.connect(
+      constants.DB_URL + constants.DB_NAME,
+      { useNewUrlParser: true },
+      function(error, client) {
+        if (error) {
+          reject(error);
+        } else {
+          var db = client.db(constants.DB_NAME);
+          resolve({ client, db });
+        }
+      }
+    );
+  });
+};
+</code></pre>
+<p>MongoDB Driverの<code>mongodb.MongoClient</code>を使ってMongoDBにアクセスします。アクセスする関数<code>connectionToDB</code>は戻り値にPromiseを返すようにしています。ExpressではDBの接続などが非同期処理になっているので、Promiseを使わないとMongoDBからデータの件数を取得を呼び出してから、画面描画を行なっても基本的には画面描画の方が先に終わるので、画面に表示される件数は0件となってしまいます。<br />
+そこでPromiseを使ってデータが取得が完了した後に画面の描画を開始するように実装していく必要があります。</p>
+<p>MongoDBのアクセスについては先程の内容と同じです。接続後の処理は<code>client.db(constants.DB_NAME)</code>でDBインスタンスを取得し、接続成功時として<code>{ clien, db }</code>でMongoClientとDBのインスタンを返すようにしています。この<code>db</code>の持つDB操作関数を使ってデータの取得などを実装できます。</p>
+<h3>件数の取得</h3>
+<p>さて作成したDBアクセス部品を<code>controllers/homeController.js</code>に組み込みましょう。まずはコードから。</p>
+<pre><code class=&#34;language-controllers/homeController.js.prettyprint&#34;>// controllers/homeController.js
+
+var dbUtils = require('../lib/dbUtils');
+
+exports.index = function(req, res) {
+  var dbClient;
+
+  var countTodos = function(db) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      .countDocuments(
+        function(error, count) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(count);
+          }
+        }
+      );
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    return countTodos(db);
+  })
+  .then(function(result) {
+    res.render('home/index', {
+      remainingTodoCount: result,
+      todayTodoCount: 2,
+      completedTodoCount: 1
+    });
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+};
+</code></pre>
+<p>まずTodoデータ全体の件数を取得する<code>countTodos</code>を定義しています。こちらもアクセス部品と同様Promiseを返すようにしています。引数ではDBインスタンスを受け取るようにし、受け取ったDBインスタンスを使って<code>db.collection('todos')</code>でTodoコレクション(<code>todos</code>と名付けました)のインスタンスを取得できます。<br />
+そして、コレクション関数の<code>countDocuments</code>でコレクションのデータ件数が取得できます。<code>countDocuments</code>の引数には検索条件を渡すことができます。ここでは一旦全件の件数を取得するようにします。検索条件は後ほど設定します。</p>
+<p>さて、実際に処理の開始は<code>dbUtils.connectionToDB()</code>のアクセスから始まります。アクセス後に取得したDBインスタンスを使って<code>countTodos(db)</code>の呼び出しをします。<code>dbClient = client;</code>としてMongoClientを一時的に保存していますが、これは処理の最後で<code>dbClient.close();</code>としてDB接続を閉じるために保存しています。</p>
+<p>最後に取得した件数を<code>remainingTodoCount</code>の値として設定すれば件数取得の完了です。現在はデータがないので画面には0件と表示されるでしょう。</p>
+<img src=&#34;images/express/mongodb/get_data_count.png&#34; alt=&#34;Todo件数取得&#34; title=&#34;Todo件数取得&#34; style=&#34;max-height:400px;&#34;>
+<h2 id=&#34;insert-mongodb&#34;>MongoDBにデータを書き込む</h2>
+<p>データ件数を取得できるようになりましたが、今のままではデータを追加できないので一覧は0件のままです。データ追加を実装して正しく件数が表示されることを確認していきましょう。</p>
+<p>Todoのフォーム画面は<a href=&#34;https://irisash.github.io/express/editrouting/&#34;>Expressのルーティングの設定</a>で既に用意しています。残りは「submit」ボタンを押した後の処理の実装です。</p>
+<p><strong>body-parser</strong></p>
+<p>POSTのリクエストボディからパラメータを解析し必要データを取り出す必要があるのですが、この取り出しを簡単にできる<a href=&#34;https://github.com/expressjs/body-parser&#34;>body-parser</a>という外部ミドルウェアが用意されています。body-parserを使うと<code>req.body</code>というプロパティで参照できるようになります。</p>
+<pre><code>$ yarn add body-parser
+</code></pre>
+<p><code>app.js</code>を編集してミドルウェアを組み込みましょう。</p>
+<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
+省略
+...
+// ミドルウェアをインポート
+var bodyParser = require('body-parser');
+...
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// body-parserの設定
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/', indexRouter);
+...
+
+</code></pre>
+<p><strong>routes/todo.js</strong></p>
+<p>データの追加処理はPOSTリクエストなので<code>routes/todo.js</code>では<code>router.post</code>を使って<code>/create</code>のPOST処理を登録しましょう。</p>
+<pre><code class=&#34;language-routes/todo.js.prettyprint&#34;>// routes/todo.js
+省略
+...
+router.get('/create', todoController.createGet);
+router.post('/create', todoController.createPost);
+</code></pre>
+<p><strong>controllers/todoController.js</strong></p>
+<p>MongoDBへの接続はこれまでの通りです。先程の件数取得と異なるのはデータ追加関数の定義箇所となります。</p>
+<pre><code class=&#34;language-controllers/todoController.js.prettyprint&#34;>// controllers/todoController.js
+省略
+...
+exports.createPost = function(req, res) {
+  var dbClient;
+  var createOneTodo = function(db, data) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      .insertOne(data, function(error, r) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(r);
+        }
+      });
+    });
+  };
+  
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    var { title, description, status, estimatedDate } = req.body;
+    return createOneTodo(db, {
+      title,
+      description,
+      status,
+      estimatedDate: new Date(estimatedDate)
+    });
+  })
+  .then(function(result) {
+    res.redirect('/todo');
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+};
+</code></pre>
+<p>データ追加関数<code>createOneTodo</code>はDBインスタンスと挿入データとしています。データを1件追加にはコレクションの関数<code>insertOne</code>を利用します。第１引数に挿入データを第２引数には追加後のコールバックです。コールバックには追加した結果が渡されます。追加の成功件数や追加データなどが参照できます。ここではPromiseで結果情報を参照できるようにしていますが特には使用していません。</p>
+<p><code>createOneTodo</code>に渡すデータは<code>req.body</code>から拾って、適宜加工してから渡します。</p>
+<p>最後にPOST処理なのでデータ登録完了後は<code>res.redirect('/todo');</code>でTodoの一覧画面にリダイレクトしておきましょう。</p>
+<p>さて、実際にTodoを追加してみましょう。追加して行く度に「残りのTODO」の件数がカウントされていくのが確認できます。</p>
+<h2 id=&#34;find-mongodb&#34;>MongoDBでデータ詳細を取得する</h2>
+<p>データ追加ができるようになりました。今度は「残りのTODO」の一覧画面にTODOの詳細が表示されるようにしましょう。</p>
+<p><strong>controllers/todoController.js</strong></p>
+<pre><code class=&#34;language-controllers/todoController.js.prettyprint&#34;>// controllers/todoController.js
+省略
+...
+exports.index = function(req, res, next) {
+  var dbClient;
+
+  var getTodos = function(db) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      .find({})
+      .toArray(function(error, docs) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(docs);
+        }
+      });
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+   dbClient = client;
+   return getTodos(db);
+  })
+  .then(function(result) {
+    res.render('todo/index', {
+      todos: result
+    });
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+};
+</code></pre>
+<p>データ検索はコレクションの<code>find</code>関数でできます。引数には検索条件を設定します。空オブジェクトを指定あるいは何も指定しない場合は全件検索になります。検索後は検索結果をそのままビュー側に渡しています。</p>
+<p>「残りのTODO」を取得する場合は検索条件を指定する必要がありますが、ここでは一旦全件検索しておきます。検索条件は後で設定します。</p>
+<p><strong>views/todo/index.pug</strong><br />
+<a href=&#34;https://irisash.github.io/express/editrouting/&#34;>Expressのルーティングの設定</a>では、画面は固定の文字を表示していたので、データの中身を表示するように編集しましょう。</p>
+<pre><code class=&#34;language-views/todo/index.pug.prettyprint&#34;>// views/todo/index.pug
+省略
+...
+  h1 残りのTODO
+  if !!todos
+    ul
+      each todo in todos
+        li
+        p #{todo.title}
+        p #{todo.description}
+        p #{todo.status}
+        p #{todo.estimatedDate}
+        p
+          | [
+          a(href='') 編集
+          | ]
+        p
+  	  | [
+  	  a(href='') 削除
+  	  | ]
+</code></pre>
+<p>追加画面で登録した内容が表示されれば成功です。</p>
+<img src=&#34;images/express/mongodb/get_todo_list.png&#34; alt=&#34;Todo件数取得&#34; title=&#34;Todo件数取得&#34; style=&#34;max-height:400px;&#34;>
+<h2 id=&#34;where-mongodb&#34;>MongoDBで検索条件を指定する</h2>
+<p>さて、データ取得・追加まで一通りできるようになりました。次は検索条件を指定して必要とするデータのみ取得するようにしてみましょう。<br />
+検索条件は様々な箇所で使い回しをする可能性があるので、クエリ作成の処理は共通化しておきましょう。lib配下に<code>todoQueries.js</code>を作成します。</p>
+<h3>詳細画面に検索条件を追加する</h3>
+<p><strong>lib/todoQueries.js</strong></p>
+<pre><code class=&#34;language-lib/todoQueries.js.prettyprint&#34;>// lib/todoQueries.js
+
+exports.completed = function() {
+  return { status: { $eq: 'completed' } };
+};
+exports.notCompleted = function() {
+  return { status: { $ne: 'completed' } };
+};
+exports.today = function() {
+  var now = new Date();
+  var start = new Date(new Date(now).setHours(0,0,0,0));
+  var end = new Date(new Date(now).setHours(23,59,59,999));
+  return {
+    estimatedDate: {
+      $gte: start,
+      $lte: end
+    }
+  };
+};
+</code></pre>
+<p>MongoDB Driverでは、MongoDBコンソールで扱うクエリと同様の書き方で条件を指定できます。基本的に条件は<code>{ プロパティ: 値 }</code>の形式か<code>{ プロパティ: { 比較文字: 値 } }</code>の形式で指定できます。以下に一部ですが比較文字の一覧を記載しておきます。</p>
+<table>
+<thead>
+<tr>
+<th>比較文字</th>
+<th>詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$eq</td>
+<td>値と同値のデータを条件に検索します</td>
+</tr>
+<tr>
+<td>$nq</td>
+<td>値と異なるデータを条件に検索します</td>
+</tr>
+<tr>
+<td>$gt</td>
+<td>値より大きいデータを条件に検索します</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td>値と同値または値より大きいデータを条件に検索します</td>
+</tr>
+<tr>
+<td>$lt</td>
+<td>値より小さいデータを条件に検索します</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td>値と同値または値より小さいデータを条件に検索します</td>
+</tr>
+</tbody>
+</table>
+<p>「残りのTODO」を検索する条件はステータスが<code>completed</code>でないとするので、その条件<code>{ status: { $ne: 'completed' } }</code>を返す<code>notCompleted</code>関数を定義しています。<br />
+同様に「今日のTODO」の条件として<code>today</code>関数を、「完了済TODO」の条件として<code>completed</code>関数をそれぞれ用意しています。</p>
+<p><strong>controllers/todoController.js</strong></p>
+<p>条件作成部品は用意できたので、実際に検索時に条件を指定してみましょう。</p>
+<pre><code class=&#34;language-controllers/todoController.js.prettyprint&#34;>// controllers/todoController.js
+省略
+...
+// クエリ作成部品をインポート
+var todoQueries = require('../lib/todoQueries');
+
+// 変更
+var getTodos = function(db, condition) {
+  return new Promise(function(resolve, reject) {
+    db.collection('todos')
+    .find(condition)
+    .toArray(function(error, docs) {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(docs);
+      }
+    });
+  });
+}
+
+exports.index = function(req, res, next) {
+  var dbClient;
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    // 変更
+    return getTodos(db, todoQueries.notCompleted());
+  })
+  .then(function(result) {
+    res.render('todo/index', {
+...
+
+</code></pre>
+<p>条件検索の方法はコレクション関数<code>find</code>の引数に条件のオブジェクトを渡すことで実行できます。<br />
+Todoを取得する関数は「残りのTODO」「今日のTODO」「完了済TODO」と使いまわせるようにファイル内でグローバルに定義し直します。さらに、第２引数には条件を指定できるようにしておきます。指定した条件を<code>find</code>関数に渡せば完了です。<br />
+あとは、<code>getTodos</code>の呼び出し時にクエリ作成部品で指定するクエリを渡せば検索できます。</p>
+<p>データ追加でステータスが<code>completed</code>とそれ以外のデータを作成してみてください。<code>/todo</code>では<code>completed</code>以外のTodoしか表示されていないことが確認できます。</p>
+<p>同様にして「今日のTODO」「完了済TODO」も実装してみてください。</p>
+<h3>件数一覧画面に検索条件を追加する</h3>
+<p>件数一覧画面にも検索条件を組み込みましょう。実装方法は<code>find</code>の時と同様です。<code>countDocuments</code>の関数にクエリを渡すだけです。</p>
+<pre><code class=&#34;language-controllers/homeController.js.prettyprint&#34;>// controllers/homeController.js
+省略
+...
+exports.index = function(req, res) {
+  var dbClient;
+
+  // 条件を設定できるように変更
+  var countTodos = function(db, condition) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      .countDocuments(
+        // 条件を渡す
+        condition,
+        function(error, count) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(count);
+          }
+        }
+      );
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    // ３つの検索が全て終わるまで待つようにする
+    return Promise.all([
+      countTodos(db, todoQueries.notCompleted()),
+      countTodos(db, todoQueries.today()),
+      countTodos(db, todoQueries.completed()),
+    ]);
+  })
+  .then(function(result) {
+    res.render('home/index', {
+      // 取得した件数をそれぞれ設定
+      remainingTodoCount: result[0],
+      todayTodoCount: result[1],
+      completedTodoCount: result[2]
+    });
+  })
+...
+
+</code></pre>
+<p><code>countTodos</code>の変更は先程の<code>getTodos</code>と同様です。注意するのは<code>countTodos</code>を呼び出す際に３つの検索が全て終わってから、次の画面描画処理に移るようにしないといけないことです。<br />
+そこで<code>Promise.all</code>を使ってこれを実装しています。<code>all</code>には実行するPromiseの配列を指定します。すると実行結果として指定したPromiseの結果が配列で取得できます（結果の配列の中身は<code>all</code>で渡したPromiseの順で返ってきます）</p>
+<p><code>/home</code>の件数が期待どうりに取得できていれば成功です。</p>
+<h2 id=&#34;delete-mongodb&#34;>MongoDBでデータを削除する</h2>
+<p>続いては、Todoの削除機能を追加します。MongoDBでデータを1件削除するには<code>deleteOne</code>を使います。引数に削除データに合致する条件と削除後のコールバックを指定します。<br />
+ここでは条件としてデータのIDを使用します。このIDはデータを追加した際にMongoDBが自動で生成するものです。データ取得で参照されるIDは文字列となっていますが、検索条件に指定する場合は、MongoDBのObjectIDのクラスに直さないといけません。DB部品に文字列IDをObjectIDに変換する関数を追加しておきましょう。</p>
+<p><strong>lib/dbUtils.js</strong></p>
+<pre><code class=&#34;language-lib/dbUtils.js.prettyprint&#34;>// lib/dbUtils.js
+省略
+...
+exports.createObjectID = function(id) {
+  return new mongodb.ObjectID(id);
+}
+</code></pre>
+<p><strong>controllers/todoController.js</strong></p>
+<p>データ追加・取得同様に削除機能のコントローラーを追加しましょう。</p>
+<pre><code class=&#34;language-controllers/todoController.js.prettyprint&#34;>// controllers/todoController.js
+省略
+...
+exports.delete = function(req, res) {
+  var dbClient;
+  var deleteOneTodo = function(db, id) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      // IDを検索条件にデータを削除
+      .deleteOne({ _id: dbUtils.createObjectID(id) }, function(error, r) {
+        if (error) {    
+          reject(error);
+        } else {                       
+          resolve(r);             
+        }           
+      });
+    });
+  };
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    // アクセスURLno「/todo/ID文字列」からID文字列を取得しています
+    var { id } = req.params;         
+    return deleteOneTodo(db, id);
+  })                                    
+  .then(function(result) {                        
+    res.redirect('/todo');  
+  })                                                                      
+  .catch(function(err) {
+    console.log(err);   
+    next(err);  
+  })                 
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+};                        
+</code></pre>
+<p><strong>routes/todo.js</strong></p>
+<p>削除のためのリクエストは「/todo/ID文字列」のDELETEリクエストとします。<code>/:id</code>とすることで「/todo/xxxxx」形式のDELETEリクエストで来た時にxxxxxをパラメータ（パラメータ名はid）として拾えるようになります。</p>
+<pre><code class=&#34;language-routes/todo.js.prettyprint&#34;>// routes/todo.js
+省略
+...
+router.delete('/:id', todoController.delete);
+</code></pre>
+<p>さて、あとは画面側の削除ボタンを作成するだけですが、HTMLのformはDELETEリクエストを発行することができません。そのためformから送信した時点ではPOSTとして送信しますが、受け取り時にDELETEリクエストに変換するようにしなければなりません。<br />
+<a href=&#34;https://github.com/expressjs/method-override&#34;>method-override</a>というパッケージを利用することで実装することができます。</p>
+<p><strong>インストール</strong></p>
+<pre><code>$ yarn add method-override
+</code></pre>
+<p><strong>app.js</strong></p>
+<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
+省略
+...
+// 追加
+var methodOverride = require('method-override')
+...
+...
+// 追加
+app.use(methodOverride('_method'))
+
+app.use('/', indexRouter);
+</code></pre>
+<p><strong>views/todo/index.pug</strong></p>
+<pre><code class=&#34;language-views/todo/index.pug.prettyprint&#34;>// views/todo/index.pug
+省略
+...
+    p                
+      | [            
+      a(href='') 編集
+      | ]            
+      form(method='POST' action=`/todo/${todo._id}?_method=DELETE`)
+        div
+          span [
+          input(
+            type='submit'
+            value='削除'
+            style={
+              'border': 'none',
+              'padding': 0,
+              'font-size': '14px',
+              'text-decoration': 'underline',
+              'color': '#00B7FF'
+            })
+          span ]
+</code></pre>
+<p>formのaction属性には<code>/todo/TodoのID?_method=DELETE</code>と指定しています。パラメータの<code>?_method=DELETE</code>を付けることで受け取った後にPOSTリクエストをDELETEリクエストに変換されるようになっています。</p>
+<p>以上で完了です。削除ボタンを押して画面から削除対象のTodoが消えればOKです。</p>
+<h2 id=&#34;update-mongodb&#34;>MongoDBでデータを更新する</h2>
+<p>残りの機能はTODOの編集機能です。基本的には他のDB操作と同じです。<br />
+更新のフォーム画面(GET)と更新処理(PATCH)を用意する必要があります。それぞれ<code>updateGet</code>, <code>updatePatch</code>としてコントローラーを用意します。</p>
+<p><strong>routes/todo.js</strong></p>
+<pre><code class=&#34;language-routes/todo.js.prettyprint&#34;>// routes/todo.js
+
+router.get('/update/:id', todoController.updateGet);
+router.patch('/update/:id', todoController.updatePatch);
+</code></pre>
+<h3>フォーム画面</h3>
+<p><strong>views/todo/update.pug</strong></p>
+<p>基本的にはコントローラーからtodoデータをもらってそれぞれinputタグのvalueに設定するだけです。<br />
+但し、予定時刻だけ<code>estimatedDateISOS</code>となっています。これは日付データの値をそのまま<code>datetime-local</code>型のinputに設定することができないため、コントローラー側で値を加工してから渡してきています。加工値のプロパティ名を敢えて<code>estimatedDateISOS</code>と名付けています。<br />
+また、削除の時と同様にフォームからPATCHリクエストを送信するために一度メソッドをPOSTにした上で、PATCHに書き換えるようにしています。</p>
+<pre><code class=&#34;language-views/todo/update.pug.prettyprint&#34;>// views/todo/update.pug
+
+extends ../layout
+
+block content
+  h1 TODO 作成
+
+  form(method='POST' action=`/todo/update/${todo._id}?_method=PATCH`)
+  div
+    label(for='title') タイトル：
+    input#title(
+      type='text'
+      placeholder='やること'
+      name='title'
+      required='true'
+      value=todo.title
+    )
+  div
+    label(for='description') 詳細説明：
+    input#description(
+      type='text'
+      placeholder='買い物に行く'
+      name='description'
+      value=todo.description
+    )
+  div
+    label(for='status') ステータス：
+    select#status(name='status')
+      option(
+        value='backlog'
+        selected= 'backlog' === todo.status
+      ) 未着手
+      option(
+        value='progress'
+        selected= 'progress' === todo.status
+      ) 着手中
+      option(
+        value='completed'
+        selected= 'completed' === todo.status
+      ) 完了済
+  div
+    label(for='estimatedDate') 予定時刻：
+    input#estimatedDate(
+      type='datetime-local'
+      name='estimatedDate'
+      value=todo.estimatedDateISOS
+    )
+  div
+    input(type='submit')
+
+  br
+  a(href='/') 戻る
+</code></pre>
+<p><strong>lib/dateUtils.js</strong></p>
+<p>コントローラーの作成前に先程説明した日付データの値を加工するヘルパーを用意します。データのままでは<code>YYYY-MM-DDThh:mm:ss.sssZ</code>となっているのですが、フォームでは<code>YYYY-MM-DDThh:mm:ss</code>という形式である必要があります。<br />
+形式変換は後ろの<code>.sssZ</code>を省くだけで良いのですが、共通部品なので渡された引数が時刻として正しいか一度確認しています。</p>
+<pre><code class=&#34;language-lib/dateUtils.js.prettyprint&#34;>// lib/dateUtils.js
+exports.date2ISOS = function (dateStr) {
+  var dateObj = new Date(dateStr);
+  if (!dateObj || dateObj.toString() === 'Invalid Date') {
+    return '';
+  }
+  return dateObj.toISOString().substr(0,19);
+}
+</code></pre>
+<p><strong>controllers/todoController.js</strong></p>
+<p>さてフォームのためのコントローラーですが、編集対象のデータを１つ取得する必要があります。<br />
+そのためMongoDBの<code>findOne</code>を使っています。引数には検索条件が必要です。ここではMongoDBのデータIDを指定しています。<br />
+描画関数には先程作成した部品で日付変換をしてからTodoデータを渡しています。</p>
+<pre><code class=&#34;language-controllers/todoController.js.prettyprint&#34;>// controllers/todoController.js
+省略
+...
+var dateUtils = require('../lib/dateUtils');
+...
+// 更新フォームのコントローラー
+exports.updateGet = function(req, res, next) {
+  var dbClient;
+  var findOne = function(db, id) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      .findOne(
+        { _id: dbUtils.createObjectID(id) },
+        function(error, docs) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(docs);
+          }
+        }
+      );
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    var { id } = req.params;
+    return findOne(db, id);
+  })
+  .then(function(result) {
+    res.render('todo/update', {
+      todo: {
+        ...result,
+        estimatedDateISOS: dateUtils.date2ISOS(result.estimatedDate)
+      }
+    });
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+}
+</code></pre>
+<h3>データ更新処理</h3>
+<p>MongoDBで１つのデータを更新するにはコレクション関数の<code>updateOne</code>を使います。引数には検索条件、更新値、更新後のコールバックを指定します。<br />
+ここでは検索条件は削除の時と同様データのIDを使っています。MongoDBのObjectIDに注意です。<br />
+更新値の書き方は<code>{ $set: データのオブジェクト }</code>となります。</p>
+<p><strong>controllers/todoController.js</strong></p>
+<pre><code class=&#34;language-controllers/todoController.js.prettyprint&#34;>// controllers/todoController.js
+省略
+...
+// 更新処理のコントローラー
+exports.updatePatch = function(req, res, next) {
+  var dbClient;
+  var updateOne = function(db, id, data) {
+    return new Promise(function(resolve, reject) {
+      db.collection('todos')
+      // コレクションのupdateOneを使う
+      .updateOne(
+        { _id: dbUtils.createObjectID(id) },
+        { $set: data },
+        function(error, docs) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(docs);
+          }
+        }
+      );
+    });
+  }
+
+  dbUtils.connectionToDB()
+  .then(function({ client, db }) {
+    dbClient = client;
+    var { id } = req.params;
+    var { title, description, status, estimatedDate } = req.body;
+    return updateOne(db, id, {
+      title,
+      description,
+      status,
+      estimatedDate: new Date(estimatedDate)
+    });
+  })
+  .then(function(result) {
+    res.redirect('/todo');
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  })
+  .then(function() {
+    if (dbClient) {
+      dbClient.close();
+    }
+  });
+</code></pre>
+<h2 id=&#34;summary-mongodb&#34;>まとめ</h2>
+<p>以上でMongoDBを使ったTodo機能の実装が完了です。最低限の機能となっていますが、MongoDBの基本的な使い方が確認できたのではないでしょうか。紹介したものはMongoDBの一部ですので、機能を拡張していくと必要になる実装がでてくるかと思います。その場合はMongoDB Driverの<a href=&#34;http://mongodb.github.io/node-mongodb-native/&#34;>公式サイト</a>を適宜参照していくのが良いでしょう。</p>
+</section>
+" data-v-47ae3f5c><aside id="table-content-list" data-v-47ae3f5c></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
   </body>
 </html>

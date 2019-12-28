@@ -1,7 +1,7 @@
 <!doctype html>
 <html data-n-head-ssr amp data-n-head="%7B%22amp%22:%7B%22ssr%22:true%7D%7D">
   <head>
-    <title>Pug（HTMLテンプレートエンジン）の書き方まとめ | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="HTMLテンプレートエンジンの１つPugの書き方についてまとめました。PugはExpressなどNode.js環境で動かすことができます。記法はRailsでよく使われるHamlによく似ているので、Hamlを使ったことがある人には親しみやすいでしょう。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/pug_reference"><link rel="preload" href="/_nuxt/5c215998f326e3005d71.js" as="script"><link rel="preload" href="/_nuxt/15079d49ab1d9cfbcb09.js" as="script"><link rel="preload" href="/_nuxt/f3d6a8031bef5f7001eb.js" as="script"><link rel="preload" href="/_nuxt/f20718914cc762e98b62.js" as="script"><link rel="preload" href="/_nuxt/f31e813b61f6faed930d.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 2c1f7920:0 dad36f06:0 7df61210:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-92531920]{box-sizing:border-box}.__amp a[data-v-92531920]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-92531920]:visited{color:inherit}.__amp .m0[data-v-92531920]{margin:0}.__amp .p0[data-v-92531920]{padding:0}.__amp .pl1[data-v-92531920]{padding-left:.5rem}.__amp .pl2[data-v-92531920]{padding-left:1rem}.__amp .pl3[data-v-92531920]{padding-left:1.5rem}.__amp .pl4[data-v-92531920]{padding-left:2rem}.__amp .pr1[data-v-92531920]{padding-right:.5rem}.__amp .pr2[data-v-92531920]{padding-right:1rem}.__amp .pr3[data-v-92531920]{padding-right:1.5rem}.__amp .pr4[data-v-92531920]{padding-right:2rem}.__amp .menu-link[data-v-92531920]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-92531920]:visited{color:inherit}.__amp .headerbar[data-v-92531920]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-92531920]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-92531920]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-92531920]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-92531920]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-92531920]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-92531920]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-92531920]{text-align:left}.__amp .nav-single[data-v-92531920]{min-width:100px}.__amp .nav-dropdown[data-v-92531920]{position:relative;min-width:140px}.__amp .humbarger[data-v-92531920]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-92531920]{display:none}}.__amp .sidebar[data-v-92531920]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-92531920]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-92531920]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-92531920]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-92531920]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-92531920]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-92531920]{text-align:left;margin:0 0 1rem}.footer[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-92531920]{color:#efefef}#table-content[data-v-92531920]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-92531920]{padding:20px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:10px}.link-container[data-v-92531920]{margin-bottom:.3rem}.link-container a[data-v-92531920]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-92531920]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <title>Pug（HTMLテンプレートエンジン）の書き方まとめ | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="HTMLテンプレートエンジンの１つPugの書き方についてまとめました。PugはExpressなどNode.js環境で動かすことができます。記法はRailsでよく使われるHamlによく似ているので、Hamlを使ったことがある人には親しみやすいでしょう。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/pug_reference"><link rel="preload" href="/_nuxt/a3a4612808a61b95b7d2.js" as="script"><link rel="preload" href="/_nuxt/2b0336898229d549ef28.js" as="script"><link rel="preload" href="/_nuxt/5f861a9e92873ef4fe81.js" as="script"><link rel="preload" href="/_nuxt/52f7748893ef32fb82ba.js" as="script"><link rel="preload" href="/_nuxt/2e0a735bd2d2bc5d1b01.js" as="script"><link rel="preload" href="/_nuxt/670a60b72c1f4eb6c489.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 0e9899a2:0 998eb414:0 2c1f7920:0 dad36f06:0 5e6f4ba6:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.__amp [data-v-5855e516]{box-sizing:border-box}.__amp a[data-v-5855e516]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-5855e516]:visited{color:inherit}.__amp .m0[data-v-5855e516]{margin:0}.__amp .p0[data-v-5855e516]{padding:0}.__amp .pl1[data-v-5855e516]{padding-left:.5rem}.__amp .pl2[data-v-5855e516]{padding-left:1rem}.__amp .pl3[data-v-5855e516]{padding-left:1.5rem}.__amp .pl4[data-v-5855e516]{padding-left:2rem}.__amp .pr1[data-v-5855e516]{padding-right:.5rem}.__amp .pr2[data-v-5855e516]{padding-right:1rem}.__amp .pr3[data-v-5855e516]{padding-right:1.5rem}.__amp .pr4[data-v-5855e516]{padding-right:2rem}.__amp .menu-link[data-v-5855e516]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-5855e516]:visited{color:inherit}.__amp .headerbar[data-v-5855e516]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-5855e516]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-5855e516]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-5855e516]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-5855e516]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-5855e516]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-5855e516]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-5855e516]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-5855e516]{text-align:left}.__amp .nav-single[data-v-5855e516]{min-width:100px}.__amp .nav-dropdown[data-v-5855e516]{position:relative;min-width:140px}.__amp .humbarger[data-v-5855e516]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-5855e516]{display:none}}.__amp .sidebar[data-v-5855e516]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-5855e516]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-5855e516]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-5855e516]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-5855e516]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-5855e516]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-5855e516]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-5855e516]{text-align:left;margin:0 0 1rem}.footer[data-v-5855e516]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-5855e516]{color:#efefef}#wrapper[data-v-5855e516]{display:-webkit-box;display:flex;padding-top:3.5rem;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}@media screen and (min-width:52.06rem){#wrapper[data-v-5855e516]{-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}}#main[data-v-5855e516]{padding:0 1rem}@media screen and (min-width:52.06rem){#main[data-v-5855e516]{-webkit-box-flex:1;flex:1;-webkit-box-ordinal-group:3;order:2;width:calc(100% - 550px)}}#main h1[data-v-5855e516]{font-size:1.5rem}#main h2[data-v-5855e516]{font-size:1.2rem}code[data-v-5855e516]{color:#0089a7;background-color:#efefef;padding:.2rem}.__amp [data-v-1ea95dae]{box-sizing:border-box}.__amp a[data-v-1ea95dae]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-1ea95dae]:visited{color:inherit}.__amp .m0[data-v-1ea95dae]{margin:0}.__amp .p0[data-v-1ea95dae]{padding:0}.__amp .pl1[data-v-1ea95dae]{padding-left:.5rem}.__amp .pl2[data-v-1ea95dae]{padding-left:1rem}.__amp .pl3[data-v-1ea95dae]{padding-left:1.5rem}.__amp .pl4[data-v-1ea95dae]{padding-left:2rem}.__amp .pr1[data-v-1ea95dae]{padding-right:.5rem}.__amp .pr2[data-v-1ea95dae]{padding-right:1rem}.__amp .pr3[data-v-1ea95dae]{padding-right:1.5rem}.__amp .pr4[data-v-1ea95dae]{padding-right:2rem}.__amp .menu-link[data-v-1ea95dae]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-1ea95dae]:visited{color:inherit}.__amp .headerbar[data-v-1ea95dae]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-1ea95dae]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-1ea95dae]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-1ea95dae]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-1ea95dae]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-1ea95dae]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-1ea95dae]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-1ea95dae]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-1ea95dae]{text-align:left}.__amp .nav-single[data-v-1ea95dae]{min-width:100px}.__amp .nav-dropdown[data-v-1ea95dae]{position:relative;min-width:140px}.__amp .humbarger[data-v-1ea95dae]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-1ea95dae]{display:none}}.__amp .sidebar[data-v-1ea95dae]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-1ea95dae]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-1ea95dae]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-1ea95dae]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-1ea95dae]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-1ea95dae]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-1ea95dae]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-1ea95dae]{text-align:left;margin:0 0 1rem}.footer[data-v-1ea95dae]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-1ea95dae]{color:#efefef}pre[data-v-1ea95dae]{background-color:#0f2540;overflow:auto;padding:0 1rem;margin:0}code[data-v-1ea95dae]{color:#efefef;white-space:pre}.file-name-box[data-v-1ea95dae]{padding:.2rem 0}.file-name-box .file-name-text[data-v-1ea95dae]{padding:.2rem 1rem;background-color:#969696;color:#efefef}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-47ae3f5c]{box-sizing:border-box}.__amp a[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-47ae3f5c]:visited{color:inherit}.__amp .m0[data-v-47ae3f5c]{margin:0}.__amp .p0[data-v-47ae3f5c]{padding:0}.__amp .pl1[data-v-47ae3f5c]{padding-left:.5rem}.__amp .pl2[data-v-47ae3f5c]{padding-left:1rem}.__amp .pl3[data-v-47ae3f5c]{padding-left:1.5rem}.__amp .pl4[data-v-47ae3f5c]{padding-left:2rem}.__amp .pr1[data-v-47ae3f5c]{padding-right:.5rem}.__amp .pr2[data-v-47ae3f5c]{padding-right:1rem}.__amp .pr3[data-v-47ae3f5c]{padding-right:1.5rem}.__amp .pr4[data-v-47ae3f5c]{padding-right:2rem}.__amp .menu-link[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-47ae3f5c]:visited{color:inherit}.__amp .headerbar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-47ae3f5c]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-47ae3f5c]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-47ae3f5c]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-47ae3f5c]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-47ae3f5c]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-47ae3f5c]{text-align:left}.__amp .nav-single[data-v-47ae3f5c]{min-width:100px}.__amp .nav-dropdown[data-v-47ae3f5c]{position:relative;min-width:140px}.__amp .humbarger[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-47ae3f5c]{display:none}}.__amp .sidebar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-47ae3f5c]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-47ae3f5c]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-47ae3f5c]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-47ae3f5c]{text-align:left;margin:0 0 1rem}.footer[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-47ae3f5c]{color:#efefef}#table-content[data-v-47ae3f5c]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-47ae3f5c]{padding:16px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:3.5rem}.link-container[data-v-47ae3f5c]{margin-bottom:.3rem}.link-container a[data-v-47ae3f5c]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-47ae3f5c]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   </head>
   <body class="__amp" data-n-head="%7B%22class%22:%7B%22ssr%22:%22%20__amp%22%7D%7D">
     <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div class="site"><div><header class="headerbar pl2 pr4"><div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="humbarger pr2">☰</div> <nav class="headerbar-nav"><ul class="m0 p0"><li class="nav-single"><a href="/" class="menu-link nuxt-link-active">
@@ -16,40 +16,55 @@
                     Rails
                   </a></li></ul></section></amp-accordion></li></ul></nav></header> <amp-sidebar id="header-sidebar" layout="nodisplay" class="sidebar pl3 pr3"><div class="sidebar-header"><div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="close">✕</div></div> <nav class="sidebar-nav"><ul class="m0 p0"><li class="nav-single"><a href="/" class="menu-link nuxt-link-active">
             Home
-          </a></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>JS</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/express" class="menu-link nuxt-link-active">Express</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>SQL</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/redis" class="menu-link">Redis</a></li> <li class="ampstart-dropdown-item"><a href="/mariadb" class="menu-link">MariaDB</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>Ruby</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/rails" class="menu-link">Rails</a></li></ul></section></amp-accordion></li></ul></nav></amp-sidebar></div> <div class="siteContent"><div id="wrapper"><article id="main"><section><div><section><h1>Pug(HTMLテンプレートエンジン)の書き方まとめ</h1>
-<h2 id="overview">Pugの概要</h2>
-<p>HTMLのテンプレートエンジンの１つ<a href="https://pugjs.org/api/getting-started.html">Pug</a>(旧Jade)の書き方についてまとめてみました。Webアプリケーションフレームワーク<a href="https://expressjs.com/ja/">Express</a>のプロジェクト作成コマンドでは現在はデフォルトでJadeをテンプレートエンジンとして使うようになっていますが、今後JadeはPugに名称を変え移行されるようなのでPugに慣れておくのが良いでしょう。</p>
-<p>また、<a href="https://github.com/irisAsh/express-todo-tutorial/tree/master/views/pug">こちら</a>にソースコードをまとめたものを置いておきます。</p>
-<h2 id="filename">Pugファイル</h2>
-<p>Pugのファイルは拡張子<code>.pug</code>を使います。</p>
-<h2 id="html-tag">PugでHTMLタグを扱う</h2>
-<p>Pugでは、HTMLタグは<code>&lt;></code>を省略した形で記述できます。またタグの次の行で段落を１段落として記述するとそのタグで囲まれるようになります。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">h1 HTMLタグ
+          </a></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>JS</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/express" class="menu-link nuxt-link-active">Express</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>SQL</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/redis" class="menu-link">Redis</a></li> <li class="ampstart-dropdown-item"><a href="/mariadb" class="menu-link">MariaDB</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>Ruby</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/rails" class="menu-link">Rails</a></li></ul></section></amp-accordion></li></ul></nav></amp-sidebar></div> <div class="siteContent"><div id="wrapper" data-v-5855e516><article id="main" class="article-page" data-v-5855e516><section data-v-5855e516><h1 data-v-5855e516>Pug(HTMLテンプレートエンジン)の書き方まとめ</h1> <h2 id="in-link-overview" data-v-5855e516>Pugの概要</h2> <p data-v-5855e516>
+      HTMLのテンプレートエンジンの１つ
+      <a href="https://pugjs.org/api/getting-started.html" target="_blank" data-v-5855e516>Pug</a>
+      (旧Jade)の書き方についてまとめてみました。Webアプリケーションフレームワーク
+      <a href="https://expressjs.com/ja/" target="_blank" data-v-5855e516>Express</a>
+      のプロジェクト作成コマンドでは現在はデフォルトでJadeをテンプレートエンジンとして使うようになっていますが、
+      今後JadeはPugに名称を変え移行されるようなのでPugに慣れておくのが良いでしょう。
+    </p> <p data-v-5855e516>
+      また、
+      <a href="https://github.com/irisAsh/express-todo-tutorial/tree/master/views/pug" target="_blank" data-v-5855e516>こちら</a>
+      にソースコードをまとめたものを置いておきます。
+    </p> <h2 id="in-link-filename" data-v-5855e516>Pugのファイル名</h2> <p data-v-5855e516>Pugのファイルは拡張子<code data-v-5855e516>.pug</code>を使います。</p> <h2 id="in-link-html-tag" data-v-5855e516>PugでHTMLタグを扱う</h2> <p data-v-5855e516>
+      Pugでは、HTMLタグは<code data-v-5855e516>&lt;></code>を省略した形で記述できます。
+      またタグの次の行で段落を１段落として記述するとそのタグで囲まれるようになります。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+h1 HTMLタグ
 div
   p パラグラフ
   center センタリング
   ul
     li あ
     li い
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;h1>HTMLタグ&lt;/h1>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;h1>HTMLタグ&lt;/h1>
 &lt;div>
   &lt;p>パラグラフ&lt;/p>
   &lt;center>センタリング&lt;/center>
   &lt;ul>
     &lt;li>あ&lt;/li>
     &lt;li>い&lt;/li>
+  &lt;/ul>
 &lt;/div>
-</code></pre>
-<h2 id="inline">Pugで文章を書く</h2>
-<p>文章はタグの後に半角スペースを空けてから記述します。<br>
-文章が長くなって改行したい場合は次の行の先頭にパイプ<code>|</code>をつけて続けて書くと、HTML表示は１行のままでコードとしての改行をすることができます。<br>
-HTML文章を改行したい場合は<code>br</code>タグを使ってください。インライン要素のタグを使う時は改行して先頭にタグを記述してください。<br>
-「タグ名＋ドット」を記述し、次の行を１段下げて書くとそのタグで囲まれるように描画されます。ヒアドキュメントのようにして文章を記述することができます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">p この
+    
+    </code>
+  </pre></div> <h2 id="in-link-inline" data-v-5855e516>Pugで文章を書く</h2> <p data-v-5855e516>
+      文章はタグの後に半角スペースを空けてから記述します。
+    </p> <p data-v-5855e516>
+      文章が長くなって改行したい場合は次の行の先頭にパイプ<code data-v-5855e516>|</code>をつけて続けて書くと、HTML表示は１行のままでコードとしての改行をすることができます。
+    </p> <p data-v-5855e516>
+      HTML文章を改行したい場合は<code data-v-5855e516>br</code>タグを使ってください。インライン要素のタグを使う時は改行して先頭にタグを記述してください。
+    </p> <p data-v-5855e516>
+      「タグ名＋ドット」を記述し、次の行を１段下げて書くとそのタグで囲まれるように描画されます。ヒアドキュメントのようにして文章を記述することができます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+p この
   | 文章は
   em 全て
   | 一行の
@@ -60,44 +75,60 @@ HTML文章を改行したい場合は<code>br</code>タグを使ってくださ�
 p.
   また、「タグ名＋ドット」後の段落は、
   そのタグによって囲まれます。
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p>
   この文章は&lt;em>全て&lt;/em>一行の&lt;span>表示&lt;/span>になります。&lt;br>改行はbrを使います。
 &lt;/p>
 
 &lt;p>また、「タグ＋ドット」後の段落は、 そのタグによって囲まれます。&lt;/p>
-</code></pre>
-<h2 id="interpolation">Pugで文字列補間する</h2>
-<p>Pugでは変数を定義し、その変数を使って文章を作成することができます。<code>- var 変数名 = 値</code>という記述で変数を定義できます。そして<code>#{</code>と<code>}</code>で変数を囲むことで定義した値を描画することができます。<br>
-また、「タグ名＋ドット」内の場合は<code>#[</code>と<code>]</code>で囲まれた範囲でタグと変数の記述ができます。<br>
-<code>#{}</code>内で<code>{</code>, <code>}</code>の文字を使いたい時があるかもしれません。その場合は<code>'{'}</code>, <code>'}'</code>と<code>'</code>で囲うことでエスケープすることができます。また、<code>#{}</code>自体を通常の文字として使いたい場合は<code>\#{}</code>でエスケープできます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">- var name = 'Pug'
+    
+    </code>
+  </pre></div> <h2 id="in-link-interpolation" data-v-5855e516>Pugで文字列補間する</h2> <p data-v-5855e516>
+      Pugでは変数を定義し、その変数を使って文章を作成することができます。
+    </p> <p data-v-5855e516><code data-v-5855e516>- var 変数名 = 値</code>という記述で変数を定義できます。
+      そして<code data-v-5855e516>#{</code>と<code data-v-5855e516>}</code>で変数を囲むことで定義した値を描画することができます。
+    </p> <p data-v-5855e516>
+      「タグ名＋ドット」の記法を使用している場合は、<code data-v-5855e516>#[</code>と<code data-v-5855e516>]</code>で囲まれた範囲でタグと変数の記述ができます。
+    </p> <p data-v-5855e516>
+      また、<code data-v-5855e516>#{}</code>内で<code data-v-5855e516>{</code>, <code data-v-5855e516>}</code>の文字を使いたい時があるかもしれません。
+      その場合は<code data-v-5855e516>'{'</code>や<code data-v-5855e516>'}'</code>のように<code data-v-5855e516>'</code>で囲うことでエスケープすることができます。
+    </p> <p data-v-5855e516><code data-v-5855e516>#{}</code>自体を通常の文字として使いたい場合は<code data-v-5855e516>\#{}</code>でエスケープできます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+- var name = 'Pug'
 p 私の名前は#{name}です。
 p.
   私の名前は#[em #{name}]です。
 p 私の名前は#{'{' + name + '}'}です。
 p 私の名前は\#{name}です。
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p>私の名前はPugです。&lt;/p>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p>私の名前はPugです。&lt;/p>
 &lt;p>私の名前は&lt;em>Pug&lt;/em>です。&lt;/p>
 &lt;p>私の名前は{Pug}です。&lt;/p>
 &lt;p>私の名前は#{name}です。&lt;/p>
-</code></pre>
-<h2 id="attribute">Pugで属性を設定する</h2>
-<p>Pugでは<code>タグ名(属性名="")</code>と記述することでHTMLの属性を設定できます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">a(href="https://pugjs.org/api/getting-started.html" target="_blank")
+    
+    </code>
+  </pre></div> <h2 id="in-link-attribute" data-v-5855e516>Pugで属性を設定する</h2> <p data-v-5855e516>Pugでは<code data-v-5855e516>タグ名(属性名="")</code>と記述することでHTMLの属性を設定できます。</p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+a(href="https://pugjs.org/api/getting-started.html" target="_blank")
   | Pug公式サイト
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;a href="https://pugjs.org/api/getting-started.html" target="_blank">Pug公式サイト&lt;/a>
-</code></pre>
-<p><code>input</code>タグなどの真偽値を設定する場合は<code>属性名</code>のみを記載するか、<code>属性名=真偽値</code>の形式で書くことができます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">input(type="checkbox" checked)
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;a href="https://pugjs.org/api/getting-started.html" target="_blank">Pug公式サイト&lt;/a>
+    
+    </code>
+  </pre></div> <p data-v-5855e516><code data-v-5855e516>input</code>タグなどの真偽値を設定する場合は<code data-v-5855e516>属性名</code>のみを記載するか、<code data-v-5855e516>属性名=真偽値</code>の形式で書くことができます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+input(type="checkbox" checked)
 | Pug
 |
 input(type="checkbox" checked=true)
@@ -105,28 +136,41 @@ input(type="checkbox" checked=true)
 |
 input(type="checkbox" checked=false)
 | EJS
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;input type="checkbox" checked="checked">Pug
-&lt;input type="checkbox" checked="checked">Jade
-&lt;input type="checkbox">EJS
-</code></pre>
-<h3>style属性</h3>
-<p>style属性を<code>{プロパティ: 値}</code>のようにオブジェクトの形式で記述できます。プロパティ名にハイフン<code>-</code>がある場合は<code>'</code>で囲む必要があるので注意してください。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">p(style="color:white;background-color:black;") 通常のHTMLでのStyle指定
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;input type="checkbox" checked="checked">Pug&lt;/input>
+&lt;input type="checkbox" checked="checked">Jade&lt;/input>
+&lt;input type="checkbox">EJS&lt;/input>
+    
+    </code>
+  </pre></div> <h3 data-v-5855e516>style属性</h3> <p data-v-5855e516>
+      style属性を<code data-v-5855e516>{プロパティ: 値}</code>のようにオブジェクトの形式で記述できます。
+      プロパティ名にハイフン<code data-v-5855e516>-</code>がある場合は<code data-v-5855e516>'</code>で囲む必要があるので注意してください。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+p(style="color:white;background-color:black;") 通常のHTMLでのStyle指定
 p(style={color: 'red', 'background-color': 'yellow'}) Pugでオブジェクト形式でのStyle指定
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p style="color:white;background-color:black;")>通常のHTMLでのStyle指定&lt;/p>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p style="color:white;background-color:black;")>通常のHTMLでのStyle指定&lt;/p>
 &lt;p style="color:red;background-color:yellow;")>Pugでオブジェクト形式でのStyle指定&lt;/p>
-</code></pre>
-<h3>class/id属性</h3>
-<p>class属性、id属性も他と同様に指定することができますが、いくつか別の記法があります。<br>
-class属性は配列の形式<code>class=['クラス名1', 'クラス名2', ...]</code>で記述することができます。条件によってclass属性を指定したい場合は<code>class={クラス名: 条件式}</code>の形式で記述すると、条件が真の値の時のみclass属性が指定されるようになります。<br>
-またCSS表記のように、<code>.クラス名</code>でclass属性を、<code>#ID名</code>でid属性を指定することができます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">p(class="a1 a2") 通常
+    
+    </code>
+  </pre></div> <h3 data-v-5855e516>class/id属性</h3> <p data-v-5855e516>
+      class属性、id属性も他と同様に指定することができますが、いくつか別の記法があります。
+    </p> <p data-v-5855e516>
+      class属性は配列の形式<code data-v-5855e516>class=['クラス名1', 'クラス名2', ...]</code>で記述することができます。
+    </p> <p data-v-5855e516>
+      条件によってclass属性を指定したい場合は、<code data-v-5855e516>class={クラス名: 条件式}</code>の形式で記述すると、条件が真の値の時のみclass属性が指定されるようになります。
+    </p> <p data-v-5855e516>
+      またCSS表記のように、<code data-v-5855e516>.クラス名</code>でclass属性を、<code data-v-5855e516>#ID名</code>でid属性を指定することができます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+p(class="a1 a2") 通常
 p(class=['b1', 'b2']) 配列で指定
 - classNames = ['c1', 'c2']
 p(class=classNames) 変数で指定
@@ -135,60 +179,78 @@ p#e1 #id名で指定
 - var currentUrl = '/test'
 p(class={f1: currentUrl === '/'}) 条件で指定
 p(class={f1: currentUrl === '/test'}) 条件で指定
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p class="a1 a2">通常&lt;/p>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p class="a1 a2">通常&lt;/p>
 &lt;p class="b1 b2">配列で指定&lt;/p>
 &lt;p class="c1 c2">変数で指定&lt;/p>
 &lt;p class="d1 d2">.class名で指定&lt;/p>
 &lt;p id="e1">#id名で指定&lt;/p>
 &lt;p>条件で指定&lt;/p>
 &lt;p class="f1">条件で指定&lt;/p>
-</code></pre>
-<h2 id="comment">Pugでコメントを書く</h2>
-<p>コメントには通常のHTMLコメントとHTMLには表示されないPugファイル内でのコメントの２種類があります。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">// この行はコメントです。
+    
+    </code>
+  </pre></div> <h2 id="in-link-comment" data-v-5855e516>Pugでコメントを書く</h2> <p data-v-5855e516>コメントには通常のHTMLコメントとHTMLには表示されないPugファイル内でのコメントの２種類があります。</p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+// この行はコメントです。
   HTMLのコメントになります。
 //- このコメントはHTMLに表示されません。
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;!-- この行はコメントです。HTMLのコメントになります。 -->
-</code></pre>
-<h2 id="loop">Pugの繰り返し記法を使う</h2>
-<p>同様の処理を繰り返す場合や、配列内の中身を順に参照するなどプログラミングではお馴染みの繰り返し処理をPugでも扱うことができます。<br>
-<code>for</code>の記法はよくある繰り返し構文と変わりありません。また、<code>each</code>を使えばJavascrptでの配列関数<code>forEach</code>のように配列の中身を順に参照することができます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">- for (var i = 0; i &lt; 3; i++)
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;!-- この行はコメントです。HTMLのコメントになります。 -->
+    
+    </code>
+  </pre></div> <h2 id="in-link-loop" data-v-5855e516>Pugの繰り返し記法を使う</h2> <p data-v-5855e516>
+      同様の処理を繰り返す場合や、配列内の中身を順に参照するなどプログラミングではお馴染みの繰り返し処理をPugでも扱うことができます。
+    </p> <p data-v-5855e516><code data-v-5855e516>for</code>の記法はよくある繰り返し構文と変わりありません。
+      また、<code data-v-5855e516>each</code>を使えばJavascrptでの配列関数<code data-v-5855e516>forEach</code>のように配列の中身を順に参照することができます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+- for (var i = 0; i &lt; 3; i++)
   p #{i}
 - var arr = ['Pug', 'Jade', 'EJS']
 each el in arr
   p #{el}
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p>0&lt;/p>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p>0&lt;/p>
 &lt;p>1&lt;/p>
 &lt;p>2&lt;/p>
 &lt;p>Pug&lt;/p>
 &lt;p>Jade&lt;/p>
 &lt;p>EJS&lt;/p>
-</code></pre>
-<h2 id="code">PugのBuffered Codeを使う</h2>
-<p>Buffered Codeという記法で、Javascriptコードで値を評価してその返り値をHTMLに使用できます。またBufferd Codeで文字列を使えばエスケープ文字は元のままの文字で扱うことができます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">- var name = 'Pug'
+    
+    </code>
+  </pre></div> <h2 id="in-link-code" data-v-5855e516>PugのBuffered Codeを使う</h2> <p data-v-5855e516>
+      Buffered Codeという記法で、Javascriptコードで値を評価してその返り値をHTMLに使用できます。
+      またBufferd Codeで文字列を使えばエスケープ文字は元のままの文字で扱うことができます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+- var name = 'Pug'
 p= '私の名前は' + name + 'です。'
 p= '&lt;>の文字をエスケープしなくても表示できます。'
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p>私の名前はPugです。&lt;/p>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p>私の名前はPugです。&lt;/p>
 &lt;p>&lt;>の文字をエスケープしなくても表示できます。&lt;/p>
-</code></pre>
-<h2 id="case">PugのCase構文を使う</h2>
-<p>Pugでは条件分岐を扱う場合の１つにCase構文を使って記述することができます。この構文はJavascriptでのSwitch構文と同様のものです。<br>
-<code>when</code>句の書き方は２つで次の行に一段下げて記述するか、もしくは<code>when:</code>の後に続けて１行で書くことができます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">- var rank = 'first'
+    
+    </code>
+  </pre></div> <h2 id="in-link-case" data-v-5855e516>PugのCase構文を使う</h2> <p data-v-5855e516>
+      Pugでは条件分岐を扱う場合の１つにCase構文を使って記述することができます。
+      この構文はJavascriptでのSwitch構文と同様のものです。
+    </p> <p data-v-5855e516><code data-v-5855e516>when</code>句の書き方は２つで次の行に一段下げて記述するか、
+      もしくは<code data-v-5855e516>when: </code>の後に続けて１行で書くことができます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+- var rank = 'first'
 case rank
   when 'first'
     p １番目
@@ -200,9 +262,11 @@ case rank
     p ４番目と５番目
   default
     p その他
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;!-- rank = 'frist' の時 --!>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;!-- rank = 'frist' の時 --!>
 &lt;p>１番目&lt;/p>
 
 &lt;!-- rank = 'second' の時 --!>
@@ -219,11 +283,15 @@ case rank
 
 &lt;!-- rank = 'sixth' の時 --!>
 &lt;p>その他&lt;/p>
-</code></pre>
-<h2 id="if">PugのIF構文を使う</h2>
-<p>Case構文の他にIF構文でも条件分岐をすることができます。プログラミングによくあるIF構文と同様です。またRubyで馴染みのあるUnless構文もあります。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">- var num = 0
+    
+    </code>
+  </pre></div> <h2 id="in-link-if" data-v-5855e516>PugのIF構文を使う</h2> <p data-v-5855e516>
+      Case構文の他にIF構文でも条件分岐をすることができます。
+      プログラミングによくあるIF構文と同様です。
+      またRubyで馴染みのあるUnless構文もあります。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+- var num = 0
 if num === 0
   p zero
 else if num === 1
@@ -233,9 +301,11 @@ else
 - var condition = false
 unless condition
  p FALSEです
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;!-- num = 0 の時 --!>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;!-- num = 0 の時 --!>
 &lt;p>zero&lt;/p>
 
 &lt;!-- num = 1 の時 --!>
@@ -249,33 +319,43 @@ unless condition
 
 &lt;!-- condition = false の時 --!>
 &lt;p>FALSEです&lt;/p>
-</code></pre>
-<h2 id="mixin">PugのMixinを使う</h2>
-<p>PugではMixinを使うことができます。Mixinを使うと共通処理をメソッド化して呼び出すことができます。記法は<code>mixin Mixin名(変数,...)</code>で宣言して、呼び出しを<code>+Mixin名(値,...)</code>で行えます。</p>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">mixin kao(left, right, color)
+    
+    </code>
+  </pre></div> <h2 id="in-link-mixin" data-v-5855e516>PugのMixinを使う</h2> <p data-v-5855e516>
+      PugではMixinを使うことができます。Mixinを使うと共通処理をメソッド化して呼び出すことができます。
+    </p> <p data-v-5855e516><code data-v-5855e516>mixin Mixin名(変数,...)</code>で宣言しておくと、<code data-v-5855e516>+Mixin名(値,...)</code>で呼び出せます。
+    </p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+mixin kao(left, right, color)
   p(style='color:' + color) #{left} >【･ω･`三´･ω･】&lt; #{right}
-+kao('Pug', 'Jade', 'blue')    
-+kao('EJS', 'Handlebars', 'red') 
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;p style="color:blue">Pug >;【･ω･`三´･ω･】&lt;; Jade&lt;/p>
-&lt;p style="color:red">EJS >;【･ω･`三´･ω･】&lt;; Handlebars&lt;/p>
-</code></pre>
-<h2 id="includes">PugのIncludesを使う</h2>
-<p>複数のページで共通のレイアウトやスクリプトを使いたい場合は、PugのIncludesという機能を利用することで実現できます。<br>
-メインのファイル<code>include_example.pug</code>を用意し下記のファイル構成で共通ファイルを作成します。<br>
-この後で説明するExtendsの機能と共通化する点は同じですが、こちらは文字通りメインのPugファイルに共通ファイルと取り込んでいる形になります。</p>
-<pre><code>.
++kao('Pug', 'Jade', 'blue')
++kao('EJS', 'Handlebars', 'red')
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;p style="color:blue">Pug >【･ω･`三´･ω･】&lt; Jade&lt;/p>
+&lt;p style="color:red">EJS >【･ω･`三´･ω･】&lt; Handlebars&lt;/p>
+    
+    </code>
+  </pre></div> <h2 id="in-link-includes" data-v-5855e516>PugのIncludesを使う</h2> <p data-v-5855e516>
+      複数のページで共通のレイアウトやスクリプトを使いたい場合は、PugのIncludesという機能を利用することで実現できます。
+    </p> <p data-v-5855e516>
+      メインのファイル<code data-v-5855e516>include_example.pug</code>を用意し下記のファイル構成で共通ファイルを作成します。
+    </p> <p data-v-5855e516>
+      この後で説明するExtendsの機能と共通化する点は同じですが、こちらは文字通りメインのPugファイルに共通ファイルと取り込んでいる形になります。
+    </p> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+.
 ├── include_example.pug
 └── includes
     ├── common_css.css
     ├── common_script.js
     └── common_view.pug
-</code></pre>
-<p><strong>Pug</strong></p>
-<pre><code class="language-pug.prettyprint">// include_example.pug
-
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>Pug</strong> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>include_example.pug</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 doctype html
 html
   head
@@ -288,26 +368,31 @@ html
       p.include-class CSSをインクルードしています
       script
         include includes/common_script.js
-</code></pre>
-<pre><code class="language-common_css.css.prettyprint">// common_css.css
-
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>common_css.css</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 .include-class
 {
-  color: red; 
+  color: red;
 }
-</code></pre>
-<pre><code class="language-common_view.pug.prettyprint">// common_view.pug
+```
+
+```common_view.pug.prettyprint
+// common_view.pug
 
 div
   p この箇所はインクルードされています
-</code></pre>
-<pre><code class="language-common_script.js.prettyprint">// common_script.js
-
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>common_script.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 console.log('JSファイルがインクルードされました');
-</code></pre>
-<p><code>include_example.pug</code>がコンパイルされてできるHTMLは次のようになります。</p>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;html>
+    
+    </code>
+  </pre></div> <p data-v-5855e516><code data-v-5855e516>include_example.pug</code>がコンパイルされてできるHTMLは次のようになります。</p> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;html>
 &lt;head>
   &lt;style>
     .include-class
@@ -329,11 +414,16 @@ console.log('JSファイルがインクルードされました');
   &lt;/div>
 &lt;/body>
 &lt;/html>
-</code></pre>
-<h2 id="extends">PugのExtendsを使う</h2>
-<p>Extendsを使っても共通化することができます。Exntendsの場合は共通の内容が書かれたテンプレートファイルに対して、各々個別の画面の内容を組み込む形になります。<br>
-ファイル構成を下記のようにします。</p>
-<pre><code>├── template_example.pug
+    
+    </code>
+  </pre></div> <h2 id="in-link-extends" data-v-5855e516>PugのExtendsを使う</h2> <p data-v-5855e516>
+      Extendsを使っても共通化することができます。
+      Exntendsの場合は共通の内容が書かれたテンプレートファイルに対して、各々個別の画面の内容を組み込む形になります。
+    </p> <p data-v-5855e516>
+      ファイル構成を下記のようにします。
+    </p> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+├── template_example.pug
 ├── templates
 │   └── layout.pug
 └── javascripts
@@ -342,12 +432,13 @@ console.log('JSファイルがインクルードされました');
     ├── test_2.js
     ├── test_3.js
     └── test_4.js
-</code></pre>
-<p><strong>Pug</strong></p>
-<p>先ずはテンプレートファイルを用意します。<br>
-<code>block ブロック名</code>と記述した箇所が、後で個別の内容を置換する箇所となります。</p>
-<pre><code class="language-templates/layout.pug.prettyprint">// templates/layout.pug
-
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>Pug</strong> <p data-v-5855e516>
+      先ずはテンプレートファイルを用意します。
+      <code data-v-5855e516>block ブロック名</code>と記述した箇所が、後で個別の内容を置換する箇所となります。
+    </p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>templates/layout.pug</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 doctype html
 html
   head
@@ -357,16 +448,23 @@ html
   body
     h1 テンプレート
     block content
-</code></pre>
-<pre><code class="language-javascripts/test_0.js.prettyprint">// javascripts/test_0.js
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>javascripts/test_0.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 // test_1.js, ..., test_4.jsも出力の値を変えただけの内容です
 
 console.log('Test: 0');
-</code></pre>
-<p>使い方ですが<code>extends ファイル名</code>でまずテンプレートファイルを継承します。あとはテンプレートのブロック箇所に対して置換するだけです。<code>block ブロック名</code>でブロック箇所を指定し次の行で組み込む内容を記述します。<br>
-また、<code>block</code>には<code>append</code>, <code>prepend</code>を記述することでテンプレートに組み込む順番を指定できます。<code>block append</code>でテンプレートの内容の後に、<code>block prepend</code>で前に組み込むことができます。</p>
-<pre><code class="language-template_example.pug.prettyprint">// template_example.pug
-
+    
+    </code>
+  </pre></div> <p data-v-5855e516>
+      使い方ですが<code data-v-5855e516>extends ファイル名</code>でまずテンプレートファイルを継承します。
+      あとはテンプレートのブロック箇所に対して置換するだけです。<code data-v-5855e516>block ブロック名</code>でブロック箇所を指定し次の行で組み込む内容を記述します。
+    </p> <p data-v-5855e516>
+      また、<code data-v-5855e516>block</code>には<code data-v-5855e516>append</code>, <code data-v-5855e516>prepend</code>を記述することでテンプレートに組み込む順番を指定できます。
+      <code data-v-5855e516>block append</code>でテンプレートの内容の後に、<code data-v-5855e516>block prepend</code>で前に組み込むことができます。
+    </p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>template_example.pug</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 extends templates/layout
 
 block append scripts
@@ -383,9 +481,11 @@ block prepend scripts
 
 block content
   p テンプレートを読み込んでます
-</code></pre>
-<p><strong>HTML</strong></p>
-<pre><code class="language-html">&lt;html>
+    
+    </code>
+  </pre></div> <p data-v-5855e516></p> <strong data-v-5855e516>HTML</strong> <p data-v-5855e516>HTMLに変換後は次のようなコードになります。</p> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+&lt;html>
 &lt;head>
   &lt;script src="/javascripts/pug/test_0.js">&lt;/script>
   &lt;script src="/javascripts/pug/test_2.js">&lt;/script>
@@ -397,9 +497,9 @@ block content
   &lt;p>テンプレートを読み込んでます&lt;/p>
 &lt;/body>
 &lt;/html>
-</code></pre>
-</section>
-</div> <div class="article-timestamp"><div class="timestamp-container"><i class="far fa-clock"></i> <p>2019/03/16</p></div> <div class="timestamp-container"><i class="fas fa-clock"></i> <p>2019/03/31</p></div></div></section></article> <div data-v-967b7d70><aside id="sidebar" data-v-967b7d70><section data-v-967b7d70><div class="menu-overview" data-v-967b7d70>入門</div> <div class="menu-item" data-v-967b7d70><a href="/express/gettingstarted/" data-v-967b7d70>
+    
+    </code>
+  </pre></div> <div class="article-timestamp" data-v-5855e516><div class="timestamp-container"><i class="far fa-clock"></i> <p>2019/03/16</p></div> <div class="timestamp-container"><i class="fas fa-clock"></i> <p>2019/12/29</p></div></div></section></article> <div data-v-967b7d70 data-v-5855e516><aside id="sidebar" data-v-967b7d70><section data-v-967b7d70><div class="menu-overview" data-v-967b7d70>入門</div> <div class="menu-item" data-v-967b7d70><a href="/express/gettingstarted/" data-v-967b7d70>
           環境設定
         </a></div><div class="menu-item" data-v-967b7d70><a href="/express/editrouting/" data-v-967b7d70>
           ルーティング
@@ -427,33 +527,33 @@ block content
           Express サードパーティ一覧
         </a></div><div class="menu-item" data-v-967b7d70><a href="/express/links/" data-v-967b7d70>
           参考リンク
-        </a></div></section></aside></div> <div id="table-content" data-v-92531920><aside id="table-content-list" data-v-92531920><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+        </a></div></section></aside></div> <div id="table-content" data-v-47ae3f5c data-v-5855e516><aside id="table-content-list" data-v-47ae3f5c><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-overview" data-v-47ae3f5c>
         Pugの概要
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        Pugファイル
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-filename" data-v-47ae3f5c>
+        Pugのファイル名
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-html-tag" data-v-47ae3f5c>
         PugでHTMLタグを扱う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-inline" data-v-47ae3f5c>
         Pugで文章を書く
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-interpolation" data-v-47ae3f5c>
         Pugで文字列補間する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-attribute" data-v-47ae3f5c>
         Pugで属性を設定する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-comment" data-v-47ae3f5c>
         Pugでコメントを書く
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-loop" data-v-47ae3f5c>
         Pugの繰り返し記法を使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-code" data-v-47ae3f5c>
         PugのBuffered Codeを使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-case" data-v-47ae3f5c>
         PugのCase構文を使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-if" data-v-47ae3f5c>
         PugのIF構文を使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-mixin" data-v-47ae3f5c>
         PugのMixinを使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-includes" data-v-47ae3f5c>
         PugのIncludesを使う
-      </a></div><div class="link-container" data-v-92531920><a href="/express/pug_reference" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/pug_reference#in-link-extends" data-v-47ae3f5c>
         PugのExtendsを使う
       </a></div></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
   </body>

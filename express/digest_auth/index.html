@@ -1,7 +1,7 @@
 <!doctype html>
 <html data-n-head-ssr amp data-n-head="%7B%22amp%22:%7B%22ssr%22:true%7D%7D">
   <head>
-    <title>ExpressでDigest認証を実装する | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="ExpressでDigest認証機能を実装してみます。Basic認証ではセキュリティ面で脆弱性があります。そこで考えられたのがパスワードをハッシュ化(Digest)して通信する認証です。サーバーとクライアントはハッシュ化された値でやり取りされるのでセキュリティがより強固になります。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/digest_auth"><link rel="preload" href="/_nuxt/5c215998f326e3005d71.js" as="script"><link rel="preload" href="/_nuxt/15079d49ab1d9cfbcb09.js" as="script"><link rel="preload" href="/_nuxt/f3d6a8031bef5f7001eb.js" as="script"><link rel="preload" href="/_nuxt/f20718914cc762e98b62.js" as="script"><link rel="preload" href="/_nuxt/318ce6de4ca87216018d.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 2c1f7920:0 dad36f06:0 7df61210:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-92531920]{box-sizing:border-box}.__amp a[data-v-92531920]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-92531920]:visited{color:inherit}.__amp .m0[data-v-92531920]{margin:0}.__amp .p0[data-v-92531920]{padding:0}.__amp .pl1[data-v-92531920]{padding-left:.5rem}.__amp .pl2[data-v-92531920]{padding-left:1rem}.__amp .pl3[data-v-92531920]{padding-left:1.5rem}.__amp .pl4[data-v-92531920]{padding-left:2rem}.__amp .pr1[data-v-92531920]{padding-right:.5rem}.__amp .pr2[data-v-92531920]{padding-right:1rem}.__amp .pr3[data-v-92531920]{padding-right:1.5rem}.__amp .pr4[data-v-92531920]{padding-right:2rem}.__amp .menu-link[data-v-92531920]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-92531920]:visited{color:inherit}.__amp .headerbar[data-v-92531920]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-92531920]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-92531920]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-92531920]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-92531920]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-92531920]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-92531920]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-92531920]{text-align:left}.__amp .nav-single[data-v-92531920]{min-width:100px}.__amp .nav-dropdown[data-v-92531920]{position:relative;min-width:140px}.__amp .humbarger[data-v-92531920]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-92531920]{display:none}}.__amp .sidebar[data-v-92531920]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-92531920]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-92531920]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-92531920]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-92531920]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-92531920]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-92531920]{text-align:left;margin:0 0 1rem}.footer[data-v-92531920]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-92531920]{color:#efefef}#table-content[data-v-92531920]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-92531920]{padding:20px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:10px}.link-container[data-v-92531920]{margin-bottom:.3rem}.link-container a[data-v-92531920]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-92531920]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <title>ExpressでDigest認証を実装する | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="ExpressでDigest認証機能を実装してみます。Basic認証ではセキュリティ面で脆弱性があります。そこで考えられたのがパスワードをハッシュ化(Digest)して通信する認証です。サーバーとクライアントはハッシュ化された値でやり取りされるのでセキュリティがより強固になります。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/digest_auth"><link rel="preload" href="/_nuxt/a3a4612808a61b95b7d2.js" as="script"><link rel="preload" href="/_nuxt/2b0336898229d549ef28.js" as="script"><link rel="preload" href="/_nuxt/5f861a9e92873ef4fe81.js" as="script"><link rel="preload" href="/_nuxt/52f7748893ef32fb82ba.js" as="script"><link rel="preload" href="/_nuxt/5b8f4a70f9001db01856.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 2c1f7920:0 dad36f06:0 5e6f4ba6:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-47ae3f5c]{box-sizing:border-box}.__amp a[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-47ae3f5c]:visited{color:inherit}.__amp .m0[data-v-47ae3f5c]{margin:0}.__amp .p0[data-v-47ae3f5c]{padding:0}.__amp .pl1[data-v-47ae3f5c]{padding-left:.5rem}.__amp .pl2[data-v-47ae3f5c]{padding-left:1rem}.__amp .pl3[data-v-47ae3f5c]{padding-left:1.5rem}.__amp .pl4[data-v-47ae3f5c]{padding-left:2rem}.__amp .pr1[data-v-47ae3f5c]{padding-right:.5rem}.__amp .pr2[data-v-47ae3f5c]{padding-right:1rem}.__amp .pr3[data-v-47ae3f5c]{padding-right:1.5rem}.__amp .pr4[data-v-47ae3f5c]{padding-right:2rem}.__amp .menu-link[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-47ae3f5c]:visited{color:inherit}.__amp .headerbar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-47ae3f5c]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-47ae3f5c]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-47ae3f5c]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-47ae3f5c]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-47ae3f5c]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-47ae3f5c]{text-align:left}.__amp .nav-single[data-v-47ae3f5c]{min-width:100px}.__amp .nav-dropdown[data-v-47ae3f5c]{position:relative;min-width:140px}.__amp .humbarger[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-47ae3f5c]{display:none}}.__amp .sidebar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-47ae3f5c]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-47ae3f5c]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-47ae3f5c]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-47ae3f5c]{text-align:left;margin:0 0 1rem}.footer[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-47ae3f5c]{color:#efefef}#table-content[data-v-47ae3f5c]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-47ae3f5c]{padding:16px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:3.5rem}.link-container[data-v-47ae3f5c]{margin-bottom:.3rem}.link-container a[data-v-47ae3f5c]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-47ae3f5c]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   </head>
   <body class="__amp" data-n-head="%7B%22class%22:%7B%22ssr%22:%22%20__amp%22%7D%7D">
     <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div class="site"><div><header class="headerbar pl2 pr4"><div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="humbarger pr2">☰</div> <nav class="headerbar-nav"><ul class="m0 p0"><li class="nav-single"><a href="/" class="menu-link nuxt-link-active">
@@ -273,16 +273,235 @@ qop は auth の場合はリクエストのメソッドから、auth-int の場�
           Express サードパーティ一覧
         </a></div><div class="menu-item" data-v-967b7d70><a href="/express/links/" data-v-967b7d70>
           参考リンク
-        </a></div></section></aside></div> <div id="table-content" data-v-92531920><aside id="table-content-list" data-v-92531920><div class="link-container" data-v-92531920><a href="/express/digest_auth" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        実装準備
-      </a></div><div class="link-container" data-v-92531920><a href="/express/digest_auth" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        Digest認証の実装
-      </a></div><div class="link-container" data-v-92531920><a href="/express/digest_auth" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        認証要求のレスポンスを返す
-      </a></div><div class="link-container" data-v-92531920><a href="/express/digest_auth" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        Digestを算出し検証する
-      </a></div><div class="link-container" data-v-92531920><a href="/express/digest_auth" class="nuxt-link-exact-active nuxt-link-active" data-v-92531920>
-        参考サイト
-      </a></div></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
+        </a></div></section></aside></div> <div id="table-content" articlemd="<section><h1>ExpressでDigest認証を実装する</h1>
+<p><a href=&#34;https://irisash.github.io/express/basic_auth/&#34;>ExpressでBasic認証を実装する</a>でBasic認証の仕組みをみました。そこで分かるのは、送信される情報の値を取得できれば、Base64でデコードするだけでパスワードを解読できてしまうということです。</p>
+<p>そこでクライアントから送信するパスワードはハッシュ化して、またサーバー側でも登録しているパスワードをハッシュ化し、それぞれの値を照合することで認可する方法が考案されました。これがDigest認証です。</p>
+<p>Digest認証のアルゴリズムや詳細については記事最後の参考サイトをご参考ください。今回の実装もそちらのサイトを参考に作成しました。実装済みのサンプルは<a href=&#34;https://github.com/irisAsh/express-digest-auth-tutorial&#34;>Github</a>においていますのでご参考ください。</p>
+<h2 id=&#34;initialize-project&#34;>実装準備</h2>
+<p>プロジェクトのテンプレートを<a href=&#34;https://github.com/irisAsh/express-digest-auth-tutorial/tree/project-template&#34;>こちら</a>に置いています。認証を組み込むプロジェクトがない場合はこちらを活用ください。</p>
+<p>実装目標はサンプルの<code>/tutorial</code>ページにDigest認証を設定とします。</p>
+<img src=&#34;images/express/digest_auth/root.png&#34; alt=&#34;ルート画面&#34; title=&#34;ルート画面&#34; style=&#34;max-height:400px;&#34;>
+<p>まずは実装に利用するパッケージをインストールします。</p>
+<p><strong>node-uuid</strong></p>
+<p>WWW-Authenticateヘッダーを返す際に、ランダムな文字列(nonce)を付与する必要があります。<br />
+今回はUUIDを生成してその値をnonceの値として利用することにしました。UUID生成パッケージとして<a href=&#34;https://github.com/kelektiv/node-uuid&#34;>node-uuid</a>を使用します。</p>
+<pre><code class=&#34;language-shell.prettyprint&#34;>$ yarn add uuid
+</code></pre>
+<p><strong>express-session</strong></p>
+<p>照合値の算出時にランダムな文字列(nonce)やリクエスト回数(nc)をサーバー側で保持しておく必要があります。それらの値はセッションで管理することにしました。Expressでセッションを管理するには<a href=&#34;https://github.com/expressjs/session&#34;>express-session</a>を使います。</p>
+<p><code>express-session</code>の使い方については<a href=&#34;https://irisash.github.io/express/express_session/&#34;>Expressでセッションを利用する</a>で説明しているのでご参考にしてください。</p>
+<pre><code class=&#34;language-shell.prettyprint&#34;>$ yarn add express-session
+</code></pre>
+<p><strong>JavaScript-MD5</strong></p>
+<p>ハッシュ化にはMD5アルゴリズムを使用します。<a href=&#34;https://github.com/blueimp/JavaScript-MD5&#34;>JavaScript-MD5</a>はJavascriptでハッシュ化(MD5)するパッケージの１つです。</p>
+<pre><code class=&#34;language-shell.prettyprint&#34;>$ yarn add blueimp-md5
+</code></pre>
+<h2 id=&#34;digest&#34;>Digest認証の実装</h2>
+<p>先に実装全体を記載してしまいます。</p>
+<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
+
+var logger = require('morgan');
+// 追加
+var session = require(&amp;quot;express-session&amp;quot;);
+var md5 = require('blueimp-md5');
+var uuidv4 = require('uuid/v4');
+...
+
+// 追加
+app.use(session({
+  secret: &amp;quot;secret word&amp;quot;,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 60 * 1000
+  }
+}));
+
+// 登録ユーザー
+var allowedUsers = {
+  'Express': 'good'
+};
+
+// authorization のパラメータを分解
+var parseAuthorization = function(authorization) {
+  // 始めの'Digest 'を省き、', 'で分割
+  var arr = authorization.substr(7).split(', ');
+  var result = {};
+  arr.forEach(function(param) {
+    if (param.indexOf(&amp;quot;=&amp;quot;) &amp;lt; 0) {
+      return;
+    }
+    var [key, value] = param.split(&amp;quot;=&amp;quot;);
+    result[key] = value.replace(/&amp;quot;/g, '');
+  });
+  return result;
+};
+
+app.use('/*', function (req, res, next) {
+  var session = req.session;
+  // リクエスト数をカウントしセッションに残す
+  if (!!session.nc) {
+    session.nc += 1;
+  } else {
+    session.nc = 1;
+  }
+  if (req.originalUrl === '/about' || req.originalUrl === '/') {
+    next();
+  } else {
+    var realm = 'tutorial';
+    var method = 'GET';
+    var qop = 'auth';
+    var judgement = false;
+    var authorization = req.get('authorization');
+    if (!!authorization &amp;amp;&amp;amp; !!session.nonce &amp;amp;&amp;amp; !!session.nc) {
+      var authParams = parseAuthorization(authorization);
+      // リクエスト数が一致しているかチェック
+      if (session.nc === parseInt(authParams.nc, 16)) {
+        // responseを算出
+        var a1 = authParams.username + ':' + realm + ':' + allowedUsers[authParams.username];
+        var a2 = method + ':' + authParams.uri;
+        var a1_md5 = md5(a1);
+        var a2_md5 = md5(a2);
+        var code = a1_md5 + ':' + session.nonce + ':' + authParams.nc + ':' + authParams.cnonce + ':' + qop + ':' + a2_md5;
+        var code_md5 = md5(code);
+        judgement = code_md5 === authParams.response;
+      }
+    }
+    if (judgement) {
+      // 認証OK
+      next();
+    } else {
+      // 認証NG
+      session.nonce = uuidv4();
+      session.nc = 0;
+      res.set({
+        'WWW-Authenticate': 'Digest realm=&amp;quot;' + realm + '&amp;quot;, nonce=&amp;quot;' + session.nonce + '&amp;quot;, algorithm=MD5, qop=&amp;quot;' + qop + '&amp;quot;'
+      });
+      next(createError(401));
+    }
+  }
+});
+</code></pre>
+<h2 id=&#34;response&#34;>認証要求のレスポンスを返す</h2>
+<p>クライアントが保護のかかったページに訪れた時にWWW-Authenticateヘッダーを返す必要があります。また以下の値を付与する必要があります。</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realm</td>
+<td>任意の保護領域名</td>
+</tr>
+<tr>
+<td>nonce</td>
+<td>ランダムな文字列</td>
+</tr>
+<tr>
+<td>algorithm</td>
+<td>MD5, MD5-sess, SHA-256, SHA-256-sess</td>
+</tr>
+<tr>
+<td>qop</td>
+<td>&amp;quot;auth&amp;quot;, &amp;quot;auth-int&amp;quot;</td>
+</tr>
+</tbody>
+</table>
+<p>nonce の値は準備でインストールした node-uuid で生成した値を指定します。<br />
+また、algorithm には MD5 を指定します。 SHA-256 の方がセキュリティが強固になりますが、ブラウザがまだ対応していなかったため今回は MD5 にしました。<br />
+qop は auth の場合はリクエストのメソッドから、auth-int の場合はリクエストボディを含めて照合します。</p>
+<p>実装例では下記のようなヘッダーを返すようになっています。</p>
+<pre><code>WWW-Authenticate: Digest
+  realm=&amp;quot;tutorial&amp;quot;,
+  nonce=&amp;quot;uuidv4で生成した文字列&amp;quot;,
+  algorithm=MD5,
+  qop=&amp;quot;auth&amp;quot;
+</code></pre>
+<p>クライアントへの返答時に、nonce の値はセッションに保存します。nonce はクライアントから同じ値が送信されますが、検証にはサーバーで発行した値を使うため保存しておく必要があります。</p>
+<p>また、クライアントのリクエスト回数(nc)もセッションに保存しておきます。クライアントからパスワードが送信される時に16進数のリクエスト回数も同時に付与されてきます。検証時にこのリクエスト回数も一致しているか確認します。</p>
+<h2 id=&#34;authenticate&#34;>Digestを算出し検証する</h2>
+<p>クライアントからユーザー名とパスワードが送信されるので、送信される値から Digest の値を算出します。</p>
+<img src=&#34;images/express/digest_auth/root.png&#34; alt=&#34;認証画面&#34; title=&#34;認証画面&#34; style=&#34;max-height:400px;&#34;>
+<p>クライアントから送信される値は次のようになります。</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>realm</td>
+<td>返答した値と同値</td>
+</tr>
+<tr>
+<td>nonce</td>
+<td>返答した値と同値</td>
+</tr>
+<tr>
+<td>algorithm</td>
+<td>返答した値と同値</td>
+</tr>
+<tr>
+<td>qop</td>
+<td>返答した値と同値</td>
+</tr>
+<tr>
+<td>username</td>
+<td>ユーザー名</td>
+</tr>
+<tr>
+<td>uri</td>
+<td>アクセスしたURI</td>
+</tr>
+<tr>
+<td>nc</td>
+<td>16進数のリクエスト回数(8桁になるようゼロサプライされています)</td>
+</tr>
+<tr>
+<td>cnonce</td>
+<td>ランダムな文字列</td>
+</tr>
+<tr>
+<td>response</td>
+<td>Digest値(この値をサーバ側でも算出して照合します)</td>
+</tr>
+</tbody>
+</table>
+<p>実装例では下記のような送信がされます。</p>
+<pre><code>WWW-Authenticate: Digest
+  realm=&amp;quot;tutorial&amp;quot;,
+  nonce=&amp;quot;uuidv4で生成した文字列&amp;quot;,
+  algorithm=MD5,
+  qop=&amp;quot;auth&amp;quot;,
+  username=&amp;quot;Express&amp;quot;,
+  uri=&amp;quot;/tutorial&amp;quot;,
+  nc=&amp;quot;00000001&amp;quot;,
+  cnonce=&amp;quot;ランダムな文字列&amp;quot;,
+  response=&amp;quot;Digest値&amp;quot;
+</code></pre>
+<p>上記のリクエストの値は１列の文字列になっているので<code>parseAuthorization</code>で各値を分解しています。algorithm 以外の値はダブルクォートで囲まれているので注意してください。</p>
+<p>分解した値の nc はリクエスト数は16進数なので<code>parseInt(ncの値, 16)</code>で10進数に変換してからセッションで管理しているリクエスト回数が一致しているか確認しておきます。不一致の場合は再度認証要求を行いサーバーで保存しているリクエスト回数は0に初期化します。</p>
+<p>さて、残りはDigest値の算出です。流れは下記の通りです。</p>
+<ul>
+<li>A1 = 'username:realm:password'</li>
+<li>A2 = 'method:uri' (method はHTTPメソッド、ここではGET)</li>
+<li>Digest値 = 'A1のMD5ハッシュ化:nonce:nc:cnonce:A2のMD5ハッシュ化' のMD5ハッシュ化</li>
+</ul>
+<p>算出したDigest値とresponseの値が一致すれば認証OKです。</p>
+<p>実際に<code>/tutorial</code>にアクセスして認証手続きが完了すれば成功です。</p>
+<p>Digest認証の実装は以上となります。</p>
+<h2 id=&#34;reference-links&#34;>参考サイト</h2>
+<ul>
+<li><a href=&#34;https://tools.ietf.org/html/rfc7616&#34;>RFC 7616 - HTTP Digest Access Authentication</a></li>
+<li><a href=&#34;http://x68000.q-e-d.net/~68user/net/http-auth-2.html&#34;>HTTP クライアントを作ってみよう(6) - Digest 認証編 -</a></li>
+<li><a href=&#34;http://unarist.hatenablog.com/entry/2015/09/25/013142&#34;>Digest認証のパラメータを眺めた - うならぼ</a></li>
+</ul>
+</section>
+" data-v-47ae3f5c><aside id="table-content-list" data-v-47ae3f5c></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
   </body>
 </html>

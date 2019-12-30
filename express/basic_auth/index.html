@@ -1,7 +1,37 @@
 <!doctype html>
 <html data-n-head-ssr amp data-n-head="%7B%22amp%22:%7B%22ssr%22:true%7D%7D">
   <head>
-    <title>ExpressでBasic認証を実装する | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="ExpressでBasic認証機能を実装してみます。Basic認証は認証方式の１つで簡単に導入できるので場面によってはとても有用です。ライブラリを使用しない実装方法とbasic-authというライブラリを使用する方法を説明します。"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/basic_auth"><link rel="preload" href="/_nuxt/77716ca6e83341ae6269.js" as="script"><link rel="preload" href="/_nuxt/2b0336898229d549ef28.js" as="script"><link rel="preload" href="/_nuxt/5f861a9e92873ef4fe81.js" as="script"><link rel="preload" href="/_nuxt/c8509316e17549918ed1.js" as="script"><link rel="preload" href="/_nuxt/d92d9a9cebe016849564.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 2c1f7920:0 dad36f06:0 5e6f4ba6:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-47ae3f5c]{box-sizing:border-box}.__amp a[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-47ae3f5c]:visited{color:inherit}.__amp .m0[data-v-47ae3f5c]{margin:0}.__amp .p0[data-v-47ae3f5c]{padding:0}.__amp .pl1[data-v-47ae3f5c]{padding-left:.5rem}.__amp .pl2[data-v-47ae3f5c]{padding-left:1rem}.__amp .pl3[data-v-47ae3f5c]{padding-left:1.5rem}.__amp .pl4[data-v-47ae3f5c]{padding-left:2rem}.__amp .pr1[data-v-47ae3f5c]{padding-right:.5rem}.__amp .pr2[data-v-47ae3f5c]{padding-right:1rem}.__amp .pr3[data-v-47ae3f5c]{padding-right:1.5rem}.__amp .pr4[data-v-47ae3f5c]{padding-right:2rem}.__amp .menu-link[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-47ae3f5c]:visited{color:inherit}.__amp .headerbar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-47ae3f5c]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-47ae3f5c]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-47ae3f5c]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-47ae3f5c]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-47ae3f5c]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-47ae3f5c]{text-align:left}.__amp .nav-single[data-v-47ae3f5c]{min-width:100px}.__amp .nav-dropdown[data-v-47ae3f5c]{position:relative;min-width:140px}.__amp .humbarger[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-47ae3f5c]{display:none}}.__amp .sidebar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-47ae3f5c]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-47ae3f5c]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-47ae3f5c]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-47ae3f5c]{text-align:left;margin:0 0 1rem}.footer[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-47ae3f5c]{color:#efefef}#table-content[data-v-47ae3f5c]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-47ae3f5c]{padding:16px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:3.5rem}.link-container[data-v-47ae3f5c]{margin-bottom:.3rem}.link-container a[data-v-47ae3f5c]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-47ae3f5c]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <title>ExpressでBasic認証を実装する | みかんみかんみかみん</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="ExpressでBasic認証機能を実装してみます。Basic認証は認証方式の１つで簡単に導入できるので場面によってはとても有用です。ライブラリを使用しない実装方法とbasic-authというライブラリを使用する方法を説明します。"><meta data-n-head="ssr" data-hid="og:site_name" property="og:site_name" content="みかんみかんみかみん"><meta data-n-head="ssr" data-hid="og:type" property="og:type" content="article"><meta data-n-head="ssr" data-hid="og:url" property="og:url" content="https://irisash.github.io/express/basic_auth/"><meta data-n-head="ssr" data-hid="og:title" property="og:title" content="ExpressでBasic認証を実装する"><meta data-n-head="ssr" data-hid="og:description" property="og:description" content="ExpressでBasic認証機能を実装してみます。Basic認証は認証方式の１つで簡単に導入できるので場面によってはとても有用です。ライブラリを使用しない実装方法とbasic-authというライブラリを使用する方法を説明します。"><meta data-n-head="ssr" data-hid="og:image" property="og:image" content="https://irisash.github.io/images/express/basic_auth/ogp.png"><meta data-n-head="ssr" name="twitter:card" content="summary_large_image"><meta data-n-head="ssr" name="twitter:site" content="@irisberrypie"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicons/favicon.ico"><link data-n-head="ssr" rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><link data-n-head="ssr" rel="manifest" href="/manifest.json"><link data-n-head="ssr" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"><link data-n-head="ssr" rel="canonical" data-hid="canonical" href="https://irisash.github.io/express/basic_auth"><script data-n-head="ssr" type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://irisash.github.io/"
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://irisash.github.io/images/express/basic_auth/ogp.png"
+        },
+        "headline": "ExpressでBasic認証を実装する",
+        "datePublished": "2019-04-20T22:00:00+09:00",
+        "dateModified": "2019-12-30T18:00:00+09:00",
+        "author": {
+          "@type": "Person",
+          "name": "Hiroki Kojima"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "みかんみかんみかみん",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://irisash.github.io/favicons/favicon.ico"
+          }
+        }
+      }</script><script data-n-head="ssr" type="application/ld+json">{
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{"@type":"ListItem","position":1,"name":"みかんみかんみかみん","item":"https://irisash.github.io/"},{"@type":"ListItem","position":2,"name":"Express","item":"https://irisash.github.io/express/"},{"@type":"ListItem","position":3,"name":"ExpressでBasic認証を実装する","item":"https://irisash.github.io/express/basic_auth/"}]
+        }</script><link rel="preload" href="/_nuxt/8db8ca1e794d3c16d89e.js" as="script"><link rel="preload" href="/_nuxt/2b0336898229d549ef28.js" as="script"><link rel="preload" href="/_nuxt/5f861a9e92873ef4fe81.js" as="script"><link rel="preload" href="/_nuxt/a3a180d755c2a5d00e9f.js" as="script"><link rel="preload" href="/_nuxt/d934eb529c731d78391d.js" as="script"><link rel="preload" href="/_nuxt/a7769eca980713a1ae40.js" as="script"><style amp-custom data-vue-ssr-id="0456c6f6:0 3191d5ad:0 11e2a1e9:0 47a10420:0 29013506:0 998eb414:0 2c1f7920:0 dad36f06:0 5e6f4ba6:0">.__amp *{box-sizing:border-box}.__amp a{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a:visited{color:inherit}.__amp .m0{margin:0}.__amp .p0{padding:0}.__amp .pl1{padding-left:.5rem}.__amp .pl2{padding-left:1rem}.__amp .pl3{padding-left:1.5rem}.__amp .pl4{padding-left:2rem}.__amp .pr1{padding-right:.5rem}.__amp .pr2{padding-right:1rem}.__amp .pr3{padding-right:1.5rem}.__amp .pr4{padding-right:2rem}.__amp .menu-link{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link:visited{color:inherit}.__amp .headerbar{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li{text-align:left}.__amp .nav-single{min-width:100px}.__amp .nav-dropdown{position:relative;min-width:140px}.__amp .humbarger{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger{display:none}}.__amp .sidebar{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li{text-align:left;margin:0 0 1rem}.footer{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p{color:#efefef}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#1d9cb3;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}.site{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.siteContent{-webkit-box-flex:1;flex:1}.burger-font-icon i{font-size:1.5rem;height:1.5rem;margin:1rem 0 0 1rem;color:#fff}.js-icon{color:#fff;font-size:1.5rem;padding-right:.5rem}.vuejs-icon{color:#fff;font-size:24px;padding-right:8px}.__amp [data-v-df671664]{box-sizing:border-box}.__amp a[data-v-df671664]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-df671664]:visited{color:inherit}.__amp .m0[data-v-df671664]{margin:0}.__amp .p0[data-v-df671664]{padding:0}.__amp .pl1[data-v-df671664]{padding-left:.5rem}.__amp .pl2[data-v-df671664]{padding-left:1rem}.__amp .pl3[data-v-df671664]{padding-left:1.5rem}.__amp .pl4[data-v-df671664]{padding-left:2rem}.__amp .pr1[data-v-df671664]{padding-right:.5rem}.__amp .pr2[data-v-df671664]{padding-right:1rem}.__amp .pr3[data-v-df671664]{padding-right:1.5rem}.__amp .pr4[data-v-df671664]{padding-right:2rem}.__amp .menu-link[data-v-df671664]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-df671664]:visited{color:inherit}.__amp .headerbar[data-v-df671664]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-df671664]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-df671664]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-df671664]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-df671664]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-df671664]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-df671664]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-df671664]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-df671664]{text-align:left}.__amp .nav-single[data-v-df671664]{min-width:100px}.__amp .nav-dropdown[data-v-df671664]{position:relative;min-width:140px}.__amp .humbarger[data-v-df671664]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-df671664]{display:none}}.__amp .sidebar[data-v-df671664]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-df671664]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-df671664]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-df671664]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-df671664]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-df671664]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-df671664]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-df671664]{text-align:left;margin:0 0 1rem}.footer[data-v-df671664]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-df671664]{color:#efefef}#wrapper[data-v-df671664]{display:-webkit-box;display:flex;padding-top:3.5rem;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}@media screen and (min-width:52.06rem){#wrapper[data-v-df671664]{-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}}#main[data-v-df671664]{padding:0 1rem}@media screen and (min-width:52.06rem){#main[data-v-df671664]{-webkit-box-flex:1;flex:1;-webkit-box-ordinal-group:3;order:2;width:calc(100% - 550px)}}#main h1[data-v-df671664]{font-size:1.5rem}#main h2[data-v-df671664]{font-size:1.2rem}code[data-v-df671664]{color:#0089a7;background-color:#efefef;padding:.2rem}.__amp [data-v-1ea95dae]{box-sizing:border-box}.__amp a[data-v-1ea95dae]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-1ea95dae]:visited{color:inherit}.__amp .m0[data-v-1ea95dae]{margin:0}.__amp .p0[data-v-1ea95dae]{padding:0}.__amp .pl1[data-v-1ea95dae]{padding-left:.5rem}.__amp .pl2[data-v-1ea95dae]{padding-left:1rem}.__amp .pl3[data-v-1ea95dae]{padding-left:1.5rem}.__amp .pl4[data-v-1ea95dae]{padding-left:2rem}.__amp .pr1[data-v-1ea95dae]{padding-right:.5rem}.__amp .pr2[data-v-1ea95dae]{padding-right:1rem}.__amp .pr3[data-v-1ea95dae]{padding-right:1.5rem}.__amp .pr4[data-v-1ea95dae]{padding-right:2rem}.__amp .menu-link[data-v-1ea95dae]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-1ea95dae]:visited{color:inherit}.__amp .headerbar[data-v-1ea95dae]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-1ea95dae]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-1ea95dae]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-1ea95dae]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-1ea95dae]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-1ea95dae]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-1ea95dae]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-1ea95dae]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-1ea95dae]{text-align:left}.__amp .nav-single[data-v-1ea95dae]{min-width:100px}.__amp .nav-dropdown[data-v-1ea95dae]{position:relative;min-width:140px}.__amp .humbarger[data-v-1ea95dae]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-1ea95dae]{display:none}}.__amp .sidebar[data-v-1ea95dae]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-1ea95dae]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-1ea95dae]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-1ea95dae]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-1ea95dae]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-1ea95dae]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-1ea95dae]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-1ea95dae]{text-align:left;margin:0 0 1rem}.footer[data-v-1ea95dae]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-1ea95dae]{color:#efefef}pre[data-v-1ea95dae]{background-color:#0f2540;overflow:auto;padding:0 1rem;margin:0}code[data-v-1ea95dae]{color:#efefef;white-space:pre}.file-name-box[data-v-1ea95dae]{padding:.2rem 0}.file-name-box .file-name-text[data-v-1ea95dae]{padding:.2rem 1rem;background-color:#969696;color:#efefef}.article-timestamp{margin-top:1.5rem;padding-top:.5rem;border-top:1px solid #aaa;color:#aaa}.article-timestamp,.timestamp-container{display:-webkit-box;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.timestamp-container{-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;padding-right:1rem}.timestamp-container i{margin-right:.4rem}.__amp [data-v-967b7d70]{box-sizing:border-box}.__amp a[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-967b7d70]:visited{color:inherit}.__amp .m0[data-v-967b7d70]{margin:0}.__amp .p0[data-v-967b7d70]{padding:0}.__amp .pl1[data-v-967b7d70]{padding-left:.5rem}.__amp .pl2[data-v-967b7d70]{padding-left:1rem}.__amp .pl3[data-v-967b7d70]{padding-left:1.5rem}.__amp .pl4[data-v-967b7d70]{padding-left:2rem}.__amp .pr1[data-v-967b7d70]{padding-right:.5rem}.__amp .pr2[data-v-967b7d70]{padding-right:1rem}.__amp .pr3[data-v-967b7d70]{padding-right:1.5rem}.__amp .pr4[data-v-967b7d70]{padding-right:2rem}.__amp .menu-link[data-v-967b7d70]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-967b7d70]:visited{color:inherit}.__amp .headerbar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-967b7d70]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-967b7d70]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-967b7d70]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-967b7d70]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-967b7d70]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-967b7d70]{text-align:left}.__amp .nav-single[data-v-967b7d70]{min-width:100px}.__amp .nav-dropdown[data-v-967b7d70]{position:relative;min-width:140px}.__amp .humbarger[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-967b7d70]{display:none}}.__amp .sidebar[data-v-967b7d70]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-967b7d70]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-967b7d70]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-967b7d70]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-967b7d70]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-967b7d70]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-967b7d70]{text-align:left;margin:0 0 1rem}.footer[data-v-967b7d70]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-967b7d70]{color:#efefef}#sidebar[data-v-967b7d70]{padding:1rem}@media screen and (min-width:52.06rem){#sidebar[data-v-967b7d70]{width:250px;font-size:.9rem}}#sidebar section[data-v-967b7d70]{margin-bottom:1rem}#sidebar .menu-overview[data-v-967b7d70]{border-bottom:1px solid #b2b2b2;margin-bottom:8px}#sidebar .menu-item[data-v-967b7d70]{padding-left:4px}#sidebar .menu-item .access-now[data-v-967b7d70]{color:#0089a7}#sidebar .menu-item a[data-v-967b7d70]{color:#8c8c8c;text-decoration:none}#sidebar .menu-item a[data-v-967b7d70]:hover{color:#262626}.__amp [data-v-47ae3f5c]{box-sizing:border-box}.__amp a[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#0089a7}.__amp a[data-v-47ae3f5c]:visited{color:inherit}.__amp .m0[data-v-47ae3f5c]{margin:0}.__amp .p0[data-v-47ae3f5c]{padding:0}.__amp .pl1[data-v-47ae3f5c]{padding-left:.5rem}.__amp .pl2[data-v-47ae3f5c]{padding-left:1rem}.__amp .pl3[data-v-47ae3f5c]{padding-left:1.5rem}.__amp .pl4[data-v-47ae3f5c]{padding-left:2rem}.__amp .pr1[data-v-47ae3f5c]{padding-right:.5rem}.__amp .pr2[data-v-47ae3f5c]{padding-right:1rem}.__amp .pr3[data-v-47ae3f5c]{padding-right:1.5rem}.__amp .pr4[data-v-47ae3f5c]{padding-right:2rem}.__amp .menu-link[data-v-47ae3f5c]{outline:0;cursor:pointer;text-decoration:none;color:#efefef}.__amp .menu-link[data-v-47ae3f5c]:visited{color:inherit}.__amp .headerbar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;z-index:999;box-shadow:0 0 5px 2px rgba(0,0,0,.1);position:fixed;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;top:0;left:0;right:0}.__amp .headerbar-nav[data-v-47ae3f5c]{display:none;line-height:3.5rem}@media screen and (min-width:52.06rem){.__amp .headerbar-nav[data-v-47ae3f5c]{display:-webkit-box;display:flex}}.__amp .headerbar-nav ul[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;list-style:none;white-space:nowrap;text-align:center}.__amp .headerbar-nav li[data-v-47ae3f5c]{display:list-item;text-align:-webkit-match-parent;padding:0 1rem}.__amp .headerbar-nav .dropdown-container[data-v-47ae3f5c]{position:absolute;top:0;left:0;right:0;bottom:0}.__amp .headerbar-nav .dropdown-container section header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none}.__amp .headerbar-nav .dropdown-container section ul[data-v-47ae3f5c]{background-color:#0089a7;list-style:none;padding:0 0 0 20px}.__amp .headerbar-nav .dropdown-container section li[data-v-47ae3f5c]{text-align:left}.__amp .nav-single[data-v-47ae3f5c]{min-width:100px}.__amp .nav-dropdown[data-v-47ae3f5c]{position:relative;min-width:140px}.__amp .humbarger[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none}@media screen and (min-width:52.06rem){.__amp .humbarger[data-v-47ae3f5c]{display:none}}.__amp .sidebar[data-v-47ae3f5c]{background-color:#0089a7;color:#efefef;width:300px}.__amp .sidebar-header[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;-webkit-box-align:center;align-items:center;line-height:3.5rem;min-height:3.5rem}.__amp .sidebar-header .close[data-v-47ae3f5c]{outline:0;line-height:3.5rem;font-size:2rem;cursor:pointer;text-decoration:none;-webkit-box-align:start;align-items:flex-start}.__amp .sidebar-nav ul[data-v-47ae3f5c]{font-size:1.2rem;line-height:1.2rem;letter-spacing:.06rem;list-style:none}.__amp .sidebar-nav .nav-single[data-v-47ae3f5c]{margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container header[data-v-47ae3f5c]{outline:0;background-color:#0089a7;border:none;margin:0 0 1rem}.__amp .sidebar-nav .dropdown-container ul[data-v-47ae3f5c]{list-style:none;padding:0 0 0 20px}.__amp .sidebar-nav .dropdown-container li[data-v-47ae3f5c]{text-align:left;margin:0 0 1rem}.footer[data-v-47ae3f5c]{display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#0089a7;padding:.2rem}.footer p[data-v-47ae3f5c]{color:#efefef}#table-content[data-v-47ae3f5c]{width:300px;-webkit-box-ordinal-group:4;order:3}#table-content-list[data-v-47ae3f5c]{padding:16px;font-size:.9rem;position:-webkit-sticky;position:sticky;top:3.5rem}.link-container[data-v-47ae3f5c]{margin-bottom:.3rem}.link-container a[data-v-47ae3f5c]{color:#8c8c8c;text-decoration:none}.link-container a[data-v-47ae3f5c]:hover{color:#262626}</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   </head>
   <body class="__amp" data-n-head="%7B%22class%22:%7B%22ssr%22:%22%20__amp%22%7D%7D">
     <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div class="site"><div><header class="headerbar pl2 pr4"><div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="humbarger pr2">☰</div> <nav class="headerbar-nav"><ul class="m0 p0"><li class="nav-single"><a href="/" class="menu-link nuxt-link-active">
@@ -16,34 +46,26 @@
                     Rails
                   </a></li></ul></section></amp-accordion></li></ul></nav></header> <amp-sidebar id="header-sidebar" layout="nodisplay" class="sidebar pl3 pr3"><div class="sidebar-header"><div role="button" on="tap:header-sidebar.toggle" tabindex="0" class="close">✕</div></div> <nav class="sidebar-nav"><ul class="m0 p0"><li class="nav-single"><a href="/" class="menu-link nuxt-link-active">
             Home
-          </a></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>JS</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/express" class="menu-link nuxt-link-active">Express</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>SQL</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/redis" class="menu-link">Redis</a></li> <li class="ampstart-dropdown-item"><a href="/mariadb" class="menu-link">MariaDB</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>Ruby</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/rails" class="menu-link">Rails</a></li></ul></section></amp-accordion></li></ul></nav></amp-sidebar></div> <div class="siteContent"><div id="wrapper"><article id="main"><section><div><section><h1>ExpressでBasic認証を実装する</h1>
-<p>Basic認証は認証方式の１つで最も簡潔で基本的な認証で、セキュリティ面では弱い部分を持ちますが、手軽に実装でき多くの環境で利用できる点で有用な認証の１つです。</p>
-<p>多くはApacheなどのアプリケーションサーバーでBasic認証を用意しますが、今回はExpressでBasic認証の設定をしてみます。</p>
-<p>実装済みのサンプルは<a href="https://github.com/irisAsh/express-basic-auth-tutorial">こちら</a>のGithub上ありますのでご参照ください。</p>
-<h2 id="basic-auth-overview">Basic認証の流れ</h2>
-<p>Basic認証の流れは以下のようになっています。</p>
-<ul>
-<li>クライアントが保護のかかったページに訪れる</li>
-<li>サーバーが認証を要求する</li>
-<li>クライアントがユーザー名とパスワードをサーバーへ送信する</li>
-<li>ユーザー名とパスワードが正しいことを確認しリクエストされたページの情報を返す</li>
-</ul>
-<h2 id="initialize-project">サンプルプロジェクトの用意</h2>
-<p>Basic認証を試すためのサンプルプロジェクトを用意します。</p>
-<pre><code class="language-shell.prettyprint">$ express --view=pug express-basic-auth-tutorial
-</code></pre>
-<p>express-generatorでプロジェクトを作った後にページを３つ用意します。</p>
-<ul>
-<li>/ : ルート画面</li>
-<li>/tutorials : チュートリアル画面（このページにBasic認証保護をかけます）</li>
-<li>/about : About画面</li>
-</ul>
-<p>Basic認証を試すだけですので、各画面は特に重要な実装はありません。</p>
-<p><strong>ルート画面</strong></p>
-<p><code>/tutorials</code>,<code>/about</code>へのリンクとログアウトのボタンがあるだけです。<br>
-(サンプルではテンプレートエンジンにPugを使っています。Pugの書き方がわからない方は<a href="https://irisash.github.io/express/pug_reference/">Pugの書き方まとめ</a>をご参考ください。)</p>
-<pre><code class="language-index.pug.prettyprint">// index.pug
-
+          </a></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>JS</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/express" class="menu-link nuxt-link-active">Express</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>SQL</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/redis" class="menu-link">Redis</a></li> <li class="ampstart-dropdown-item"><a href="/mariadb" class="menu-link">MariaDB</a></li></ul></section></amp-accordion></li> <li class="nav-dropdown"><amp-accordion layout="container" disable-session-states="" class="dropdown-container"><section><header>Ruby</header> <ul class="ampstart-dropdown-items list-reset m0 p0"><li class="ampstart-dropdown-item"><a href="/rails" class="menu-link">Rails</a></li></ul></section></amp-accordion></li></ul></nav></amp-sidebar></div> <div class="siteContent"><div id="wrapper" data-v-df671664><article id="main" class="article-page" data-v-df671664><section data-v-df671664><h1 data-v-df671664>ExpressでBasic認証を実装する</h1> <div class="abstract" data-v-df671664><p data-v-df671664>
+        Basic認証は認証方式の１つで最も簡潔で基本的な認証で、セキュリティ面では弱い部分を持ちますが、
+        手軽に実装でき多くの環境で利用できる点で有用な認証の１つです。
+      </p> <p data-v-df671664>
+        多くはApacheなどのアプリケーションサーバーでBasic認証を用意しますが、今回はExpressでBasic認証の設定をしてみます。
+      </p> <p data-v-df671664>
+        実装済みのサンプルは
+        <a href="https://github.com/irisAsh/express-basic-auth-tutorial" target="_blank" data-v-df671664>こちら</a>
+        のGithub上ありますのでご参照ください。
+      </p></div> <h2 id="in-link-basic-auth-overview" data-v-df671664>Basic認証の流れ</h2> <p data-v-df671664>Basic認証の流れは以下のようになっています。</p> <ul data-v-df671664><li data-v-df671664>クライアントが保護のかかったページに訪れる</li> <li data-v-df671664>サーバーが認証を要求する</li> <li data-v-df671664>クライアントがユーザー名とパスワードをサーバーへ送信する</li> <li data-v-df671664>ユーザー名とパスワードが正しいことを確認しリクエストされたページの情報を返す</li></ul> <h2 id="in-link-initialize-project" data-v-df671664>サンプルプロジェクトの用意</h2> <p data-v-df671664>Basic認証を試すためのサンプルプロジェクトを用意します。</p> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+$ express --view=pug express-basic-auth-tutorial
+    
+    </code>
+  </pre></div> <p data-v-df671664>express-generatorでプロジェクトを作った後にページを３つ用意します。</p> <ul data-v-df671664><li data-v-df671664>/ : ルート画面</li> <li data-v-df671664>/tutorials : チュートリアル画面（このページにBasic認証保護をかけます）</li> <li data-v-df671664>/about : About画面</li></ul> <p data-v-df671664>Basic認証を試すだけですので、各画面は特に重要な実装はありません。</p> <h3 data-v-df671664>ルート画面</h3> <p data-v-df671664><code data-v-df671664>/tutorials</code>,<code data-v-df671664>/about</code>へのリンクとログアウトのボタンがあるだけです。
+      (サンプルではテンプレートエンジンにPugを使っています。Pugの書き方がわからない方は
+      <a href="https://irisash.github.io/express/pug_reference/" target="_blank" data-v-df671664>Pugの書き方まとめ</a>
+      をご参考ください。)
+    </p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>index.pug</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 extends layout
 
 block content
@@ -55,12 +77,10 @@ block content
     li
       a(href='/about') about
   a(href='/logout') logout
-</code></pre>
-<img src="images/express/basic_auth/root.png" alt="ルート画面" title="ルート画面" style="max-height:400px">
-<p><strong>チュートリアル画面/About画面</strong></p>
-<p>画面に「Tutorial Page」が表示されるだけです。About画面も同様です。</p>
-<pre><code class="language-routes/tutorials.js.prettyprint">// routes/tutorials.js
-
+    
+    </code>
+  </pre></div> <amp-img src="/images/express/basic_auth/root.png" alt="ルート画面" title="ルート画面" width="640" height="472" layout="responsive" data-v-df671664></amp-img> <h3 data-v-df671664>チュートリアル画面/About画面</h3> <p data-v-df671664>画面に「Tutorial Page」が表示されるだけです。About画面も同様です。</p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>routes/tutorials.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 var express = require('express');
 var router = express.Router();
 
@@ -70,12 +90,16 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
-</code></pre>
-<h2 id="return-www-authenticate">認証を要求する</h2>
-<p>さて、今の状態ではチュートリアル画面は認証なしで閲覧できる状態です。このページを表示するようにしようとすると認証が要求されるようにしましょう。</p>
-<p>そのためにはサーバーからのレスポンスで401のステータスコードを返し同時に「WWW-Authenticate」ヘッダをつけておくようにします。この「WWW-Authenticate」ヘッダが返ってくると認証のポップアップが自動で表示されます。</p>
-<pre><code class="language-app.js.prettyprint">// app.js
-
+    
+    </code>
+  </pre></div> <h2 id="in-link-return-www-authenticate" data-v-df671664>認証を要求する</h2> <p data-v-df671664>
+      さて、今の状態ではチュートリアル画面は認証なしで閲覧できる状態です。
+      このページを表示するようにしようとすると認証が要求されるようにしましょう。
+    </p> <p data-v-df671664>
+      そのためにはサーバーからのレスポンスで401のステータスコードを返し同時に「WWW-Authenticate」ヘッダをつけておくようにします。
+      この「WWW-Authenticate」ヘッダが返ってくると認証のポップアップが自動で表示されます。
+    </p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>app.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 追加
@@ -93,21 +117,28 @@ app.use('/*', function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-</code></pre>
-<p>処理の説明ですが、まず<code>req.originalUrl</code>が<code>/</code>,<code>/about</code>以外は認証を通るようにしています。</p>
-<p>そして今は全て認証NGとして、NGの場合は<code>res.setHeader('WWW-Authenticate', 'Basic realm="tutorial"');</code>でヘッダに「WWW-Authenticate」を付与します。<br>
-また<code>realm=????</code>には任意の保護領域名を設定します。これにより既に認証有効かどうかを判定できます。</p>
-<p>最後に<code>next(createError(401));</code>で401エラーを発生させます。</p>
-<p>さて、<code>/tutorial</code>にアクセスしチュートリアル画面を確認してみましょう。ユーザー名とパスワードを要求されるポップアップが表示されるようになっています。</p>
-<img src="images/express/basic_auth/popup.png" alt="認証ポップアップ画面" title="認証ポップアップ画面" style="max-height:400px">
-<h2 id="decode-authenticate">認証の情報を読み取る</h2>
-<p>認証ポップアップは表示されたので、ユーザー名とパスワードを入力し「Sign In」を押された後の実装をしましょう。<br>
-クライアントから送信されたリクエストのAuthorizationヘッダにはユーザー名とパスワードの情報が含まれています。</p>
-<p>Basic認証では、ユーザ名とパスワードをコロン( : )で結合し、さらにBase64でエンコードされた情報が送信されるようになっています。従ってサーバー側ではの逆の操作を行う必要があります。<br>
-正確にはAuthorizationヘッダの値は"Basic base64でエンコードされた文字列"となるので初めの"Basic "は省く必要があります。</p>
-<p>さて、app.jsを編集してBasic認証の実装を仕上げましょう。</p>
-<pre><code class="language-app.js.prettyprint">// app.js
-
+    
+    </code>
+  </pre></div> <p data-v-df671664>
+      処理の説明ですが、<code data-v-df671664>req.originalUrl</code>の値が<code data-v-df671664>/</code>,<code data-v-df671664>/about</code>以外の場合は認証を通るようにしています。
+    </p> <p data-v-df671664>
+      とりあえずは全て認証NGとして、NGの場合は<code data-v-df671664>res.setHeader('WWW-Authenticate', 'Basic realm="tutorial"');</code>でヘッダに「WWW-Authenticate」を付与します。
+      また<code data-v-df671664>realm=????</code>には任意の保護領域名を設定します。これにより既に認証有効かどうかを判定できます。
+    </p> <p data-v-df671664>
+      最後に<code data-v-df671664>next(createError(401));</code>で401エラーを発生させておきます。
+    </p> <p data-v-df671664>
+      さて、<code data-v-df671664>/tutorial</code>にアクセスしてチュートリアル画面を確認してみましょう。
+      ユーザー名とパスワードを要求されるポップアップが表示されるようになっています。  
+    </p> <amp-img src="/images/express/basic_auth/popup.png" alt="認証ポップアップ画面" title="認証ポップアップ画面" width="640" height="472" layout="responsive" data-v-df671664></amp-img> <h2 id="in-link-decode-authenticate" data-v-df671664>認証の情報を読み取る</h2> <p data-v-df671664>
+      認証ポップアップは表示されたので、ユーザー名とパスワードを入力し「Sign In」を押された後の実装をしましょう。
+    </p> <p data-v-df671664>
+      クライアントから送信されたリクエストのAuthorizationヘッダにはユーザー名とパスワードの情報が含まれています。
+      Basic認証では、ユーザ名とパスワードをコロン( : )で結合し、さらにBase64でエンコードされた情報が送信されるようになっています。
+      従ってサーバー側ではの逆の操作を行う必要があります。
+    </p> <p data-v-df671664>
+      正確にはAuthorizationヘッダの値は"Basic base64でエンコードされた文字列"となるので初めの"Basic "は省く必要があります。
+    </p> <p data-v-df671664>さて、app.jsを編集してBasic認証の実装を仕上げましょう。</p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>app.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 // 認証を登録したユーザーの情報
 var allowedUsers = {
   "Express": "is good"
@@ -149,18 +180,29 @@ app.use('/*', function (req, res, next) {
     }
   }
 });
-</code></pre>
-<p>まず、認証登録ユーザーを設定します。ここでは<code>allowedUsers</code>に<code>{ ユーザー名: パスワード }</code>の形式で保存しています。<br>
-ただし、実際の本番環境ではコード内に含めないようにしてください。サーバー内のローカルファイルや環境変数など管理者以外が閲覧できない場所で情報を保存するようにしてください。</p>
-<p><code>judgeAllowedUse</code>は認証を判定する関数です。引数にはAuthorizationのヘッダ値を渡すようにしています。<br>
-関数の処理は先程説明した通りエンコード時と逆の処理をしています。送信された値が不正ならば<code>false</code>を返すようにしています。</p>
-<p>Authorizationのヘッダ値は<code>req.headers["authorization"]</code>で取得できます。</p>
-<p>以上で実装は終わりです。実際にチュートリアル画面を開いてみて登録してあるユーザー名とパスワードで認証を進めてください。チュートリアル画面が表示されれば成功です。</p>
-<h2 id="logout">Basic認証のログアウト</h2>
-<p>基本的にBasic認証を行なったブラウザが閉じられれば認証情報はリセットされて、ブラウザを開き直して再度アクセスした時にまた認証が発生します。<br>
-もし画面内からBasic認証をリセットしたい場合は、任意のアクセスで「WWW-Authenticate」ヘッダを加えて401のレスポンスを返すようにすれば可能です。</p>
-<pre><code class="language-app.js.prettyprint">// app.js
-
+    
+    </code>
+  </pre></div> <p data-v-df671664>
+      まず認証登録ユーザーを設定します。ここでは<code data-v-df671664>allowedUsers</code>に<code data-v-df671664>{ ユーザー名: パスワード }</code>の形式で保存しています。
+    </p> <p data-v-df671664>
+      ただし、実際の本番環境ではコード内に含めないようにしてください。
+      サーバー内のローカルファイルや環境変数など管理者以外が閲覧できない場所で情報を保存するようにしてください。
+    </p> <p data-v-df671664><code data-v-df671664>judgeAllowedUse</code>は認証を判定する関数です。
+      引数にはAuthorizationのヘッダ値を渡すようにしています。
+      関数の処理は先程説明した通りエンコード時と逆の処理をしています。
+      送信された値が不正ならば<code data-v-df671664>false</code>を返すようにしています。
+    </p> <p data-v-df671664>Authorizationのヘッダ値は<code data-v-df671664>req.headers["authorization"]</code>で取得できます。</p> <p data-v-df671664>
+      以上で実装は終わりです。
+      実際にチュートリアル画面を開いてみて登録してあるユーザー名とパスワードで認証を進めてください。
+      チュートリアル画面が表示されれば成功です。
+    </p> <h2 id="in-link-logout" data-v-df671664>Basic認証のログアウト</h2> <p data-v-df671664>
+      基本的にBasic認証を行なったブラウザが閉じられれば認証情報はリセットされます。
+      なので再度アクセスした時にまた認証が発生します。
+    </p> <p data-v-df671664>
+      もし画面内からBasic認証をリセットしたい場合は、
+      任意のアクセスで「WWW-Authenticate」ヘッダを加えて401のレスポンスを返すようにするとログアウト状態にできます。
+    </p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>app.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 app.use('/', indexRouter);
 app.use('/tutorial', tutorialsRouter);
 app.use('/about', aboutRouter);
@@ -169,14 +211,22 @@ app.get('/logout', function (req, res) {
   res.set('WWW-Authenticate', 'Basic realm="tutorial"');
   return res.sendStatus(401);
 });
-</code></pre>
-<h2 id="use-basic-auth">basic-authを使う</h2>
-<p>さて、ヘッダーから情報をデコードする処理をしてくれるライブラリがあるので使ってみましょう。上のままで良いという方は、この実装は必要ないです。</p>
-<p>さてライブラリですが、<a href="https://github.com/jshttp/basic-auth">basic-auth</a>というのがありますのでこれを使ってみましょう。</p>
-<pre><code class="language-shell.prettyprint">$ yarn add basic-auth
-</code></pre>
-<pre><code class="language-app.js.prettyprint">// app.js
-
+    
+    </code>
+  </pre></div> <h2 id="in-link-use-basic-auth" data-v-df671664>basic-authを使う</h2> <p data-v-df671664>
+      さて、ヘッダーから情報をデコードする処理をしてくれるライブラリがあるので使ってみましょう。
+      上のままで良いという方は、この実装は必要ないです。
+    </p> <p data-v-df671664>
+      さてライブラリですが、
+      <a href="https://github.com/jshttp/basic-auth" target="_blank" data-v-df671664>basic-auth</a>
+      というのがありますのでこれを使ってみましょう。
+    </p> <div data-v-1ea95dae><!----> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
+$ yarn add basic-auth
+    
+    </code>
+  </pre></div> <p data-v-df671664></p> <div data-v-1ea95dae><div class="file-name-box" data-v-1ea95dae><span class="file-name-text" data-v-1ea95dae>app.js</span></div> <pre data-v-1ea95dae>    <code data-v-1ea95dae>
+      
 // 追加
 var basicAuth = require('basic-auth')
 ...
@@ -207,11 +257,13 @@ app.use('/*', function (req, res, next) {
     }
   }
 });
-</code></pre>
-<p>ライブラリにリクエスト値を渡す(<code>basicAuth(req);</code>)とユーザー名とパスワードをもつオブジェクトを返してくれます。あとは先程と同じで判定関数で認証登録済みかを確認するだけです。<br>
-ライブラリを使うと少しだけ実装が楽になります。</p>
-</section>
-</div> <div class="article-timestamp"><div class="timestamp-container"><i class="far fa-clock"></i> <p>2019/04/20</p></div> <div class="timestamp-container"><i class="fas fa-clock"></i> <p>2019/04/20</p></div></div></section></article> <div data-v-967b7d70><aside id="sidebar" data-v-967b7d70><section data-v-967b7d70><div class="menu-overview" data-v-967b7d70>入門</div> <div class="menu-item" data-v-967b7d70><a href="/express/gettingstarted/" data-v-967b7d70>
+    
+    </code>
+  </pre></div> <p data-v-df671664>
+      ライブラリにリクエスト値を渡す(<code data-v-df671664>basicAuth(req);</code>)とユーザー名とパスワードをもつオブジェクトを返してくれます。
+      あとは先程と同じで判定関数で認証登録済みかを確認するだけです。
+      ライブラリを使うと少しだけ実装が楽になります。
+    </p> <div class="article-timestamp" data-v-df671664><div class="timestamp-container"><i class="far fa-clock"></i> <p>2019/04/20</p></div> <div class="timestamp-container"><i class="fas fa-clock"></i> <p>2019/12/30</p></div></div></section></article> <div data-v-967b7d70 data-v-df671664><aside id="sidebar" data-v-967b7d70><section data-v-967b7d70><div class="menu-overview" data-v-967b7d70>入門</div> <div class="menu-item" data-v-967b7d70><a href="/express/gettingstarted/" data-v-967b7d70>
           環境設定
         </a></div><div class="menu-item" data-v-967b7d70><a href="/express/editrouting/" data-v-967b7d70>
           ルーティング
@@ -239,201 +291,18 @@ app.use('/*', function (req, res, next) {
           Express サードパーティ一覧
         </a></div><div class="menu-item" data-v-967b7d70><a href="/express/links/" data-v-967b7d70>
           参考リンク
-        </a></div></section></aside></div> <div id="table-content" articlemd="<section><h1>ExpressでBasic認証を実装する</h1>
-<p>Basic認証は認証方式の１つで最も簡潔で基本的な認証で、セキュリティ面では弱い部分を持ちますが、手軽に実装でき多くの環境で利用できる点で有用な認証の１つです。</p>
-<p>多くはApacheなどのアプリケーションサーバーでBasic認証を用意しますが、今回はExpressでBasic認証の設定をしてみます。</p>
-<p>実装済みのサンプルは<a href=&#34;https://github.com/irisAsh/express-basic-auth-tutorial&#34;>こちら</a>のGithub上ありますのでご参照ください。</p>
-<h2 id=&#34;basic-auth-overview&#34;>Basic認証の流れ</h2>
-<p>Basic認証の流れは以下のようになっています。</p>
-<ul>
-<li>クライアントが保護のかかったページに訪れる</li>
-<li>サーバーが認証を要求する</li>
-<li>クライアントがユーザー名とパスワードをサーバーへ送信する</li>
-<li>ユーザー名とパスワードが正しいことを確認しリクエストされたページの情報を返す</li>
-</ul>
-<h2 id=&#34;initialize-project&#34;>サンプルプロジェクトの用意</h2>
-<p>Basic認証を試すためのサンプルプロジェクトを用意します。</p>
-<pre><code class=&#34;language-shell.prettyprint&#34;>$ express --view=pug express-basic-auth-tutorial
-</code></pre>
-<p>express-generatorでプロジェクトを作った後にページを３つ用意します。</p>
-<ul>
-<li>/ : ルート画面</li>
-<li>/tutorials : チュートリアル画面（このページにBasic認証保護をかけます）</li>
-<li>/about : About画面</li>
-</ul>
-<p>Basic認証を試すだけですので、各画面は特に重要な実装はありません。</p>
-<p><strong>ルート画面</strong></p>
-<p><code>/tutorials</code>,<code>/about</code>へのリンクとログアウトのボタンがあるだけです。<br />
-(サンプルではテンプレートエンジンにPugを使っています。Pugの書き方がわからない方は<a href=&#34;https://irisash.github.io/express/pug_reference/&#34;>Pugの書き方まとめ</a>をご参考ください。)</p>
-<pre><code class=&#34;language-index.pug.prettyprint&#34;>// index.pug
-
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  ul
-    li
-      a(href='/tutorial') tutorial
-    li
-      a(href='/about') about
-  a(href='/logout') logout
-</code></pre>
-<img src=&#34;images/express/basic_auth/root.png&#34; alt=&#34;ルート画面&#34; title=&#34;ルート画面&#34; style=&#34;max-height:400px;&#34;>
-<p><strong>チュートリアル画面/About画面</strong></p>
-<p>画面に「Tutorial Page」が表示されるだけです。About画面も同様です。</p>
-<pre><code class=&#34;language-routes/tutorials.js.prettyprint&#34;>// routes/tutorials.js
-
-var express = require('express');
-var router = express.Router();
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('Tutorial Page');
-});
-
-module.exports = router;
-</code></pre>
-<h2 id=&#34;return-www-authenticate&#34;>認証を要求する</h2>
-<p>さて、今の状態ではチュートリアル画面は認証なしで閲覧できる状態です。このページを表示するようにしようとすると認証が要求されるようにしましょう。</p>
-<p>そのためにはサーバーからのレスポンスで401のステータスコードを返し同時に「WWW-Authenticate」ヘッダをつけておくようにします。この「WWW-Authenticate」ヘッダが返ってくると認証のポップアップが自動で表示されます。</p>
-<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-// 追加
-app.use('/*', function (req, res, next) {
-  if (req.originalUrl === '/about' || req.originalUrl === '/') {
-    next();
-  } else {
-    if (false /* 認証がOKならtrue */) {
-      next();
-    } else {
-      res.setHeader('WWW-Authenticate', 'Basic realm=&amp;quot;tutorial&amp;quot;');
-      next(createError(401));
-    }
-  }
-});
-
-app.use('/', indexRouter);
-</code></pre>
-<p>処理の説明ですが、まず<code>req.originalUrl</code>が<code>/</code>,<code>/about</code>以外は認証を通るようにしています。</p>
-<p>そして今は全て認証NGとして、NGの場合は<code>res.setHeader('WWW-Authenticate', 'Basic realm=&amp;quot;tutorial&amp;quot;');</code>でヘッダに「WWW-Authenticate」を付与します。<br />
-また<code>realm=????</code>には任意の保護領域名を設定します。これにより既に認証有効かどうかを判定できます。</p>
-<p>最後に<code>next(createError(401));</code>で401エラーを発生させます。</p>
-<p>さて、<code>/tutorial</code>にアクセスしチュートリアル画面を確認してみましょう。ユーザー名とパスワードを要求されるポップアップが表示されるようになっています。</p>
-<img src=&#34;images/express/basic_auth/popup.png&#34; alt=&#34;認証ポップアップ画面&#34; title=&#34;認証ポップアップ画面&#34; style=&#34;max-height:400px;&#34;>
-<h2 id=&#34;decode-authenticate&#34;>認証の情報を読み取る</h2>
-<p>認証ポップアップは表示されたので、ユーザー名とパスワードを入力し「Sign In」を押された後の実装をしましょう。<br />
-クライアントから送信されたリクエストのAuthorizationヘッダにはユーザー名とパスワードの情報が含まれています。</p>
-<p>Basic認証では、ユーザ名とパスワードをコロン( : )で結合し、さらにBase64でエンコードされた情報が送信されるようになっています。従ってサーバー側ではの逆の操作を行う必要があります。<br />
-正確にはAuthorizationヘッダの値は&amp;quot;Basic base64でエンコードされた文字列&amp;quot;となるので初めの&amp;quot;Basic &amp;quot;は省く必要があります。</p>
-<p>さて、app.jsを編集してBasic認証の実装を仕上げましょう。</p>
-<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
-
-// 認証を登録したユーザーの情報
-var allowedUsers = {
-  &amp;quot;Express&amp;quot;: &amp;quot;is good&amp;quot;
-}
-// 認証判定関数
-var judgeAllowedUse = function(authorization) {
-  // ヘッダの値が&amp;quot;Basic &amp;quot;であることを確認
-  if (!authorization || !authorization.startsWith(&amp;quot;Basic&amp;quot;)) {
-    return false;
-  }
-  // エンコードされた文字列を取得
-  var encodedPassword = authorization.substring(6);
-  // エンコードされた文字列をデコード
-  var decodedPassword = Buffer(encodedPassword, 'base64').toString('binary');
-  // ユーザー名とパスワードを分ける
-  var colonIndex = decodedPassword.indexOf(':');
-  var username = decodedPassword.slice(0, colonIndex);
-  var password = decodedPassword.substring(colonIndex + 1);
-  // 送信されたユーザー名とパスワードが認証登録されたものか確認
-  if (!!allowedUsers[username] &amp;amp;&amp;amp; allowedUsers[username] === password) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-app.use('/*', function (req, res, next) {
-  if (req.originalUrl === '/about' || req.originalUrl === '/') {
-    next();
-  } else {
-    var authorization = req.headers[&amp;quot;authorization&amp;quot;] || &amp;quot;&amp;quot;;
-    if (judgeAllowedUse(authorization)) {
-      // 認証OK
-      next();
-    } else {
-      // 認証NG
-      res.setHeader('WWW-Authenticate', 'Basic realm=&amp;quot;tutorial&amp;quot;');
-      next(createError(401));
-    }
-  }
-});
-</code></pre>
-<p>まず、認証登録ユーザーを設定します。ここでは<code>allowedUsers</code>に<code>{ ユーザー名: パスワード }</code>の形式で保存しています。<br />
-ただし、実際の本番環境ではコード内に含めないようにしてください。サーバー内のローカルファイルや環境変数など管理者以外が閲覧できない場所で情報を保存するようにしてください。</p>
-<p><code>judgeAllowedUse</code>は認証を判定する関数です。引数にはAuthorizationのヘッダ値を渡すようにしています。<br />
-関数の処理は先程説明した通りエンコード時と逆の処理をしています。送信された値が不正ならば<code>false</code>を返すようにしています。</p>
-<p>Authorizationのヘッダ値は<code>req.headers[&amp;quot;authorization&amp;quot;]</code>で取得できます。</p>
-<p>以上で実装は終わりです。実際にチュートリアル画面を開いてみて登録してあるユーザー名とパスワードで認証を進めてください。チュートリアル画面が表示されれば成功です。</p>
-<h2 id=&#34;logout&#34;>Basic認証のログアウト</h2>
-<p>基本的にBasic認証を行なったブラウザが閉じられれば認証情報はリセットされて、ブラウザを開き直して再度アクセスした時にまた認証が発生します。<br />
-もし画面内からBasic認証をリセットしたい場合は、任意のアクセスで「WWW-Authenticate」ヘッダを加えて401のレスポンスを返すようにすれば可能です。</p>
-<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
-
-app.use('/', indexRouter);
-app.use('/tutorial', tutorialsRouter);
-app.use('/about', aboutRouter);
-// ログアウト処理
-app.get('/logout', function (req, res) {
-  res.set('WWW-Authenticate', 'Basic realm=&amp;quot;tutorial&amp;quot;');
-  return res.sendStatus(401);
-});
-</code></pre>
-<h2 id=&#34;use-basic-auth&#34;>basic-authを使う</h2>
-<p>さて、ヘッダーから情報をデコードする処理をしてくれるライブラリがあるので使ってみましょう。上のままで良いという方は、この実装は必要ないです。</p>
-<p>さてライブラリですが、<a href=&#34;https://github.com/jshttp/basic-auth&#34;>basic-auth</a>というのがありますのでこれを使ってみましょう。</p>
-<pre><code class=&#34;language-shell.prettyprint&#34;>$ yarn add basic-auth
-</code></pre>
-<pre><code class=&#34;language-app.js.prettyprint&#34;>// app.js
-
-// 追加
-var basicAuth = require('basic-auth')
-...
-
-// 引数をcredentialsに変更
-var judgeAllowedUse = function(credentials) {
-  if (!credentials) {
-    return false;
-  }
-  var username = credentials.name;
-  var password = credentials.pass;
-  var valid = true
-  valid = !!allowedUsers[username] &amp;amp;&amp;amp; allowedUsers[username] === password &amp;amp;&amp;amp; valid;
-  return valid;
-}
-
-app.use('/*', function (req, res, next) {
-  if (req.originalUrl === '/about' || req.originalUrl === '/') {
-    next();
-  } else {
-    // 変更
-    var credentials = basicAuth(req);
-    if (judgeAllowedUse(credentials)) {
-      next();
-    } else {
-      res.setHeader('WWW-Authenticate', 'Basic realm=&amp;quot;tutorial&amp;quot;');
-      next(createError(401));
-    }
-  }
-});
-</code></pre>
-<p>ライブラリにリクエスト値を渡す(<code>basicAuth(req);</code>)とユーザー名とパスワードをもつオブジェクトを返してくれます。あとは先程と同じで判定関数で認証登録済みかを確認するだけです。<br />
-ライブラリを使うと少しだけ実装が楽になります。</p>
-</section>
-" data-v-47ae3f5c><aside id="table-content-list" data-v-47ae3f5c></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
+        </a></div></section></aside></div> <div id="table-content" data-v-47ae3f5c data-v-df671664><aside id="table-content-list" data-v-47ae3f5c><div class="link-container" data-v-47ae3f5c><a href="/express/basic_auth#in-link-basic-auth-overview" data-v-47ae3f5c>
+        Basic認証の流れ
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/basic_auth#in-link-initialize-project" data-v-47ae3f5c>
+        サンプルプロジェクトの用意
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/basic_auth#in-link-return-www-authenticate" data-v-47ae3f5c>
+        認証を要求する
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/basic_auth#in-link-decode-authenticate" data-v-47ae3f5c>
+        認証の情報を読み取る
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/basic_auth#in-link-logout" data-v-47ae3f5c>
+        Basic認証のログアウト
+      </a></div><div class="link-container" data-v-47ae3f5c><a href="/express/basic_auth#in-link-use-basic-auth" data-v-47ae3f5c>
+        basic-authを使う
+      </a></div></aside></div></div></div> <footer class="footer"><p>© 2019 HIROKI KOJIMA</p></footer></div></div></div>
   </body>
 </html>
